@@ -1,0 +1,104 @@
+<div class="tech">
+<article class="card">
+  <!--ride--><p class="lead">RideAnalyzer bewertet Motorradtouren vor der Fahrt – Kurven, Fahrfluss, Belag, Sehenswertes und Pausen (<a href="/info.html">Was ist RideAnalyzer?</a>). Hier steht, wie das technisch funktioniert.</p><!--/ride-->
+  <!--rig--><p class="lead">RigAnalyzer prüft Wohnmobil- und Gespann-Touren vor der Fahrt – Durchfahrten, Steigungen, Tankplan, Stellplätze, Umweltzonen –, und RigNavi navigiert danach (<a href="/info.html">Was ist RigAnalyzer?</a>). Hier steht, wie das technisch funktioniert.</p><!--/rig-->
+  <h2>🏠 Selbst gehostet</h2>
+  <p>Die Analyse läuft komplett auf eigener, sparsamer Hardware, ohne Cloud-Dienste: Kartendaten und Höhenmodell für ganz Europa liegen lokal, ebenso der Routenplaner. Version der App: {{app}}. Nur ein paar Zusatzinfos kommen live von außen – Hintergrundkarte, Wetter, Ortssuche<!--rig-->, Spritpreise und Verkehrslage<!--/rig-->. Sie laufen über unseren Server; eure Geräte sprechen nicht direkt mit diesen Diensten (außer der Hintergrundkarte).</p>
+</article>
+
+<article class="card">
+  <h2>🖥️ Aufbau</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Teil</th><th>Aufgabe</th></tr></thead>
+    <tbody>
+      <tr><td><b>Eingang</b></td><td>Nimmt alle Anfragen aus dem Internet an: HTTPS, Login-Schutz, Abwehr von Scannern und zu vielen Anfragen. Nur er ist von außen erreichbar.</td></tr>
+      <tr><td><b>App-Server</b></td><td>Analyse, Kartendatenbanken ({{osm_gb}} GB), Höhenmodell und Routenplaner. Von außen nicht erreichbar.</td></tr>
+      <tr><td><b>Baurechner</b></td><td>Baut die Kartendaten für ganz Europa in rund 1,5 Stunden und spielt sie dann ein. Mit dem Betrieb hat er nichts zu tun.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Strombedarf im Betrieb: wenige Watt.</p>
+</article>
+
+<article class="card">
+  <h2>🔀 Weg einer Anfrage</h2>
+  <svg class="flow" viewBox="0 0 760 150" role="img" aria-label="Browser – Eingang – App – Daten">
+    <g class="box"><rect x="4" y="40" width="150" height="70" rx="10"/><text x="79" y="70">Browser</text><text x="79" y="90" class="s">Karte, Tankplan, Profile</text></g>
+    <g class="box"><rect x="204" y="40" width="160" height="70" rx="10"/><text x="284" y="70">Eingang</text><text x="284" y="90" class="s">HTTPS, Login, Schutz</text></g>
+    <g class="box hl"><rect x="414" y="40" width="160" height="70" rx="10"/><text x="494" y="70">App</text><text x="494" y="90" class="s">Analyse &amp; Planung</text></g>
+    <g class="box"><rect x="624" y="6" width="132" height="58" rx="10"/><text x="690" y="31">OSM-Daten</text><text x="690" y="49" class="s">{{regions}} Regionen</text></g>
+    <g class="box"><rect x="624" y="86" width="132" height="58" rx="10"/><text x="690" y="111">Höhen · Routing</text><text x="690" y="129" class="s">Höhen + Routen</text></g>
+    <g class="ar"><path d="M154 75h46"/><path d="M364 75h46"/><path d="M574 66l46-26"/><path d="M574 84l46 26"/></g>
+  </svg>
+  <p class="small">Die App selbst ist nur für den Eingang erreichbar, nie direkt aus dem Internet.</p>
+</article>
+
+<article class="card">
+  <h2>🧱 Software</h2>
+  <ul class="kv">
+    <li><b>Backend</b> Python mit FastAPI · eigener Job-Pool, damit Live-Abfragen nicht hinter langen Analysen warten</li>
+    <li><b>Geo</b> Shapely · NumPy · pyosmium · SQLite mit R-Tree-Index · tifffile für das Höhenmodell</li>
+    <li><b>Frontend</b> Reines JavaScript ohne Framework · Leaflet (lokal ausgeliefert) · Diagramme als eigenes SVG · Hell/Dunkel per CSS-Variablen</li>
+    <li><b>Entwicklung</b> Richy zusammen mit Claude (KI von Anthropic). „Wir“ auf diesen Seiten meint uns beide.</li>
+    <li><b>Betrieb</b> Eigener, abgeschotteter Container mit eigenen Daten und eigenen Logins, getrennt von allen anderen Anwendungen · schreibgeschütztes Dateisystem und minimale Rechte · Karten- und Routing-Daten nur lesbar eingebunden · automatisiertes Ausrollen · regelmäßige Sicherheitsupdates</li>
+  </ul>
+</article>
+
+<article class="card">
+  <h2>🗺️ Daten</h2>
+  <ul class="kv">
+    <li><b>Straßen &amp; Orte</b> OpenStreetMap über Geofabrik: {{countries}} Länder in {{regions}} Regionen, je Region eine SQLite-Datei, zusammen {{osm_gb}} GB, Stand {{osm_date}}. Gespeichert werden nur Straßen mit ihren Merkmalen (Belag, Breite, Tempo, Beschränkungen), Kreuzungspunkte, Ampeln, Sehenswertes, Pausen- und Stellplätze und Landschaftsflächen. Koordinaten liegen als Ganzzahlen (1/10⁷ Grad), das halbiert die Größe.</li>
+    <li><b>Höhen</b> Copernicus DEM GLO-90 (EU/ESA), 1°-Kacheln von AWS Open Data, beim ersten Bedarf geladen und dann lokal (derzeit {{dem_tiles}} Kacheln, {{dem_mb}} MB). Gegen Baumkronen-Sprünge wird über 500 m geglättet.</li>
+    <li><b>Auffrischen</b> Karten- und Routing-Daten werden jeden Monat auf dem Baurechner neu gebaut und dann eingespielt. Die Abdeckungskarte zeigt das Alter jeder Region; fehlt ein Gebiet, kommt es mit dem nächsten Bau dazu.</li>
+    <li><b>Live dazu</b> Wetter und Böen (Open-Meteo), Unwetterwarnungen (Deutscher Wetterdienst, Meteoalarm), Regenradar (RainViewer), Ortssuche (Nominatim)<!--rig--> · Spritpreise: echte Preise je Tankstelle aus Deutschland (Tankerkönig), Frankreich (prix-carburants), Spanien, Italien und Dänemark (OK), für Norwegen der Landesschnitt, sonst Schätzung aus dem EU-Ölbulletin mit EZB-Kursen · Verkehrslage für RigNavi (Autobahn GmbH) · Umweltzonen (Base nationale des ZFE und OpenStreetMap, wöchentlich)<!--/rig-->. Alles wird zwischengespeichert, damit die Dienste nicht öfter als nötig gefragt werden.</li>
+  </ul>
+</article>
+
+<article class="card">
+  <h2>⚙️ So entsteht eine Bewertung</h2>
+  <ol class="steps">
+    <li><b>GPX einlesen</b>: Tracks werden zu Etappen. Ausgedünnte Exporte werden über das Straßennetz ergänzt (Snapping und kürzester Weg).</li>
+    <li><b>Map-Matching</b>: Jeder Routenpunkt bekommt seine Straße samt Merkmalen.</li>
+    <li><b>Geometrie</b>: Kurven aus der Krümmung (Radius, Winkel, Wechselkurven, Kehren), Richtgeschwindigkeit aus Radius und Belag.</li>
+    <li><b>Umgebung</b>: Ampeln, Stopps, Ortsdurchfahrten, Landschaft links und rechts, Sehenswertes und Pausen im Umkreis.</li>
+    <li><b>Bewertung</b>: acht Achsen von 0 bis 100, gewichtet je Fahrerprofil.</li>
+    <!--rig--><li><b>Für Wohnmobil und Gespann zusätzlich</b>: Beschränkungen gegen die Fahrzeugmaße, Steigungen aus dem Höhenmodell, Länder- und Mauthinweise. Der Tankplan rechnet im Browser und reagiert deshalb sofort auf geänderte Werte.</li><!--/rig-->
+  </ol>
+  <p class="small">Eine typische Tagestour ist in wenigen Sekunden durch, die Verdon-Reise mit 4.062 km in rund vier Minuten. Für Gebiete ohne lokale Daten gibt es die öffentliche Overpass-API als langsame Reserve.</p>
+</article>
+
+<article class="card">
+  <h2>🔒 Sicherheit &amp; Datenschutz</h2>
+  <ul class="kv">
+    <li><b>Zugang</b> HTTPS (Let's Encrypt) · eigene Logins je Person · zweiter Faktor für Admins · Schutz gegen Scanner und zu viele Anfragen</li>
+    <li><b>Seite</b> Content-Security-Policy, keine Fremd-Skripte, keine Tracker, nur technisch nötige Cookies (Anmeldung, Schutz gegen gefälschte Anfragen)</li>
+    <li><b>Daten</b> Hochgeladene GPX ohne „Speichern“ werden im Arbeitsspeicher analysiert; das Ergebnis liegt bis zu 7 Tage ohne Bezug zum Login im Zwischenspeicher. Einstellungen liegen am Login. Protokolliert wird, wer wann zugreift; dazu zählen wir je Login die Nutzung – nur als Zahlen, ohne Ziele oder Strecken. Alles Weitere steht unter <a href="/datenschutz">Datenschutz</a>.</li>
+  </ul>
+</article>
+
+<article class="card">
+  <h2>🧭 Routenplaner</h2>
+  <p>Seit v0.7.0 plant ein eigener Routing-Dienst mit <b>Valhalla</b> (Open Source, MIT-Lizenz) die Routen. Geplant wird derzeit in {{plan_area}}; die Routing-Daten werden jeden Monat neu gebaut.</p>
+  <ul class="kv">
+    <!--ride--><li><b>Profil</b> Motorrad-Profil (schnell / ohne Autobahn) bzw. Roller-Profil für kleine Straßen</li><!--/ride-->
+    <!--rig--><li><b>Profil</b> bis 3,5 t ohne Anhänger als Pkw mit Höhe und Breite, sonst als Lkw mit Höhe, Breite, Länge, Gewicht und Achslast</li>
+    <li><b>Umweltzonen</b> Auf Wunsch plant der Dienst um die Zonen herum, die euer Fahrzeug nicht befahren darf.</li><!--/rig-->
+    <li><b>Danach</b> Die geplante Route läuft durch dieselbe Bewertung wie jede hochgeladene GPX. Die Ortssuche nutzt Nominatim (OpenStreetMap), höchstens eine Anfrage pro Sekunde.</li>
+    <li><b>Abgeschottet</b> Nur die App fragt den Routing-Dienst, von außen ist er nicht erreichbar.</li>
+  </ul>
+</article>
+
+<!--rig--><article class="card">
+  <h2>📱 RigNavi</h2>
+  <ul class="kv">
+    <li><b>App</b> Android (und iPad, bisher nur von Richy aufgespielt) · Navigation mit Ferrostar, Karte mit MapLibre</li>
+    <li><b>Routen</b> vom eigenen Routing-Dienst, nach euren Maßen – dieselben Regeln wie im Routenplaner</li>
+    <li><b>Ohne Netz</b> Eine Reise lässt sich als Paket aufs Gerät laden: Straßen, Karte, Gespann-Prüfung, Plätze und Umweltzonen für einen Streifen um die Strecke. Darin rechnet das Gerät selbst (Valhalla auf dem Handy), ganz ohne Server.</li>
+    <li><b>Position</b> nur mit eurer Zustimmung, auf ~1 km gerundet, nach 24 h gelöscht</li>
+  </ul>
+</article>
+<!--/rig--><article class="card">
+  <h2>📜 Quellen &amp; Lizenzen</h2>
+  <p class="small">Kartendaten © OpenStreetMap-Mitwirkende, ODbL · Höhen: Copernicus DEM GLO-90 © DLR/Airbus, bereitgestellt unter der Copernicus-Lizenz · Leaflet (BSD-2) · Valhalla (MIT) · FastAPI, Shapely, NumPy, pyosmium, httpx und tifffile unter MIT-, BSD- bzw. BSD-artigen Lizenzen · Geofabrik-Auszüge · Wetter: Open-Meteo (CC BY 4.0) · Warnungen: Deutscher Wetterdienst, Meteoalarm (EUMETNET) · Regenradar: RainViewer · Ortssuche: Nominatim (OpenStreetMap)<!--rig--> · Spritpreise Deutschland: Tankerkönig (CC BY 4.0) · Frankreich: prix-carburants.gouv.fr (Licence Ouverte 2.0) · Spanien: Ministerio para la Transición Ecológica · Italien: MIMIT Osservaprezzi · Dänemark: OK · Norwegen: Statistisk sentralbyrå · Schätzpreise: EU Weekly Oil Bulletin, EZB-Referenzkurse · Verkehr: Autobahn GmbH des Bundes · Umweltzonen: Base nationale des ZFE (transport.data.gouv.fr, Licence Ouverte 2.0) und OpenStreetMap · Stellplatz-Länge (Luftbilder): IGN BD ORTHO (Licence Ouverte 2.0), PNOA © IGN España (CC BY 4.0), Luchtfoto PDOK / Beeldmateriaal.nl (CC BY 4.0), SWISSIMAGE © swisstopo, basemap.at (CC BY 4.0), Esri World Imagery · RigNavi: Ferrostar (BSD-3), MapLibre (BSD-2)<!--/rig-->.</p>
+</article>
+<p class="live-note"><span class="live-dot"></span><sup>✱</sup> Live-Werte: werden bei jedem Aufruf aus dem laufenden System gelesen. Immer aktuell, ohne dass jemand nachpflegen muss.</p>
+</div>

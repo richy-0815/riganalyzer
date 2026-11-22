@@ -1,0 +1,9 @@
+# gitleaks (Secrets-Suche) – Standardregeln plus Ausnahmen fuer bekannte Fehlalarme.
+# Laeuft in der CI ueber die ganze Historie (gitleaks git).
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Testdaten: Protomaps-Dateinamen als S3-Keys (20261024.pmtiles), keine Schluessel"
+paths = ['''tests/test_mapextract\.py''']
+regexes = ['''"key": "\d{8}\.pmtiles"''']

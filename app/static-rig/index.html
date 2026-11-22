@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RigAnalyzer</title>
+<meta name="description" content="RigAnalyzer – Wohnmobil- und Gespann-Touren prüfen: Durchfahrtshöhen, Breiten, Gewichte, Steigungen, Tankplan mit Diesel und AdBlue, Stellplätze.">
+<link rel="icon" href="/static-rig/icon.svg" type="image/svg+xml">
+<script src="/static/theme.js"></script>
+<link rel="stylesheet" href="/static/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/static-rig/rig.css">
+<link rel="stylesheet" href="/static/dock.css">
+<link rel="stylesheet" href="/static/v2.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#17624f"/><rect x="5" y="11" width="13" height="10" rx="2" fill="#fff"/><path d="M18 14h4l3 3v4h-7z" fill="#fff"/><circle cx="9" cy="22.5" r="2.2" fill="#17624f" stroke="#fff" stroke-width="1.4"/><circle cx="21" cy="22.5" r="2.2" fill="#17624f" stroke="#fff" stroke-width="1.4"/></svg>
+    <div>
+      <h1>RigAnalyzer <span class="badge">Alpha</span></h1>
+      <p class="claim">Wissen, ob's passt. Bevor es eng wird.</p>
+    </div>
+  </div>
+  <span class="veh-pill" id="veh-pill" title="Aktives Fahrzeug"></span>
+  <button type="button" class="theme-toggle help-btn" id="help-btn" aria-haspopup="dialog">ℹ️ <span class="lbl">So geht's</span></button>
+  <a class="theme-toggle logout-btn" id="logout-btn" href="/logout" title="Abmelden">⎋ <span class="lbl">Abmelden</span></a>
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Helles Design">
+    <span class="ico" aria-hidden="true">☀️</span><span class="lbl">Hell</span>
+  </button>
+</header>
+
+<!-- laufende Analyse oben quer ueber die Seite (bleibt beim Scrollen sichtbar), Fehler direkt darunter -->
+<div class="run-top" id="run-top">
+  <div class="progress" id="progress" hidden><div class="bar"><span id="bar"></span></div><p><span id="progress-msg">…</span> <button type="button" class="ghost small progress-cancel" id="progress-cancel" hidden>✕ Abbrechen</button></p></div>
+  <p class="error" id="error" hidden></p>
+</div>
+
+<main class="layout">
+  <aside class="panel">
+    <!-- alle Karten links sind verschiebbar (Dashboard) – rig.js setzt sie in die Docks -->
+    <div class="dock" id="dock-left"></div>
+    <section class="card" id="upload-card" data-card="upload" data-title="GPX hochladen">
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept=".gpx,application/gpx+xml,application/xml,text/xml" hidden>
+        <strong>Womo-Tour als GPX hier ablegen</strong>
+        <span>oder antippen – z. B. Export aus Garmin Drive, TomTom MyDrive oder Sygic Truck &amp; Caravan</span>
+      </label>
+      <p class="hint" id="limits">Bis 400 km, max. 5 MB.</p>
+      <div class="missing" id="missing" hidden></div>
+    </section>
+    <details class="card planner" id="planner-card" data-card="planner" data-title="Route planen">
+      <summary><h3>🧭 Route planen</h3><span class="hint">Start, Ziel, Zwischenpunkte – geplant von unserem eigenen Routenplaner</span></summary>
+      <div class="pl-body">
+        <div class="pl-searchwrap">
+          <div class="pl-search" id="pl-sbox">
+            <svg class="pl-sicon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <span class="pl-spin" aria-hidden="true"></span>
+            <input type="search" id="pl-q" placeholder="Wohin? Ort, Adresse, Campingplatz …" autocomplete="off" spellcheck="false"
+              role="combobox" aria-autocomplete="list" aria-controls="pl-hits" aria-expanded="false" aria-label="Ort suchen">
+            <button type="button" class="pl-qclear" id="pl-qclear" aria-label="Suche leeren" hidden>✕</button>
+            <button type="button" class="pl-sbtn" id="pl-search">Suchen</button>
+          </div>
+          <ul class="pl-hits" id="pl-hits" role="listbox" aria-label="Suchtreffer" hidden></ul>
+        </div>
+        <div class="pl-tools"><button type="button" class="ghost small" id="pl-pick">Punkte auf der Karte setzen</button>
+          <button type="button" class="ghost small" id="pl-rev" title="Reihenfolge umdrehen">⇅</button>
+          <button type="button" class="ghost small" id="pl-clear">Alle löschen</button></div>
+        <div class="pl-import" id="pl-import-box" hidden><button type="button" class="ghost small" id="pl-import">📥 Eckdaten aus Import übernehmen</button>
+          <button type="button" class="linkbtn" id="pl-import-end" hidden title="Import hinter euer Ziel setzen – euer Ziel wird Etappen-Ende (Nacht)">hinten anhängen</button>
+          <button type="button" class="linkbtn" id="pl-import-start" hidden title="Import vor euren Start setzen – euer Start wird Etappen-Ende (Nacht)">vorne anfügen</button>
+          <button type="button" class="linkbtn" id="pl-import-replace" hidden title="Eure Punkte durch die der importierten Tour ersetzen (Rückgängig möglich)">alles ersetzen</button>
+          <button type="button" class="linkbtn" id="pl-import-sel" aria-expanded="false" aria-controls="pl-import-pick" title="Einzelne Punkte der importierten Tour auswählen">Punkte auswählen …</button>
+          <span class="hint" id="pl-import-st">Start, Ziel, Etappen und Zwischenpunkte der importierten Tour – danach mit eurem Fahrzeug neu planen.</span>
+          <div class="pl-import-pick" id="pl-import-pick" hidden></div></div>
+        <p class="hint" id="pl-empty">Noch keine Punkte: Ort suchen oder „Punkte auf der Karte setzen“ und in die Karte klicken. Der erste Punkt ist der Start, der letzte das Ziel; Punkte lassen sich auf der Karte verschieben und in der Liste mit ⠿ umsortieren.</p>
+        <ol class="pl-list" id="pl-list"></ol>
+        <div class="pl-mode ab-top"><span id="pl-ab-lbl">Autobahn</span> <button type="button" class="ab-chip" id="pl-ab" role="checkbox" aria-checked="true" aria-labelledby="pl-ab-lbl pl-ab" title="Autobahn auf allen Abschnitten erlauben oder meiden"></button>
+          <select id="pl-mode" autocomplete="off" hidden aria-hidden="true" tabindex="-1"><option value="fast">Autobahn erlaubt</option><option value="noway">Autobahn meiden</option></select></div>
+        <label class="pl-mode">Übernachtung vorschlagen <select id="pl-nights"><option value="4">nach 4 h / 400 km</option><option value="5" selected>nach 5 h / 500 km</option><option value="6">nach 6 h / 600 km</option><option value="7">nach 7 h / 700 km</option><option value="0">aus</option></select></label>
+        <p class="hint">Geplant wird mit eurem Fahrzeugprofil (Höhe, Breite, Länge, Gewicht). „Nacht“ an einem Zwischenpunkt macht daraus eine Reise mit Etappen.</p>
+        <button type="button" class="primary" id="pl-go" disabled>Route planen</button>
+        <p class="error" id="pl-err" hidden></p>
+        <p class="error" id="pl-off" hidden>Der Routenplaner ist gerade nicht erreichbar.</p>
+        <div class="pl-result" id="pl-result" hidden><button type="button" class="primary pl-analyze" id="pl-analyze" hidden>▶ Analyse starten</button><span class="hint pl-ana-note" id="pl-ana-note" hidden></span><b id="pl-sum"></b> <button type="button" class="ghost small" id="pl-gpx">⬇ GPX fürs Navi</button> <button type="button" class="ghost small" id="pl-navi">📱 Ans Navi schicken</button> <div class="muted small" id="pl-navi-st"></div>
+          <div class="pl-variants" id="pl-variants" hidden></div></div>
+        <p class="hint">Planungsgebiet: <span id="pl-area">…</span>.</p>
+      </div>
+    </details>
+
+    <details class="card vehicle" id="vehicle-card" data-card="vehicle" data-title="Euer Fahrzeug">
+      <summary><h3>Euer Fahrzeug</h3><span class="hint" id="veh-sum"></span></summary>
+      <div class="form">
+        <div class="profiles">
+          <label>Profil <select id="v-profile"></select></label>
+          <button type="button" class="ghost small" id="v-save">Als neues Profil speichern …</button>
+          <button type="button" class="ghost small" id="v-del">Profil löschen</button>
+          <span class="saved" id="v-saved" aria-live="polite"></span>
+        </div>
+        <p class="hint" id="v-intro">Tragt eure eigenen Maße ein – sie werden an eurem Login gespeichert und gelten in jedem Browser. Komma oder Punkt, beides geht.</p>
+        <fieldset><legend>Abmessungen</legend>
+          <div class="tiles">
+          <label>Höhe <span><input type="text" inputmode="decimal" autocomplete="off" data-min="1.5" data-max="5" id="v-height"> m</span></label>
+          <label>Breite (ohne Spiegel) <span><input type="text" inputmode="decimal" autocomplete="off" data-min="1" data-max="4" id="v-width"> m</span></label>
+          <label>Länge gesamt <span><input type="text" inputmode="decimal" autocomplete="off" data-min="3" data-max="25" id="v-length"> m</span></label>
+          <label>Wendekreis <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0" data-max="40" id="v-turn"> m</span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Gewicht</legend>
+          <div class="tiles">
+          <label>Gewicht gesamt <span><input type="text" inputmode="decimal" autocomplete="off" data-min="1" data-max="20" id="v-weight"> t</span></label>
+          <label>Zugfahrzeug zul. Gesamtgewicht <span><input type="text" inputmode="decimal" autocomplete="off" data-min="1" data-max="12" id="v-zgg"> t</span></label>
+          <label>Achslast <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0.5" data-max="12" id="v-axle"> t</span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Fahren</legend>
+          <div class="tiles">
+          <label>Höchsttempo <span><input type="text" inputmode="decimal" autocomplete="off" data-min="40" data-max="130" id="v-vmax"> km/h</span></label>
+          </div>
+          <label class="chk"><input type="checkbox" id="v-trailer"> mit Anhänger (Gespann)</label>
+          <p class="hint warn" id="v-trailer-hint" hidden></p>
+          <label class="chk" id="v-tempo100-row"><input type="checkbox" id="v-tempo100"> Tempo-100-Zulassung fürs Gespann (nur DE)</label>
+        </fieldset>
+        <fieldset><legend>Diesel</legend>
+          <div class="tiles">
+          <label>Tank <span><input type="text" inputmode="decimal" autocomplete="off" data-min="20" data-max="400" id="v-tank"> l</span></label>
+          <label>Verbrauch <span><input type="text" inputmode="decimal" autocomplete="off" data-min="3" data-max="50" id="v-cons"> l/100 km</span></label>
+          <label>Reserve (nicht unterschreiten) <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0" data-max="100" id="v-reserve"> l</span></label>
+          <label>Füllstand beim Start <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0" data-max="100" id="v-start"> %</span></label>
+          <label>Dieselpreis <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0" data-max="5" id="v-price"> €/l</span></label>
+          </div>
+          <label class="chk"><input type="checkbox" id="v-truck"> Tankstellen mit Lkw-Säule bevorzugen</label>
+          <label class="chk"><input type="checkbox" id="v-nomw"> Autobahn-Tankstellen meiden (meist deutlich teurer) – nur wenn nichts anderes in Reichweite ist</label>
+        </fieldset>
+        <fieldset><legend>AdBlue</legend>
+          <div class="tiles">
+          <label>Tank <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0" data-max="100" id="v-adtank"> l</span></label>
+          <label>Verbrauch <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0" data-max="5" id="v-adcons"> l/100 km</span></label>
+          <label>Füllstand beim Start <span><input type="text" inputmode="decimal" autocomplete="off" data-min="0" data-max="100" id="v-adstart"> %</span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Umweltzonen</legend>
+          <div class="tiles">
+          <label>Euro-Norm <span><select id="v-euro"><option value="0">unbekannt</option><option value="1">Euro 1</option><option value="2">Euro 2</option><option value="3">Euro 3</option><option value="4">Euro 4</option><option value="5">Euro 5</option><option value="6">Euro 6 (auch 6d)</option></select></span></label>
+          <label>Kraftstoff <span><select id="v-fuel"><option value="diesel">Diesel</option><option value="petrol">Benzin</option><option value="gas">Gas (LPG/CNG)</option><option value="electric">Elektro</option></select></span></label>
+          </div>
+          <label class="chk"><input type="checkbox" id="v-critair_vignette"> Crit'Air-Vignette vorhanden</label>
+          <label class="chk"><input type="checkbox" id="v-lez_registered"> in BE/NL registriert</label>
+          <p class="hint lez-derive" id="v-lez-derive"></p>
+        </fieldset>
+        <button type="button" class="ghost small" id="v-reset">Dieses Profil auf Standardwerte zurücksetzen</button>
+      </div>
+    </details>
+
+    <section id="result" hidden>
+      <div class="card" id="result-card" data-card="result" data-result="1" data-title="Ergebnis">
+        <h2 id="r-name">Route</h2>
+        <p class="sub" id="r-sub"></p>
+        <div class="tiles" id="tiles"></div>
+        <div class="cmp-import" id="cmp-import" hidden></div>
+      </div>
+
+      <div class="card verdict" id="verdict" data-card="verdict" data-result="1" data-title="Passt die Route?"></div>
+
+      <div class="card" id="fuel-card" data-card="fuel" data-result="1" data-title="Tankplan">
+        <h3>⛽ Tankplan</h3>
+        <div id="fuelplan"></div>
+      </div>
+
+      <div class="card profile-card" id="profile-card" data-card="profile" data-result="1" data-title="Höhenprofil & Tankfüllung" hidden>
+        <h3><button type="button" class="fold" aria-expanded="true" aria-controls="profile"><span class="fold-ico" aria-hidden="true">▾</span> Höhenprofil &amp; Tankfüllung <span class="hint">– Kilometer für Kilometer</span></button></h3>
+        <div id="profile"></div>
+      </div>
+
+      <div class="card" id="list-card" data-card="list" data-result="1" data-title="Engstellen, Plätze, Tankstellen …">
+        <div class="tabs" role="tablist" id="tabs">
+          <button role="tab" data-tab="issues" aria-selected="true">Engstellen &amp; Hinweise</button>
+          <button role="tab" data-tab="camp">🅿 Übernachten &amp; Versorgen</button>
+          <button role="tab" data-tab="fuel">Alle Tankstellen</button>
+          <button role="tab" data-tab="shop">🛒 Einkaufen</button>
+          <button role="tab" data-tab="way">🧭 Unterwegs</button>
+          <button role="tab" data-tab="rest">Rastplätze</button>
+          <button role="tab" data-tab="steep" id="tab-steep">⛰️ Steigungen</button>
+          <button role="tab" data-tab="fuelinfo">⛽ Sprit-Info</button>
+        </div>
+        <div class="list-q"><input type="search" id="list-q" placeholder="Suchen, z. B. Aral, Wasser, Lidl …" aria-label="Liste durchsuchen" autocomplete="off" enterkeyhint="search"><small id="list-q-n" aria-live="polite"></small></div>
+        <div class="campf" id="camp-filters" hidden></div>
+        <div class="campf" id="shop-filters" hidden></div>
+        <div class="campf" id="way-filters" hidden></div>
+        <ol class="list" id="list"></ol>
+        <div class="list steep-pane" id="steep" hidden></div>
+        <div class="list steep-pane" id="fuelinfo" hidden></div>
+      </div>
+
+      <div class="card" id="rules-card" data-card="rules" data-result="1" data-title="Maut, Vignette & Tempo">
+        <h3>💶 Maut, Vignette &amp; Tempo</h3>
+        <div id="rules"></div>
+      </div>
+
+      <details class="card quality" id="quality-card" data-card="quality" data-result="1" data-title="Datenqualität">
+        <summary><h3>🔎 Datenqualität</h3><span class="q-sum" id="q-sum"></span></summary>
+        <div id="quality"></div>
+      </details>
+    </section>
+  </aside>
+
+  <section class="mapcol">
+    <div class="col-split" id="col-split" role="separator" aria-orientation="vertical" tabindex="0" aria-label="Breite der linken Spalte – ziehen oder Pfeiltasten links/rechts, Doppelklick = Standard" title="Ziehen: links ↔ Karte · Doppelklick: Standard"><span></span></div>
+    <div class="map-tools">
+      <label>Färbung
+        <select id="layer">
+          <option value="fit">Passt es? (Engstellen)</option>
+          <option value="grade">Steigung</option>
+          <option value="speed">Tempo</option>
+          <option value="stage" id="opt-stage" hidden>Etappen</option>
+        </select>
+      </label>
+      <!-- Zoom, Klick-Zoom und Kachel-Anordnung im Menü „⚙ Karte“ (rig.js verdrahtet sie ueber die ids) -->
+      <div class="map-menu" id="map-menu">
+        <button type="button" class="ghost small" id="map-menu-btn" aria-expanded="false" aria-controls="map-menu-panel" aria-haspopup="true">⚙ Karte</button>
+        <div class="map-menu-panel" id="map-menu-panel" role="group" aria-label="Karten-Einstellungen" hidden>
+          <label class="mm-row">Mausrad-Zoom
+            <select id="pref-wheel"><option value="normal">normal</option><option value="schnell">schnell</option><option value="sehr_schnell">sehr schnell</option></select>
+            <span class="hint">Wie schnell das Mausrad zoomt (am Touchpad merkt man es kaum). Am Login gespeichert, gilt auch für RigNavi.</span>
+          </label>
+          <label class="mm-row">Klick auf einen Listeneintrag zoomt auf
+            <select id="pref-jump"><option value="14">Umgebung</option><option value="15">Ort</option><option value="16">Straße</option><option value="17">nah</option><option value="18">ganz nah</option></select>
+          </label>
+          <button type="button" class="ghost small" id="dock-reset" title="Ergebnis-Kacheln wieder in die Standard-Anordnung">↺ Ergebnis-Kacheln zurücksetzen</button>
+        </div>
+      </div>
+      <div class="toggles" id="toggles">
+        <label><input type="checkbox" id="cov-toggle"> Abdeckung</label>
+        <label><input type="checkbox" data-m="issues"> Engstellen</label>
+        <label><input type="checkbox" data-m="stops"> Tankstopps</label>
+        <label><input type="checkbox" data-m="fuel"> alle Tankstellen</label>
+        <label><input type="checkbox" data-m="camp"> <i class="pin camp sw"></i>Stellplätze</label>
+        <label><input type="checkbox" data-m="shop"> <i class="pin shop sw"></i>Einkaufen</label>
+        <label><input type="checkbox" data-m="way"> <i class="pin way sw"></i>Unterwegs</label>
+        <label><input type="checkbox" data-m="dump"> <i class="pin dump sw"></i>Entsorgung</label>
+        <label><input type="checkbox" data-m="water"> <i class="pin water sw"></i>Frischwasser</label>
+        <label><input type="checkbox" data-m="steep"> Steigungen</label>
+        <label><input type="checkbox" data-m="lez" checked> Umweltzonen</label>
+        <label><input type="checkbox" data-m="radar"> 🌧 Regenradar</label>
+        <label id="route-row" hidden><input type="checkbox" id="route-toggle" checked> <i class="route-sw"></i>Geplante Route</label>
+        <label id="ghost-row" hidden><input type="checkbox" id="ghost-toggle" checked> <i class="ghost-sw"></i>Importierte Strecke</label>
+      </div>
+    </div>
+    <div id="map" class="map"></div>
+    <div class="legend" id="legend"></div>
+    <!-- Schieber Karte ↕ rechtes Dock (Fahrplan und was ihr sonst hierher zieht) -->
+    <div class="trip-split" id="trip-split" role="separator" aria-orientation="horizontal" aria-label="Höhe von Karte und Bereich darunter – ziehen oder Pfeiltasten, Doppelklick = Standard" tabindex="0" title="Ziehen: Karte ↕ Bereich darunter · Doppelklick: zurück auf ein Drittel" hidden><span></span></div>
+    <div class="dock dock-right" id="dock-right" hidden></div>
+    <div class="card trip" id="trip" data-card="trip" data-title="Fahrplan" hidden></div>
+  </section>
+</main>
+
+<dialog class="help" id="help" aria-labelledby="help-title">
+  <form method="dialog"><button class="close" aria-label="Schließen">✕</button></form>
+  <h2 id="help-title">So geht's</h2>
+  <p class="lead">RigAnalyzer prüft eure <b>Wohnmobil- oder Gespann-Tour vor der Fahrt</b>: Passt ihr durch, wo wird es steil, wo tankt ihr, wo könnt ihr stehen?</p>
+
+  <h3>In drei Schritten</h3>
+  <ol class="steps">
+    <li><b>Fahrzeug eintragen</b> – Maße, Gewicht, Tank, Verbrauch, Euro-Norm. Gilt für euren Login; mehrere Fahrzeuge als Profile.</li>
+    <li><b>Route planen oder GPX laden</b> – im Routenplaner nach euren Maßen, aus Garmin Drive, TomTom, Sygic &amp; Co. – oder ein Beispiel antippen.</li>
+    <li><b>Ergebnis ansehen</b> – Ampel „Passt die Route?“, Tankplan, Stellplätze; mit „📱 Ans Navi schicken“ in RigNavi.</li>
+  </ol>
+
+  <details class="help-fold"><summary>🚧 Was geprüft wird</summary>
+  <ul class="feat">
+    <li><b>Engstellen &amp; Verbote</b> – Höhe, Breite, Gewicht, Länge, Anhänger – gegen <i>eure</i> Maße.</li>
+    <li><b>Enge &amp; Steigungen</b> – schmale Straßen, zu enge Spitzkehren, Höhenprofil.</li>
+    <li><b>Tankplan, Maut &amp; Tempo</b> – Diesel, AdBlue, Kosten, Vignette je Land.</li>
+    <li><b>Umweltzonen</b> – Plakette, Crit&#39;Air &amp; Co. mit Urteil für euer Fahrzeug, auf Wunsch umfahren.</li>
+  </ul></details>
+
+  <details class="help-fold"><summary>🏕️ Unterwegs</summary>
+  <ul class="feat">
+    <li><b>Stellplätze</b>, Camping, Entsorgung, Frischwasser, Rastplätze.</li>
+    <li><b>Reisen mit Etappen</b> – Fahrplan mit Nächten, der Tank läuft weiter.</li>
+    <li><b>Wetter</b> je Etappe mit Böen, Unwetterwarnungen und Regenradar.</li>
+  </ul></details>
+
+  <details class="help-fold"><summary>💡 Tipps</summary>
+  <ul class="feat">
+    <li><b>Etappen</b>: eine GPX mit einem Track je Tag.</li>
+    <li><b>Grobe Exporte</b> sind kein Problem – der Straßenverlauf wird ergänzt.</li>
+    <li><b>Ganz Europa</b> liegt lokal vor; bis 1.000 km je Etappe, GPX bis 5 MB.</li>
+  </ul></details>
+
+  <p class="small">Mehr: <a href="/faq.html#planen-was-kann-die-seite-nicht">Grenzen</a> · <a href="/faq.html#datenschutz-was-wird-gespeichert">Daten &amp; Datenschutz</a> · alle <a href="/faq.html">Häufige Fragen</a> · <a href="/info.html">Was ist RigAnalyzer?</a> · Fehler und Ideen über <b>💬 Rückmeldung</b>. Quellen: OpenStreetMap-Mitwirkende (ODbL), Copernicus DEM GLO-90 (EU/ESA), Tankerkönig (CC BY 4.0), prix-carburants.gouv.fr, data.gouv.fr.</p>
+  <form method="dialog"><button class="ghost">Alles klar – los geht's</button></form>
+</dialog>
+
+<footer class="foot">
+  <span id="ver">RigAnalyzer</span> · <a href="/features.html">Funktionen</a> · <a href="/releases.html">Änderungen</a> · <a href="/faq.html">Häufige Fragen</a> · <a href="/tech.html">Technik</a> · <a href="/datenschutz">Datenschutz</a> · <a href="/impressum">Impressum</a> · <a href="/app.html">📱 Android-App</a> ·
+  Kartendaten © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a> (ODbL) ·
+  Höhen: Copernicus DEM GLO-90 © DLR e.V./Airbus, bereitgestellt unter COPERNICUS durch EU und ESA ·
+  <span id="osm-state"></span> ·
+  Alle Angaben ohne Gewähr – Schilder vor Ort gehen vor.
+</footer>
+
+<script src="/static/vendor/leaflet/leaflet.js"></script>
+<script src="/static/layout.js"></script>
+<script src="/static-rig/speedtext.js"></script>
+<script src="/static/quality.js"></script>
+<script src="/static-rig/fuelplan.js"></script>
+<script src="/static-rig/importplan.js"></script>
+<script src="/static/weather.js"></script>
+<script src="/static-rig/lez.js"></script>
+<script src="/static-rig/toll.js"></script>
+<script src="/static/dock.js"></script>
+<script src="/static/queuetext.js"></script>
+<script src="/static-rig/rig.js"></script>
+<script src="/static-rig/camps-filter.js"></script>
+<script src="/static-rig/detailcard.js"></script>
+<script src="/static-rig/camps.js"></script>
+<script src="/static-rig/shops.js"></script>
+<script src="/static-rig/unterwegs.js"></script>
+<script src="/static-rig/listsearch.js"></script>
+<script src="/static/autobahn.js"></script>
+<script src="/static-rig/teilen.js"></script>
+<script src="/static-rig/aufenthalt.js"></script>
+<script src="/static-rig/navistatus.js"></script>
+<script src="/static/plantext.js"></script>
+<script src="/static/planner.js"></script>
+<script src="/static/usermenu.js"></script>
+</body>
+</html>

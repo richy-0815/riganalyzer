@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="test">
+  <node id="1" lat="51.0000" lon="10.0000" version="1"/>
+  <node id="2" lat="51.0000" lon="10.0040" version="1"/>
+  <node id="3" lat="51.0020" lon="10.0040" version="1"/>
+  <node id="4" lat="51.0020" lon="10.0000" version="1"/>
+  <node id="10" lat="51.0100" lon="10.0100" version="1">
+    <tag k="shop" v="supermarket"/><tag k="brand" v="Lidl"/><tag k="name" v="Lidl"/>
+    <tag k="opening_hours" v="Mo-Sa 07:00-21:00"/>
+    <tag k="addr:street" v="Teststrasse"/><tag k="addr:housenumber" v="1"/>
+    <tag k="addr:postcode" v="99999"/><tag k="addr:city" v="Testdorf"/>
+  </node>
+  <node id="11" lat="51.0200" lon="10.0200" version="1">
+    <tag k="shop" v="bakery"/><tag k="name" v="Backstube Test"/>
+  </node>
+  <node id="12" lat="51.0300" lon="10.0300" version="1">
+    <tag k="shop" v="farm"/><tag k="name" v="Hofladen Test"/>
+  </node>
+  <node id="13" lat="51.0400" lon="10.0400" version="1">
+    <tag k="shop" v="clothes"/><tag k="name" v="Mode Test"/>
+  </node>
+  <node id="14" lat="51.0500" lon="10.0500" version="1">
+    <tag k="shop" v="supermarket"/><tag k="name" v="Netto Marken-Discount"/>
+  </node>
+  <way id="100" version="1">
+    <nd ref="1"/><nd ref="2"/><nd ref="3"/><nd ref="4"/><nd ref="1"/>
+    <tag k="shop" v="supermarket"/><tag k="brand" v="EDEKA"/><tag k="name" v="Edeka Test"/>
+  </way>
+</osm>

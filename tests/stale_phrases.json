@@ -1,0 +1,66 @@
+[
+  {
+    "text": "Cookie, 1 Jahr",
+    "warum": "Cookie-Laufzeit hat sich geaendert"
+  },
+  {
+    "text": "ohne App und ohne Konto",
+    "warum": "Login ist Pflicht"
+  },
+  {
+    "text": "folgen mit v0.9",
+    "warum": "altes Versionsversprechen"
+  },
+  {
+    "text": "kommen mit v0.10",
+    "warum": "altes Versionsversprechen"
+  },
+  {
+    "text": "Neues Gebiet?",
+    "warum": "Hilfetext veraltet"
+  },
+  {
+    "text": "nur in eurem Browser",
+    "warum": "Profile liegen am Login"
+  },
+  {
+    "text": "DACH plus Korridor",
+    "warum": "Planungsgebiet steht jetzt in den Defaults"
+  },
+  {
+    "text": "Routing-Daten decken ganz Europa",
+    "warum": "Routing deckt nur das Planungsgebiet"
+  },
+  {
+    "text": "ohne fremde APIs",
+    "warum": "Wetter/Preise nutzen Live-Quellen"
+  },
+  {
+    "text": "Internet während der Fahrt",
+    "warum": "RigNavi navigiert offline"
+  },
+  {
+    "text": "Gespeichert wird davon nichts außer",
+    "warum": "Datenschutztext ist neu"
+  },
+  {
+    "text": "ein Prototyp",
+    "warum": "Stand ist Alpha (Rueckblick 'ersten Prototyp' bleibt erlaubt)"
+  },
+  {
+    "text": "Prototyp-Phase",
+    "warum": "Stand ist Alpha (Rueckblick 'ersten Prototyp' bleibt erlaubt)"
+  },
+  {
+    "text": "Prototyp-Stand",
+    "warum": "Stand ist Alpha (Rueckblick 'ersten Prototyp' bleibt erlaubt)"
+  },
+  {
+    "text": "(bald) in RigNavi",
+    "warum": "RigNavi übernimmt die Fahrzeugwerte mit der Tour, Profile werden nicht synchronisiert"
+  },
+  {
+    "text": "baut der App-Server es auf Anfrage selbst nach",
+    "warum": "Seit der Trennung (13.11.2026) baut nur noch der Baurechner Kartendaten, die Apps lesen sie nur"
+  }
+]

@@ -1,0 +1,15 @@
+fastapi>=0.154.0
+uvicorn>=0.54.0
+python-multipart>=0.0.32
+gpxpy>=1.6.2
+shapely>=2.2.0
+numpy>=2.5.4
+httpx>=0.28.1
+osmium>=4.3.2
+tifffile>=2026.10.15
+imagecodecs>=2026.10.10
+bcrypt>=5.0.0
+pyotp>=2.10.0
+segno>=1.6.6
+markdown>=3.11.3
+pillow>=13.0.0

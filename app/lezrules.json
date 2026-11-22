@@ -1,0 +1,40 @@
+{
+  "germany": {
+    "default": {"kind": "sticker", "need": "green"},
+    "zones": {},
+    "source": "https://www.umweltbundesamt.de/umweltzonen",
+    "checked": "2026-10-31"
+  },
+  "spain": {
+    "default": {"kind": "unknown"},
+    "zones": {
+      "Distrito Centro": {"kind": "etiqueta", "need": "C"},
+      "Plaza El": {"kind": "etiqueta", "need": "C"},
+      "Madrid": {"kind": "etiqueta", "need": "B"}
+    },
+    "source": "https://madrid.es/go/KilV https://madrid.es/go/Nlov https://www.dgt.es/nuestros-servicios/tu-vehiculo/tus-vehiculos/distintivo-ambiental/",
+    "checked": "2026-10-31",
+    "note": "Madrid ZBE: nur Klasse A (ohne Etikett) verboten = mind. B; ZBEDEP Distrito Centro/Plaza Eliptica: B seit 28.07.2025 nicht mehr zugelassen = mind. C. Andere Staedte unbelegt = unknown."
+  },
+  "belgium": {
+    "default": {"kind": "unknown"},
+    "zones": {
+      "Brussel": {"kind": "euro", "diesel": 6, "petrol": 3, "gas": 3, "register": true},
+      "Bruxelles": {"kind": "euro", "diesel": 6, "petrol": 3, "gas": 3, "register": true},
+      "Brussels": {"kind": "euro", "diesel": 6, "petrol": 3, "gas": 3, "register": true},
+      "Antwerp": {"kind": "euro", "diesel": 5, "petrol": 2, "gas": 2, "register": true},
+      "Gent": {"kind": "euro", "diesel": 5, "petrol": 2, "gas": 2, "register": true},
+      "Ghent": {"kind": "euro", "diesel": 5, "petrol": 2, "gas": 2, "register": true}
+    },
+    "source": "https://lez.brussels/mytax/en/ https://stad.gent/en/mobility-ghent/low-emission-zone-ghent/not-authorised-low-emission-zone-these-are-your-options/registration-lez-vehicle-foreign-number-plate https://www.adac.de/der-adac/rechtsberatung/verkehrsvorschriften/ausland/umweltzone-belgien/",
+    "checked": "2026-10-31",
+    "note": "Brüssel (lez.brussels): Diesel Euro 6, Benzin/LPG/CNG Euro 3 seit 01.01.2026; Registrierung fuer ausl. Kennzeichen. Antwerpen/Gent (Flandern): Diesel Euro 5, Benzin Euro 2, Registrierung fuer ausl. Kennzeichen; Flandern-Werte nur ueber ADAC/Stad Gent, Verschaerfung 2028 unbestaetigt."
+  },
+  "netherlands": {
+    "default": {"kind": "unknown"},
+    "zones": {},
+    "source": "https://milieuzones.nl/en/",
+    "checked": "2026-10-31",
+    "note": "Regeln je Gemeinde verschieden (z. B. Arnhem Diesel-Pkw Klasse 5), kein belegbarer landesweiter Standard, Registrierung fuer Auslaender nicht belegt = unknown."
+  }
+}

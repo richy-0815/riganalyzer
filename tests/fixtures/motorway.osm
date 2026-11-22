@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="test">
+  <node id="1" lat="43.8000" lon="6.4500" version="1"/>
+  <node id="2" lat="43.8000" lon="6.5200" version="1"/>
+  <node id="3" lat="43.8000" lon="6.5800" version="1"/>
+  <node id="4" lat="43.8100" lon="6.5200" version="1"/>
+  <node id="20" lat="43.8005" lon="6.5000" version="1"><tag k="amenity" v="fuel"/><tag k="brand" v="Aral"/><tag k="name" v="Aral Rastanlage"/></node>
+  <node id="21" lat="43.8250" lon="6.5200" version="1"><tag k="amenity" v="fuel"/><tag k="brand" v="JET"/><tag k="fuel:diesel" v="yes"/></node>
+  <node id="22" lat="43.8120" lon="6.5210" version="1"><tag k="amenity" v="fuel"/><tag k="brand" v="AS24"/></node>
+  <node id="23" lat="43.8600" lon="6.5200" version="1"><tag k="amenity" v="fuel"/><tag k="brand" v="Shell"/></node>
+  <way id="100" version="1">
+    <nd ref="1"/><nd ref="2"/><nd ref="3"/>
+    <tag k="highway" v="motorway"/><tag k="ref" v="A 99"/><tag k="maxspeed" v="130"/><tag k="surface" v="asphalt"/><tag k="lanes" v="2"/>
+  </way>
+  <way id="101" version="1">
+    <nd ref="2"/><nd ref="4"/>
+    <tag k="highway" v="motorway_link"/>
+  </way>
+</osm>

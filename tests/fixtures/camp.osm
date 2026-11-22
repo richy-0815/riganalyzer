@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="test">
+  <node id="1" lat="43.8000" lon="6.5000" version="1"/>
+  <node id="2" lat="43.8000" lon="6.5040" version="1"/>
+  <node id="3" lat="43.8030" lon="6.5040" version="1"/>
+  <node id="4" lat="43.8030" lon="6.5000" version="1"/>
+  <node id="10" lat="43.8015" lon="6.5020" version="1"><tag k="amenity" v="water_point"/></node>
+  <node id="11" lat="43.8100" lon="6.5200" version="1"><tag k="amenity" v="drinking_water"/><tag k="access" v="yes"/></node>
+  <node id="12" lat="43.8200" lon="6.5300" version="1">
+    <tag k="tourism" v="caravan_site"/><tag k="name" v="Aire Test"/><tag k="maxlength" v="10"/>
+    <tag k="fee" v="no"/><tag k="dog" v="yes"/><tag k="shower" v="no"/><tag k="sanitary_dump_station" v="yes"/>
+  </node>
+  <way id="100" version="1">
+    <nd ref="1"/><nd ref="2"/><nd ref="3"/><nd ref="4"/><nd ref="1"/>
+    <tag k="tourism" v="camp_site"/><tag k="name" v="Camping Test"/>
+  </way>
+</osm>

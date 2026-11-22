@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="test">
+  <node id="1" lat="43.80000" lon="6.45000" version="1"/>
+  <node id="2" lat="43.80225" lon="6.45000" version="1"/>
+  <node id="3" lat="43.80450" lon="6.45000" version="1"/>
+  <node id="4" lat="43.80675" lon="6.45000" version="1"/>
+  <node id="5" lat="43.80900" lon="6.45000" version="1"/>
+  <node id="6" lat="43.81125" lon="6.45000" version="1"/>
+  <node id="7" lat="43.81350" lon="6.45000" version="1"/>
+  <node id="8" lat="43.81575" lon="6.45000" version="1"/>
+  <node id="9" lat="43.81800" lon="6.45000" version="1"/>
+  <node id="10" lat="43.81800" lon="6.45500" version="1"/>
+  <node id="11" lat="43.81800" lon="6.46000" version="1"/>
+  <node id="12" lat="43.81800" lon="6.46500" version="1"/>
+  <node id="13" lat="43.81800" lon="6.47000" version="1"/>
+  <node id="14" lat="43.81800" lon="6.47500" version="1"/>
+  <node id="15" lat="43.81800" lon="6.48000" version="1"/>
+  <node id="16" lat="43.81800" lon="6.48500" version="1"/>
+  <node id="17" lat="43.81800" lon="6.49000" version="1"/>
+  <node id="18" lat="43.81800" lon="6.49500" version="1"/>
+  <node id="19" lat="43.81800" lon="6.50000" version="1"/>
+  <node id="20" lat="43.81800" lon="6.50500" version="1"/>
+  <node id="21" lat="43.81800" lon="6.51000" version="1"/>
+  <node id="22" lat="43.81575" lon="6.51000" version="1"/>
+  <node id="23" lat="43.81350" lon="6.51000" version="1"/>
+  <node id="24" lat="43.81125" lon="6.51000" version="1"/>
+  <node id="25" lat="43.80900" lon="6.51000" version="1"/>
+  <node id="26" lat="43.80675" lon="6.51000" version="1"/>
+  <node id="27" lat="43.80450" lon="6.51000" version="1"/>
+  <node id="28" lat="43.80225" lon="6.51000" version="1"/>
+  <node id="29" lat="43.80000" lon="6.51000" version="1"/>
+  <way id="300" version="1"><nd ref="1"/><nd ref="2"/><nd ref="3"/><nd ref="4"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="303" version="1"><nd ref="4"/><nd ref="5"/><nd ref="6"/><nd ref="7"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="306" version="1"><nd ref="7"/><nd ref="8"/><nd ref="9"/><nd ref="10"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="309" version="1"><nd ref="10"/><nd ref="11"/><nd ref="12"/><nd ref="13"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="312" version="1"><nd ref="13"/><nd ref="14"/><nd ref="15"/><nd ref="16"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="315" version="1"><nd ref="16"/><nd ref="17"/><nd ref="18"/><nd ref="19"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="318" version="1"><nd ref="19"/><nd ref="20"/><nd ref="21"/><nd ref="22"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="321" version="1"><nd ref="22"/><nd ref="23"/><nd ref="24"/><nd ref="25"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="324" version="1"><nd ref="25"/><nd ref="26"/><nd ref="27"/><nd ref="28"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+  <way id="327" version="1"><nd ref="28"/><nd ref="29"/><tag k="highway" v="secondary"/><tag k="name" v="Bogenstrasse"/></way>
+</osm>

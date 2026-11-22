@@ -1,0 +1,802 @@
+{
+ "ride": {
+  "intro": "RideAnalyzer bewertet eure Motorradtour vor der Fahrt: wie flüssig sie sich fährt, wo die schönen Kurven sind, wie viel Ort, welcher Belag, was es zu sehen gibt und wo ihr Pause machen könnt.",
+  "sections": [
+   {
+    "icon": "🧭",
+    "title": "Routen planen",
+    "items": [
+     [
+      "Planen statt nur prüfen",
+      "Start, Ziel und Zwischenpunkte auf der Karte setzen; die Route rechnet ein eigener Open-Source-Routenplaner (Valhalla) auf unserem Server."
+     ],
+     [
+      "Motorrad-Profil",
+      "Wahlweise schnell oder mit mehr kleinen Straßen und Kurven, Autobahnen vermeiden."
+     ],
+     [
+      "Sofort bewertet",
+      "Die geplante Route läuft direkt durch die Bewertung: Fahrfluss, Kurven, Sehenswertes, Pausen."
+     ],
+     [
+      "Ab ins Navi",
+      "Export als GPX für Garmin, TomTom, OsmAnd & Co."
+     ],
+     [
+      "Planungsgebiet",
+      "{{plan_area}}; weitere Gebiete folgen nach Bedarf."
+     ],
+     [
+      "Autobahn je Abschnitt",
+      "Zwischen zwei Punkten einzeln wählen: Autobahn-Schild = mit, durchgestrichenes Schild = ohne, oder kurvig; der große Schalter stellt alle Abschnitte um und zeigt „gemischt“, wenn sie abweichen. Neu geplant wird mit „🔄 Route neu planen“."
+     ],
+     [
+      "Punkte benennen",
+      "Namen in der Punktliste antippen oder ✎ – eigener Name statt Koordinate. Per Klick gesetzte Punkte bekommen gleich einen Ortsnamen als Vorschlag. Eigene Namen bleiben beim Verschieben und stehen in gespeicherten Touren und im Reisepaket."
+     ]
+    ]
+   },
+   {
+    "icon": "🏍️",
+    "title": "Bewertung",
+    "items": [
+     [
+      "Acht Achsen",
+      "Fahrfluss, Kurven, freie Strecke, Belag, Landschaft, kleine Straßen, Sehenswertes und Pausen, jede mit Wert von 0 bis 100."
+     ],
+     [
+      "Fahrerprofile",
+      "P1 Solo (zügig), P2 kleine Gruppe, P3 Gruppe (gemütlich, Sehenswertes, Essenspause) und P4 Kurven, jeweils mit Gesamtnote und kurzer Begründung."
+     ],
+     [
+      "Fahrfluss",
+      "Ampeln, Stopp- und Vorfahrtschilder, Einmündungen, Kreisverkehre und Spitzkehren: Wie oft bricht der Rhythmus? Dazu der längste flüssige Abschnitt."
+     ],
+     [
+      "Freie Strecke",
+      "Anteil außerorts und alle Ortsdurchfahrten mit Namen."
+     ],
+     [
+      "Highlights in Worten",
+      "„Was diese Strecke ausmacht“: die kurvigsten 10 km, lohnende Stopps, Pausenrhythmus, Belag."
+     ]
+    ]
+   },
+   {
+    "icon": "〰️",
+    "title": "Kurven",
+    "items": [
+     [
+      "Aus der Straßengeometrie",
+      "Radius, Winkel, Wechselkurven und Spitzkehren. Abbiegen an Kreuzungen zählt nicht als Kurve."
+     ],
+     [
+      "Richtgeschwindigkeit",
+      "Jede Kurve mit km/h-Spanne, z. B. „Spitzkehre · ca. 25–35 km/h“, gemütlich bis zügig, gedeckelt durch Belag und Tempolimit."
+     ],
+     [
+      "Belag zählt mit",
+      "Kurven auf holprigem oder schmalem Belag zählen nur halb."
+     ]
+    ]
+   },
+   {
+    "icon": "🏰",
+    "title": "Unterwegs",
+    "items": [
+     [
+      "Sehenswertes",
+      "Aussichtspunkte, Burgen, Pässe, Wasserfälle, Museen. Bekannte mit Wikipedia-Eintrag zählen mehr."
+     ],
+     [
+      "Pausen",
+      "Cafés, Restaurants, Biergärten und Tankstellen an der Strecke, jeweils mit der Fahrzeit bis dorthin."
+     ],
+     [
+      "Hinweise",
+      "Kurze Schlenker abseits der Hauptstraße, kurvige Passagen auf schlechtem Belag, Passstraßen mit viel Ausflugsverkehr."
+     ]
+    ]
+   },
+   {
+    "icon": "🗺️",
+    "title": "Karte & Darstellung",
+    "items": [
+     [
+      "Eingefärbte Route",
+      "Nach Passung zum Profil oder einer einzelnen Achse, mit Tooltip je Abschnitt."
+     ],
+     [
+      "Kartenebenen",
+      "Hinweise, Sehenswertes, Einkehr, Tanken, Unterbrechungen und Kurven einzeln ein- und ausblendbar."
+     ],
+     [
+      "Streckenband",
+      "Kilometer für Kilometer Fahrfluss, Kurven, Ort, Belag und Landschaft. Mit der Maus darüber zeigt die Karte die Stelle."
+     ],
+     [
+      "Wetter unterwegs",
+      "Abfahrt wählen: Temperatur, Regen und Böen an neun Punkten zur Durchfahrt (Open-Meteo), amtliche Unwetterwarnungen (DWD, MeteoAlarm) und Regenradar (RainViewer) als Kartenebene."
+     ],
+     [
+      "Vergleich",
+      "Mehrere Varianten hochladen: Die Werte stehen nebeneinander, die beste Zahl ist hervorgehoben. Die Zeilennamen bleiben beim Scrollen stehen, ✕ nimmt eine Route wieder heraus. Alle Touren liegen zugleich auf der Karte, jede in ihrer Farbe, und die Eignung steht für alle Profile von Solo bis Gruppe nebeneinander."
+     ],
+     [
+      "Bergpanorama-Laufband",
+      "Unten auf der Seite läuft die Zusammenfassung der Tour über den Bergkamm."
+     ],
+     [
+      "Liste und Karte nebeneinander",
+      "Auf Laptop und Desktop teilen sich Liste und Karte die Breite (Liste höchstens ~760 px, den Rest bekommt die Karte); am Handy untereinander."
+     ],
+     [
+      "🗂 Ebenen-Knopf",
+      "Kartenebenen (Hinweise, Sehenswertes, Einkehr, Tanken, Unterbrechungen, Kurven) über einen Knopf in der Kartenecke ein- und ausblenden – die Auswahl merkt sich der Browser."
+     ],
+     [
+      "Karten selbst anordnen",
+      "Jede Karte hat oben rechts ⠿ zum Ziehen, ↑/↓, ⇄ für links oder unter der Karte und ▾ zum Einklappen; „↺ Ergebnis-Kacheln zurücksetzen“ stellt den Standard wieder her. Die Anordnung wird am Login gemerkt, am Handy bleibt alles untereinander."
+     ]
+    ]
+   },
+   {
+    "icon": "📍",
+    "title": "Beispiele",
+    "items": [
+     [
+      "XJR-Deutschlandtreffen 2027",
+      "Die vier Tourvorschläge Norden, Osten, Süden und Westen."
+     ],
+     [
+      "Richys Urlaubstouren",
+      "Schwarzwald (zwei Runden) und Eibsee – Walchensee – Kesselberg, als Original-Export aus Calimoto."
+     ],
+     [
+      "Weitere",
+      "Barnim-Runde, Kärnten (Weißensee – Mölltal) und Vršič-Pass."
+     ]
+    ]
+   }
+  ]
+ },
+ "rig": {
+  "intro": "RigAnalyzer prüft eure Wohnmobil- oder Gespann-Tour vor der Fahrt: Passt ihr überall durch, wo wird es steil, wo tankt ihr, wo könnt ihr stehen?",
+  "sections": [
+   {
+    "icon": "🧭",
+    "title": "Routen planen",
+    "items": [
+     [
+      "Planen statt nur prüfen",
+      "Start, Ziel und Zwischenpunkte auf der Karte setzen; die Route rechnet ein eigener Open-Source-Routenplaner (Valhalla) auf unserem Server."
+     ],
+     [
+      "Maut und Fähren meiden",
+      "Zwei Schalter im Routenplaner für die ganze Tour – gespeichert, auch für Alternativen und das Reisepaket. Geht es nicht ohne, sagt es das Ergebnis. RigNavi kennt dieselben Schalter."
+     ],
+     [
+      "Alternativrouten",
+      "Nach dem Planen bis zu drei Varianten zur Auswahl – mit Länge, Fahrzeit und Unterschied zur Planung, grau auf der Karte. Antippen übernimmt sie; eine Alternative wird dabei als Zwischenpunkt gesetzt, damit sie beim Speichern und in RigNavi erhalten bleibt."
+     ],
+     [
+      "Importierte Tour neu planen",
+      "Eine hochgeladene Tour (z. B. aus Garmin Drive oder TomTom MyDrive) in den Planer holen: ohne eigene Planung als Start, Ziel, Etappen und Zwischenpunkte – mit eigener Planung an passender Stelle eingefügt, euer Start und Ziel bleiben – auf Wunsch nur einzelne, angehakte Punkte. Zwischenpunkte liegen an Orten der Strecke und tragen deren Namen. Dann mit euren Maßen neu planen. Die importierte Tour bleibt gestrichelt auf der Karte (eigene und importierte Route einzeln über „Ebenen“ schaltbar), und ein Vergleich zeigt Länge, Fahrzeit, Höhenmeter und Engstellen beider Varianten."
+     ],
+     [
+      "Listen durchsuchen",
+      "Über den Listen (Engstellen, Plätze, Tankstellen, Einkaufen, Rastplätze …) ein Suchfeld: Name, Marke oder Ausstattung eintippen, z. B. „Aral“ oder „Wasser“ – es bleibt nur, was passt."
+     ],
+     [
+      "Orte in die Tour",
+      "Läden, Stell- und Campingplätze, Ver- und Entsorgung, Tankstellen und Rastplätze entlang der Route mit „➕ In die Tour“ als Zwischenpunkt übernehmen – aus der Liste oder vom Punkt auf der Karte. Danach die Route neu planen."
+     ],
+     [
+      "Nach euren Maßen",
+      "Geplant wird mit Höhe, Breite, Länge, Gewicht und Achslast aus eurem Fahrzeugprofil – zu niedrige Brücken und zu enge Straßen werden schon beim Planen umfahren."
+     ],
+     [
+      "Gespann ohne Abstriche",
+      "Alle Gespann-Funktionen bleiben: Länge mit Anhänger, Verbote für Anhänger, Kehren, Tankplan, Stellplätze, Maut je Land."
+     ],
+     [
+      "Sofort geprüft",
+      "Die geplante Route läuft direkt durch die volle Prüfung mit Ampel-Fazit, Steigungen und Tankplan."
+     ],
+     [
+      "Touren speichern",
+      "Geplante Touren am Login speichern, frühere Stände wiederherstellen, als Kopie weiterplanen; das Navi-Paket lässt sich einzeln vom Server löschen."
+     ],
+     [
+      "Touren teilen",
+      "Eine gespeicherte Tour an einen anderen Login schicken – er nimmt sie als eigene Kopie an und kann sie prüfen, weiterplanen und in RigNavi laden. Nur zwischen Logins, ohne öffentlichen Link; eure Notiz bleibt privat."
+     ],
+     [
+      "Meine Touren im Konto",
+      "Unter „Mein Konto“ alle gespeicherten Touren auf einen Blick, mit Stand des Navi-Pakets (Balken, Schritte, Laufzeit – live, nach einem Fehler mit einem Klick neu bauen) und Gesamtgröße auf dem Server – von dort öffnen, kopieren, frühere Stände holen oder löschen."
+     ],
+     [
+      "Ab ins Navi",
+      "Export als GPX für Garmin, TomTom, Sygic, OsmAnd & Co."
+     ],
+     [
+      "Planungsgebiet",
+      "{{plan_area}}; weitere Gebiete folgen nach Bedarf."
+     ],
+     [
+      "Autobahn je Abschnitt",
+      "Je Abschnitt ein Schalter mit Autobahn-Schild: grün „mit“, rot und durchgestrichen „ohne“. Der Schalter „Autobahn“ oben im Planer stellt alle Abschnitte um und zeigt „gemischt“, wenn sie abweichen. Ist die Route schon geplant, rechnet „🔄 Route neu planen“ neu – erst auf Knopfdruck."
+     ],
+     [
+      "Punkte benennen",
+      "Namen in der Punktliste antippen oder ✎ – eigener Name statt Koordinate. Per Klick gesetzte Punkte bekommen gleich einen Ortsnamen als Vorschlag. Eigene Namen bleiben beim Verschieben und stehen in gespeicherten Touren und im Reisepaket."
+     ],
+     [
+      "Aufenthalte",
+      "An jedem Zwischenpunkt ⏱ wählen, wie lange ihr bleibt (15 Minuten bis 6 Stunden) – der Fahrplan verschiebt Ankunft, Wetter und Tankzeiten, der Übernachtungsvorschlag rechnet mit."
+     ],
+     [
+      "Touren aneinanderhängen",
+      "Eine importierte Tour hinten anhängen oder vorne anfügen, gespeicherte Touren mit „➕ Anhängen“ zu einer Reise verbinden – wo die Teile zusammenstoßen, endet eine Etappe."
+     ]
+    ]
+   },
+   {
+    "icon": "📱",
+    "title": "RigNavi – Android-App (Alpha)",
+    "items": [
+     [
+      "Navi fürs Wohnmobil",
+      "Abbiegehinweise und Sprachansagen auf Deutsch, Karte folgt dem Fahrzeug, europäische Tempo-Schilder, Ankunftszeit und Restkilometer."
+     ],
+     [
+      "Mit euren Maßen",
+      "Geplant und neu berechnet wird immer mit Höhe, Breite, Länge, Gewicht und Achslast aus dem Fahrzeugprofil der App."
+     ],
+     [
+      "Vorschau mit Ankunftszeit",
+      "Vor dem Losfahren: Route auf der Karte, Kilometer, Fahrzeit, Ankunft."
+     ],
+     [
+      "Staus & Sperrungen",
+      "Aktuelle Meldungen der deutschen Autobahnen auf eurer Route und in Fahrtrichtung, mit Verzögerung in Minuten. Kostenlos, ohne Konto."
+     ],
+     [
+      "Planen in der App",
+      "Ortssuche, langer Druck auf die Karte, mehrere Ziele hintereinander."
+     ],
+     [
+      "Lesezeichen & Verlauf",
+      "Orte mit eigenem Namen merken, die letzten 15 Ziele mit einem Tipp wieder aufrufen."
+     ],
+     [
+      "In anderer App öffnen",
+      "Ort an Google Maps, OsmAnd oder eine andere Karten-App weitergeben."
+     ],
+     [
+      "Ausprobieren ohne Fahren",
+      "Simulation fährt die Route virtuell ab, mit Ansagen."
+     ],
+     [
+      "Download & Anleitung",
+      "Unter „📱 Android-App“ im Footer, Login wie hier. Open Source: Ferrostar, MapLibre, Valhalla."
+     ],
+     [
+      "Reisepakete: offline fahren",
+      "„📱 Ans Navi schicken“ im Routenplaner, in der App unter „🧳 Meine Reisen“ laden (WLAN, ~1–4 GB je nach Strecke): Straßen, Karte und Gespann-Prüfung für einen Streifen um die Reise. Im Streifen rechnet das Handy selbst – ohne Netz, auch wenn der Server nicht erreichbar ist. Pakete auf dem Server lassen sich einzeln löschen (App und Routenplaner), die Reise bleibt."
+     ],
+     [
+      "Etappe starten",
+      "Etappen der Reise mit Zwischenzielen direkt aus „Meine Reisen“ starten."
+     ],
+     [
+      "Unterwegs-Leiste",
+      "Nächste Tankstellen (Autobahn grau), nächste Entsorgung, Etappenziel mit Ankunft; „Vollgetankt“ und Warnung vor der letzten Tankstelle vor der Reserve."
+     ],
+     [
+      "Tempo per GPS",
+      "Aktuelle Geschwindigkeit groß neben dem Tempo-Schild, „–“ wenn GPS ungenau ist."
+     ],
+     [
+      "Wer rechnet?",
+      "📦 Paket oder ☁ Server – sichtbar während der Fahrt, dazu ein Fahrbericht zum Teilen."
+     ],
+     [
+      "Abschnitte & neues Fahrt-Blatt",
+      "Autobahn je Abschnitt auch in der App (auch beim Neuberechnen unterwegs); großer Abbiege-Banner; das Fahrtblatt ist klein (Ankunft, Fahrzeit, Rest, Zwischenziel) und zeigt per Antippen oder Wischen alles (seit RigNavi 0.24.0)."
+     ],
+     [
+      "🅿 Plätze",
+      "Offline aus dem Reisepaket: Plätze entlang der aktiven Route mit denselben Filtern, antippen → als Ziel oder Zwischenziel. Unterwegs-Leiste: 🚽 Entsorgung und 🚰 nur erreichbares Wasser."
+     ],
+     [
+      "Position teilen (freiwillig)",
+      "Mit eurer Zustimmung (⚙) sieht der Admin eure ungefähre Position (~1 km) – während der Fahrt und seit RigNavi 0.18.0 auch, solange die App offen ist; nach 24 h gelöscht."
+     ],
+     [
+      "Aufenthalte & Fahrpausen",
+      "Am nächsten Zwischenziel: Ankunft und „weiter um …“ aus eurem Aufenthalt. Die Ankunft am Ziel rechnet Aufenthalte und die Fahrpausen der Tour mit ein – live, auch nach Stau oder spätem Start."
+     ],
+     [
+      "Unterwegs entdecken",
+      "Nächstes Sehenswertes und nächste Einkehr (mit Öffnungszeit) im Fahrtblatt, dazu die Liste „🧭 Unterwegs“ mit Sehenswertem, Einkehr und Service – aus dem Reisepaket, auch offline."
+     ]
+    ]
+   },
+   {
+    "icon": "🚐",
+    "title": "Euer Fahrzeug",
+    "items": [
+     [
+      "Maße & Gewicht",
+      "Höhe, Breite, Länge, Gesamtgewicht, zulässiges Gesamtgewicht des Zugfahrzeugs, Achslast, Wendekreis, Anhänger ja/nein, Reisetempo."
+     ],
+     [
+      "Tank & AdBlue",
+      "Tankgröße, Verbrauch, Reserve, Füllstand beim Start, Dieselpreis; dazu AdBlue-Tank, -Verbrauch und -Füllstand."
+     ],
+     [
+      "Umweltzonen-Angaben",
+      "Euro-Norm (Vorgabe Euro 6) und Kraftstoff, dazu Crit'Air-Vignette und Registrierung für Belgien/Niederlande – daraus das Urteil je Zone."
+     ],
+     [
+      "Mehrere Profile",
+      "Z. B. „Womo“ und „Womo + Hänger“, am Login gespeichert – gilt in jedem Browser. Standard ist ein 7,43-m-Wohnmobil mit 3,5 t."
+     ],
+     [
+      "Bequeme Eingabe",
+      "Komma oder Punkt, ungültige Werte werden markiert. Jede Änderung rechnet sofort neu, ohne neuen Upload."
+     ]
+    ]
+   },
+   {
+    "icon": "🚧",
+    "title": "Passt es durch?",
+    "items": [
+     [
+      "Ampel-Fazit",
+      "Wie viele Stellen nicht passen, welche knapp sind und wo ihr vorsichtig sein solltet. Ein Klick zeigt die Stelle auf der Karte."
+     ],
+     [
+      "Engstellen",
+      "Durchfahrtshöhen und Höhenbegrenzer, Breiten, Gewichts-, Achslast- und Längenlimits, jeweils gegen eure Maße."
+     ],
+     [
+      "Verbote",
+      "Für Lkw bzw. über 3,5 t, Anhänger, Wohnwagen oder Wohnmobile, dazu „nur Anlieger“."
+     ],
+     [
+      "Enge",
+      "Schmale und einspurige Straßen mit Gegenverkehr. Kreisel und Einbahnspuren zählen nicht. Kehren werden gegen Wendekreis bzw. Gespannlänge geprüft."
+     ],
+     [
+      "Lücken in den Daten",
+      "Tunnel und Unterführungen ohne Höhenangabe werden extra gemeldet."
+     ]
+    ]
+   },
+   {
+    "icon": "⛰️",
+    "title": "Steigungen",
+    "items": [
+     [
+      "Höhenmodell",
+      "Steigungen und Gefälle aus dem Copernicus-Höhenmodell (EU/ESA) statt nur aus Schildern."
+     ],
+     [
+      "Steile Abschnitte",
+      "Alles ab 7 % mit Länge, Durchschnitt und Höhen von–bis. Bei Gefällen kommt der Hinweis „Motorbremse nutzen“."
+     ],
+     [
+      "Höhenprofil & Tankfüllung",
+      "Höhe gefärbt nach Steigung, darüber der Dieselstand mit Tankstopps und Reserve-Linie, passend zum Fenster."
+     ]
+    ]
+   },
+   {
+    "icon": "⛽",
+    "title": "Tankplan",
+    "items": [
+     [
+      "Konkrete Tankstopps",
+      "Welche Tankstelle, nach wie vielen km bzw. wie viel Fahrzeit, mit wie viel Litern ihr ankommt und wie viel ihr tankt."
+     ],
+     [
+      "Diesel & AdBlue",
+      "Beide Tanks werden mitgerechnet. Tankstellen mit AdBlue, Lkw-Säule oder LPG sind markiert, auf Wunsch bevorzugt die Lkw-Säule."
+     ],
+     [
+      "Kosten & Lücken",
+      "Liter und Kosten der ganzen Tour; lange Strecken ohne Tankstelle werden gemeldet."
+     ],
+     [
+      "Teure Autobahn-Tankstellen meiden",
+      "Raststätten direkt an der Autobahn werden erkannt und nur genommen, wenn nichts anderes in Reichweite liegt. Autohöfe an der Ausfahrt sind erlaubt."
+     ],
+     [
+      "Günstiger tanken mit Abstecher",
+      "Tankstellen bis 3 km hinter Autobahn-Ausfahrten zählen mit. Der Plan nimmt einen Abstecher nur, wenn der geschätzte Preis Umweg und Zeit wieder hereinholt, und sagt, wie viel er spart."
+     ],
+     [
+      "Echte Preise",
+      "Aktuelle Dieselpreise je Tankstelle für Deutschland (Tankerkönig), Frankreich, Spanien, Italien und Dänemark (OK) – der Plan wählt damit tatsächlich günstigere Stopps und zeigt, wenn eine gerade geschlossen hat."
+     ],
+     [
+      "Geschätzte Preise",
+      "Wo es keine Einzelpreise gibt: für Norwegen der Landesschnitt, sonst euer Dieselpreis bzw. der EU-Schnitt mit Auf- und Abschlägen je Art der Tankstelle (Raststätte, Autohof, Marke, frei, Supermarkt). Tankkarten-Stationen für Lkw und reine Gas-Tankstellen bleiben außen vor."
+     ]
+    ]
+   },
+   {
+    "icon": "🛒",
+    "title": "Einkaufen unterwegs",
+    "items": [
+     [
+      "Läden entlang der Route",
+      "Discounter, Supermärkte, Bäcker, Metzger und Hofläden in der Nähe der Strecke – als Liste im Reiter „Einkaufen“ und als Ebene auf der Karte, mit Name, Abstand zur Route und Öffnungszeiten."
+     ],
+     [
+      "Filter",
+      "Nach Ladenart wählen oder nur „jetzt offen“ zeigen."
+     ],
+     [
+      "Letzter Einkauf vor dem Ziel",
+      "Im Reiseplan steht je Etappe, wo ihr zuletzt einkaufen könnt."
+     ],
+     [
+      "In RigNavi",
+      "Das Reisepaket enthält die Läden; RigNavi zeigt unterwegs den nächsten Discounter oder Supermarkt, auch offline."
+     ],
+     [
+      "Grenzen",
+      "Zunächst nur Deutschland. Die Öffnungszeiten stammen aus OpenStreetMap, ohne Gewähr; Feiertage sind nicht berücksichtigt."
+     ]
+    ]
+   },
+   {
+    "icon": "🧭",
+    "title": "Unterwegs entdecken",
+    "items": [
+     [
+      "Sehenswertes und Einkehr",
+      "Aussichtspunkte, Museen, Burgen, Wasserfälle, Cafés und Restaurants direkt an der Route – im Reiter „Unterwegs“ und als Ebene auf der Karte."
+     ],
+     [
+      "Service",
+      "Kfz- und Lkw-Werkstätten, Caravan-Händler, Gasflaschen und Waschsalons in der Nähe der Strecke (bisher nur Deutschland). In den Details stehen Telefon, Website, Öffnungszeiten der Woche, Leistungen laut OSM (z. B. Wohnmobile, Gas, Reifen) und ein Foto der Einfahrt."
+     ],
+     [
+      "Filter und Übernehmen",
+      "Nach Art wählen oder nur „jetzt geöffnet“ zeigen; mit „➕ In die Tour“ als Zwischenpunkt übernehmen."
+     ]
+    ]
+   },
+   {
+    "icon": "🏕️",
+    "title": "Stehen, Ver- und Entsorgen",
+    "items": [
+     [
+      "Übernachten & Versorgen",
+      "Alle Stell- und Campingplätze, Entsorgung und Wasser bis 3 km neben der Route, nach km sortiert, auch die Plätze rund um jedes Etappenziel."
+     ],
+     [
+      "Filtern",
+      "Vier Gruppen: Entsorgung · Wasser · Strom – passt fürs Fahrzeug · Länge geprüft · Mindest-Plätze – kostenlos · jetzt geöffnet · ganzjährig – Duschen · WC · WLAN · Hunde. Unbekanntes bleibt drin, die Karte zeigt nur die Gefilterten."
+     ],
+     [
+      "Ampel fürs Fahrzeug",
+      "Grün: Länge und Gewicht bekannt und passen · Hellgrün: passt wahrscheinlich (Länge aus Website oder Luftbild-Messung) · Gelb: unbekannt · Orange: wohl zu kurz · Rot: zu groß oder zu schwer."
+     ],
+     [
+      "Passt mein Gespann hin?",
+      "Für die Plätze an eurer Route sucht RigAnalyzer die erlaubte Fahrzeuglänge in Beschreibung und Website des Platzes. Steht dort nichts, misst er im Luftbild nach: längste freie Bahn auf dem Platz, freie Fläche zum Wenden und eingezeichnete Stellflächen – Bäume und Schatten zählen nicht. Dazu Längen- und Breitenlimits auf der Zufahrt. Im Platz-Popup steht die Quelle, das gemessene Luftbild könnt ihr ansehen."
+     ],
+     [
+      "Wasser wirklich öffentlich",
+      "Wasserstellen auf einem Campingplatz oder nur für Kunden zählen als „nur für Gäste“, Trinkwasserhähne extra. Standard: nur frei zugängliches Wasser."
+     ],
+     [
+      "Als Übernachtung übernehmen",
+      "Aus den Details eines Platzes direkt als Nacht-Punkt in den Routenplaner – an der passenden Stelle, danach wird neu geplant."
+     ],
+     [
+      "Details auf einen Blick",
+      "Jeder Platz als übersichtliche Karte: Knöpfe für Navigieren, Anrufen, Website, Als Übernachtung und In die Tour; Fotos (Einfahrt, gemessenes Luftbild, Wikimedia), „heute geöffnet“ mit aufklappbarer Woche, Beschreibung mit „mehr“, Ausstattung als Chips und „Fehlt was? In OSM ergänzen“."
+     ],
+     [
+      "Rastplätze",
+      "Rastplätze und Raststätten für die Pause zwischendurch."
+     ]
+    ]
+   },
+   {
+    "icon": "💶",
+    "title": "Maut & Länder",
+    "items": [
+     [
+      "Je Land",
+      "Wie viele Kilometer in welchem Land, davon Autobahn, mit Maut-, Vignetten- und Tempo-Hinweisen passend zu Gewicht und Anhänger."
+     ],
+     [
+      "Maut in Euro",
+      "Vignetten, geschätzte Streckenmaut und Tunnel/Brücken mit Sondermaut (z. B. Millau, Mont-Blanc, Brenner) als Betrag für euer Fahrzeug – je Land, als Summe und neben dem Diesel."
+     ]
+    ]
+   },
+   {
+    "icon": "🌫️",
+    "title": "Umweltzonen",
+    "items": [
+     [
+      "Umweltzonen auf der Route",
+      "Zonen entlang der Route auf der Karte und in der Liste, je Zone ein Urteil für euer Fahrzeug: erlaubt, nicht erlaubt oder bitte prüfen (aus Euro-Norm, Kraftstoff und Plakette bzw. Crit'Air). Vorgabe für neue Logins: Euro 6 Diesel."
+     ],
+     [
+      "Umfahren",
+      "Zonen meiden (Schalter „Umweltzonen meiden“ im Routenplaner, Knopf „umfahren“ im Fazit): der Routenplaner plant um sie herum. Liegen Start oder Ziel in einer Zone, bleibt sie erlaubt, und ihr bekommt einen Hinweis; geht es nicht anders, kommt die Route trotzdem – mit dem Hinweis „Umfahren nicht möglich“."
+     ],
+     [
+      "Im Fahrplan",
+      "Je Etappe die Zonen mit Urteil zum Tag der Durchfahrt – auch für Zonen, die erst später beginnen oder zeitlich gestaffelt strenger werden."
+     ],
+     [
+      "In RigNavi",
+      "RigNavi zeigt die Umweltzonen der Reise in der Vorschau mit Urteil, warnt rund 5 km vorher und kann sie auch offline umfahren; die Fahrzeugklasse steht in den Einstellungen."
+     ],
+     [
+      "Quellen",
+      "Frankreich: Base Nationale des ZFE (Licence Ouverte 2.0); übriges Europa: OpenStreetMap (ODbL) – beide ohne Konto, wöchentlich abgeglichen. Ohne Datenstand steht „Umweltzonen gerade nicht verfügbar“, nie still „keine Zone“."
+     ]
+    ]
+   },
+   {
+    "icon": "🗓️",
+    "title": "Reisen mit Etappen",
+    "items": [
+     [
+      "Mehrere Tracks = Reise",
+      "Jede Etappe wird einzeln geprüft, der Tank läuft über die ganze Reise weiter."
+     ],
+     [
+      "Fahrplan",
+      "Startdatum wählbar, Abfahrt, Ankunft und Nächte am Ziel je Etappe."
+     ],
+     [
+      "Etappen auf der Karte",
+      "Eigene Farben je Etappe, Auswahl einer einzelnen Etappe mit eigenem Profil und Tankplan."
+     ],
+     [
+      "Beispiele",
+      "Verdon-Runde 2027 (9 Etappen, 4.062 km) und die Schottland-Reise 2025 (14 Tagesetappen mit Ruhetag)."
+     ],
+     [
+      "Lange Strecken",
+      "Eine einzelne Strecke über 1.000 km wird automatisch in Tagesetappen geteilt, wo möglich an einem Ort."
+     ],
+     [
+      "Pausen wählbar",
+      "Im Fahrplan: geschätzte Pausen je nach Länge, 20 Minuten alle 2 Stunden oder ohne."
+     ]
+    ]
+   },
+   {
+    "icon": "🚐",
+    "title": "Fahransicht fürs Gespann (RigNavi)",
+    "items": [
+     [
+      "Gespann-Warnungen voraus",
+      "Engstellen, niedrige Durchfahrten, Gewichtsgrenzen, starkes Gefälle und enge Kehren aus dem Reisepaket – als Banner unter dem Abbiegehinweis; angesagt wird nur, was knapp ist oder nicht passt (bei ~1,5 km bzw. Autobahn 2,5 km und ~300 m)."
+     ],
+     [
+      "Anhänger-Tempo je Land",
+      "Neben dem Tempo-Schild ein 🚐-Schild mit dem Gespann-Limit, wenn es strenger ist (DE, AT, CH, FR, IT, ES); beim Landeswechsel kurz die Limits des neuen Landes. Tempo-100-Zulassung im Fahrzeugprofil."
+     ],
+     [
+      "Tempo-Warnung",
+      "Anzeige wird rot und ein kurzer Ton, wenn ihr mehr als 5 km/h über dem Gespann-Limit seid – schaltbar in RigNavi unter ⚙, gilt für euren Login."
+     ],
+     [
+      "Nachtmodus",
+      "Dunkle Karte und Leisten nach Sonnenuntergang, automatisch nach Sonnenstand (auch offline) oder fest hell/dunkel."
+     ],
+     [
+      "Spurempfehlung",
+      "Spurpfeile kurz vor dem Abbiegen (Autobahn ab 1 km); mit Anhänger frühes „rechts halten“ vor Ausfahrten."
+     ]
+    ]
+   },
+   {
+    "icon": "🗺️",
+    "title": "Karte & Darstellung",
+    "items": [
+     [
+      "Liste und Karte nebeneinander",
+      "Auf Laptop und Desktop teilen sich Liste und Karte die Breite (Liste höchstens ~760 px, den Rest bekommt die Karte); am Handy untereinander."
+     ],
+     [
+      "🗂 Ebenen-Knopf",
+      "Kartenebenen (Engstellen, Tankstellen, Stellplätze …) über einen Knopf in der Kartenecke ein- und ausblenden – die Auswahl merkt sich der Browser."
+     ],
+     [
+      "Höhenprofil einklappbar",
+      "Profil und Tankfüllung unter der Karte zuklappen – dann hat die Karte die volle Höhe; die Wahl wird gemerkt."
+     ],
+     [
+      "⚙ Karte",
+      "Menü über der Karte: wie schnell das Mausrad zoomt (am Login gespeichert, gilt auch für RigNavi), wie nah ein Klick auf einen Listeneintrag heranzoomt, und „Ergebnis-Kacheln zurücksetzen“."
+     ],
+     [
+      "Fahrplan auf einen Blick",
+      "Eine Zeile je Etappe mit Strecke, Abfahrt/Ankunft, Nächten (−/+) und Hinweisen (🔴 passt nicht, 🟠 knapp, ✓, ⛽ Tankstopps)."
+     ]
+    ]
+   },
+   {
+    "icon": "🌦",
+    "title": "Wetter",
+    "items": [
+     [
+      "Wetter je Etappe",
+      "Zur geplanten Ankunft: Temperatur, Regen und Böen am Ziel, dazu das Schlimmste unterwegs mit km – bis 16 Tage im Voraus."
+     ],
+     [
+      "Böen fürs Gespann",
+      "Ab 50 km/h Hinweis „mit Anhänger vorsichtig“, ab 70 km/h „Fahrt überdenken“."
+     ],
+     [
+      "Unwetterwarnungen",
+      "Amtliche Warnungen entlang der Route: DWD für Deutschland, MeteoAlarm für die übrigen Länder – nur aus Gebieten, durch die eure Strecke wirklich führt."
+     ],
+     [
+      "Regenradar",
+      "Aktuelles Regenradar als Kartenebene im Ebenen-Knopf bzw. in RigNavi."
+     ],
+     [
+      "Quellen",
+      "Open-Meteo, RainViewer, DWD, MeteoAlarm – alle ohne Konto, abgefragt über unseren Server."
+     ]
+    ]
+   }
+  ],
+  "planned": {
+   "icon": "🧭",
+   "title": "Demnächst",
+   "items": [
+    [
+     "Android Auto",
+     "RigNavi auf dem Bildschirm im Auto."
+    ],
+    [
+     "Mehr Länder",
+     "Gespann-Tempo für weitere Länder nach Bedarf."
+    ]
+   ]
+  }
+ },
+ "common": [
+  {
+   "icon": "📂",
+   "title": "Routen hochladen",
+   "items": [
+    [
+     "Jeder GPX-Export",
+     "Aus Routenplaner oder Navi, bis 1.000 km je Strecke bzw. Etappe und 5 MB."
+    ],
+    [
+     "Grobe Exporte",
+     "Ausgedünnte Routen (z. B. ein Punkt alle 250 m, sogar alle 5 km) werden entlang des echten Straßennetzes ergänzt und dort voll geprüft; nur Lücken über 40 km bleiben offen."
+    ],
+    [
+     "Datenqualität",
+     "Wie vollständig die Kartendaten für eure Route sind: Straßennetz, Belag, Tempolimits, Breiten, Angaben an Tankstellen und Plätzen, Kartenstand – mit Gesamtnote."
+    ],
+    [
+     "Garmin-Routen",
+     "Routen aus BaseCamp, Garmin Explore oder dem Navi behalten ihren berechneten Verlauf, auch wenn nur die Wegpunkte als Route exportiert sind."
+    ],
+    [
+     "Schnell",
+     "Typische Touren sind in wenigen Sekunden durch, die 4.000-km-Reise in rund vier Minuten."
+    ]
+   ]
+  },
+  {
+   "icon": "🌍",
+   "title": "Kartendaten",
+   "items": [
+    [
+     "Ganz Europa lokal",
+     "48 Länder in 159 Regionen aus OpenStreetMap, ohne langsame Live-Abfragen."
+    ],
+    [
+     "Abdeckungskarte",
+     "Zeigt, was lokal vorliegt, eingefärbt nach Alter: frisch blau, nach ~2 Monaten grün, ab 4 Monaten orange."
+    ],
+    [
+     "Neue Gebiete",
+     "Liegt eine Route außerhalb, bietet die Seite an, die Region aufzunehmen, mit Uhrzeit, wann sie fertig ist."
+    ]
+   ]
+  },
+  {
+   "icon": "✨",
+   "title": "Bedienung",
+   "items": [
+    [
+     "Hell & dunkel",
+     "Standard dunkel, umschaltbar, die Wahl merkt sich der Browser."
+    ],
+    [
+     "„So geht's“",
+     "Infofenster mit Anleitung, Grenzen, Tipps und Datenschutz."
+    ],
+    [
+     "Häufige Fragen",
+     "Kurze Antworten zu Zugang, Passwort, Planen, Datenschutz und Rückmeldung – im Footer und in „So geht's“, passend zu dieser App."
+    ],
+    [
+     "Handy & Desktop",
+     "Läuft im Browser auf beiden, ohne Installation – mit eurem Login."
+    ],
+    [
+     "Änderungsprotokoll",
+     "Alle Neuerungen seit dem ersten Prototyp unter „Änderungen“."
+    ],
+    [
+     "Mein Konto",
+     "Eigenes Passwort und eigene Mailadresse ändern (eingeklappt, ein Klick öffnet); „Passwort vergessen?“ schickt einen Link (1 Stunde gültig). Ein Auge am Passwortfeld zeigt, was ihr getippt habt. Die Kacheln lassen sich verschieben und einklappen, gemerkt am Login."
+    ],
+    [
+     "Benachrichtigungen",
+     "Unter „Mein Konto“ selbst wählen: „Neue Versionen“ (abends eine Sammelmail, wenn es Neues gab) und Newsletter. Ab Werk aus; jede dieser Mails hat einen Abmeldelink, der ohne Anmeldung geht."
+    ],
+    [
+     "Zugang beantragen",
+     "Auf der Anmeldeseite unter „Registrieren“; nach der Freischaltung kommt eine Mail."
+    ],
+    [
+     "Admin",
+     "Admins verwalten die Zugänge – nur mit zweitem Faktor. Der Admin-Bereich ist ein Dashboard: Kacheln in zwei Spalten, verschiebbar, halb oder ganz breit und einklappbar – gemerkt am Login. Logins als schlanke Liste mit Suche, Details zum Aufklappen."
+    ],
+    [
+     "Kurze Wartezeiten",
+     "Beim Warten auf die Analyse seht ihr euren Platz und die ungefähre Restzeit. Kurze Touren bis 300 km haben eine eigene Spur und warten nicht hinter langen Reisen; eine schon gerechnete Tour kommt sofort."
+    ],
+    [
+     "Rückmeldung",
+     "Fehler, Ideen oder Lob direkt aus der App schicken: „💬 Rückmeldung“ im Menü oben rechts (nach der Anmeldung). Admins können Wünsche direkt als Aufgabe für die Weiterentwicklung vormerken und erledigte Rückmeldungen löschen."
+    ]
+   ]
+  },
+  {
+   "icon": "🔒",
+   "title": "Datenschutz",
+   "items": [
+    [
+     "Was gespeichert wird",
+     "Eure Einstellungen und Vorlieben am Login – dazu, was ihr selbst speichert (z. B. Touren, Profile, Bewertungen), bis ihr es löscht. Hochgeladene GPX ohne „Speichern“ werden analysiert; nur das Ergebnis liegt bis zu 7 Tage ohne Bezug zum Login im Zwischenspeicher."
+    ],
+    [
+     "Was wir zählen",
+     "Je Login nur Zahlen zur Nutzung (Analysen, Planungen, Datenmenge, Speicher) – ohne Ziele oder Strecken. So sehen wir, was der Betrieb kostet."
+    ],
+    [
+     "Was Admins sehen",
+     "Letzte Anmeldung (Zeit, IP, Gerät) und die laufende Tätigkeit."
+    ],
+    [
+     "Meine Daten",
+     "Unter „Mein Konto“ seht ihr, was zu eurem Login gespeichert ist, was diesen Monat gezählt wurde und eure Anmeldungen der letzten 30 Tage – und könnt alles als Datei herunterladen (ohne Passwort und 2FA-Schlüssel)."
+    ],
+    [
+     "Sicher angemeldet",
+     "Abmelden beendet die Sitzung auch auf dem Server; unter „Mein Konto“ kannst du dich auf allen Geräten auf einmal abmelden. Die Mailadresse lässt sich nur mit Passwort ändern und gilt erst nach Klick auf den Link in der Mail an die neue Adresse; die bisherige Adresse bekommt einen Hinweis."
+    ],
+    [
+     "Datenschutzerklärung & Impressum",
+     "Auch ohne Anmeldung lesbar, verlinkt unter jeder Anmelde-Seite und in der Fußzeile: wer verantwortlich ist, was wie lange gespeichert wird, welche Anbieter Karten und Bilder liefern und welche Rechte ihr habt."
+    ]
+   ]
+  }
+ ]
+}

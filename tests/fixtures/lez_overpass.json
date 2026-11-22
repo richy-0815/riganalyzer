@@ -1,0 +1,113 @@
+{
+ "elements": [
+  {
+   "type": "relation",
+   "id": 1001,
+   "tags": {
+    "boundary": "low_emission_zone",
+    "name": "ZFE Lyon"
+   },
+   "members": [
+    {
+     "type": "way",
+     "ref": 11,
+     "role": "outer",
+     "geometry": [
+      {
+       "lat": 45.721,
+       "lon": 4.781
+      },
+      {
+       "lat": 45.721,
+       "lon": 4.899
+      },
+      {
+       "lat": 45.799,
+       "lon": 4.899
+      }
+     ]
+    },
+    {
+     "type": "way",
+     "ref": 12,
+     "role": "outer",
+     "geometry": [
+      {
+       "lat": 45.799,
+       "lon": 4.899
+      },
+      {
+       "lat": 45.799,
+       "lon": 4.781
+      },
+      {
+       "lat": 45.721,
+       "lon": 4.781
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "way",
+   "id": 2002,
+   "tags": {
+    "boundary": "low_emission_zone",
+    "name": "Umweltzone Stuttgart",
+    "access": "green_sticker_germany"
+   },
+   "geometry": [
+    {
+     "lat": 48.74,
+     "lon": 9.1
+    },
+    {
+     "lat": 48.74,
+     "lon": 9.24
+    },
+    {
+     "lat": 48.83,
+     "lon": 9.24
+    },
+    {
+     "lat": 48.83,
+     "lon": 9.1
+    },
+    {
+     "lat": 48.74,
+     "lon": 9.1
+    }
+   ]
+  },
+  {
+   "type": "way",
+   "id": 3003,
+   "tags": {
+    "boundary": "low_emission_zone",
+    "name": "Madrid ZBE"
+   },
+   "geometry": [
+    {
+     "lat": 40.38,
+     "lon": -3.74
+    },
+    {
+     "lat": 40.38,
+     "lon": -3.66
+    },
+    {
+     "lat": 40.45,
+     "lon": -3.66
+    },
+    {
+     "lat": 40.45,
+     "lon": -3.74
+    },
+    {
+     "lat": 40.38,
+     "lon": -3.74
+    }
+   ]
+  }
+ ]
+}

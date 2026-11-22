@@ -1,0 +1,235 @@
+/* Design – gemeinsame Schicht ueber style.css / rig.css (beide Seiten, alle Unterseiten).
+   Weiche, stark abgerundete Karten, Pillen-Knoepfe, Segment-Umschalter, Plaketten, Login-Menue.
+   Farben kommen aus den Tokens der jeweiligen Seite (--accent usw.). */
+:root {
+  --r-card: 20px;
+  --r-ctl: 999px;
+  --r-input: 14px;
+  --soft: color-mix(in srgb, var(--accent) 9%, var(--card));
+  --shadow: 0 1px 2px rgba(0, 0, 0, .05), 0 8px 24px rgba(0, 0, 0, .06);
+}
+:root[data-theme="dark"] { --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 8px 24px rgba(0, 0, 0, .35); }
+
+/* ---- Kopfzeile */
+.top { gap: 14px; padding: 14px 22px; }
+.top .brand .logo { width: 40px; height: 40px; border-radius: 13px; padding: 6px; background: var(--accent);
+  color: var(--accent-ink); box-shadow: var(--shadow); flex: none; }
+.top .brand .logo rect:first-child { fill: transparent; }
+.top h1 { font-weight: 700; }
+.top .badge { border-radius: var(--r-ctl); }
+.theme-toggle { border-radius: var(--r-ctl) !important; border: 1px solid var(--line) !important; background: var(--card) !important;
+  box-shadow: none; padding: 7px 14px !important; }
+.theme-toggle:hover { border-color: var(--accent) !important; }
+.veh-pill { border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--card); padding: 7px 14px;
+  font-size: .85rem; white-space: nowrap; }
+
+/* ---- Login-Menue */
+.usermenu { position: relative; }
+.usermenu > button { display: inline-flex; align-items: center; gap: 8px; }
+.usermenu .avatar { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: var(--accent-ink);
+  display: inline-grid; place-items: center; font-size: .75rem; font-weight: 700; text-transform: uppercase; }
+.usermenu ul { position: absolute; right: 0; top: calc(100% + 8px); min-width: 210px; margin: 0; padding: 6px; list-style: none;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); z-index: 2000; }
+.usermenu ul[hidden] { display: none; }
+.usermenu li a, .usermenu li span { display: block; padding: 9px 12px; border-radius: 10px; color: var(--ink); text-decoration: none; }
+.usermenu li span { color: var(--muted); font-size: .82rem; }
+.usermenu li a:hover { background: var(--soft); }
+
+/* ---- Karten, Formulare, Knoepfe */
+.card { border-radius: var(--r-card); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.card h3, .card summary h3 { letter-spacing: .01em; }
+button.primary, .primary { border-radius: var(--r-ctl) !important; padding: 10px 18px; font-weight: 600; }
+.ghost { border-radius: var(--r-ctl); }
+input[type="text"], input[type="search"], input[type="number"], input[type="password"], input[type="email"], input:not([type]), select {
+  border-radius: var(--r-input); }
+details.card > summary { border-radius: calc(var(--r-card) - 6px); }
+
+/* ---- Karte + schwebende Infos */
+.map { border-radius: 22px; border: 1px solid var(--line); overflow: hidden; }
+.leaflet-control-zoom, .leaflet-bar { border-radius: 14px !important; overflow: hidden; border: 1px solid var(--line) !important; box-shadow: var(--shadow) !important; }
+.leaflet-popup-content-wrapper { border-radius: 16px; }
+.chips button { border-radius: var(--r-ctl); }
+
+/* ---- Segment-Umschalter + Plaketten */
+.pl-switch, .seg { display: inline-flex; border: 0; border-radius: var(--r-ctl); background: var(--soft); padding: 3px; gap: 3px; overflow: visible; }
+.pl-switch button, .seg button { border: 0 !important; border-radius: var(--r-ctl); padding: 6px 13px; }
+.pl-switch button.on, .seg button.on { box-shadow: var(--shadow); }
+.mini { background: var(--soft); }
+.pill { display: inline-block; border-radius: var(--r-ctl); padding: 3px 10px; font-size: .8rem; background: var(--soft); }
+.pill.ok { background: color-mix(in srgb, #3f9a5f 20%, var(--card)); }
+.pill.warn { background: color-mix(in srgb, #e09f3e 24%, var(--card)); }
+.pill.bad { background: color-mix(in srgb, #c4553d 22%, var(--card)); }
+
+/* ---- Unterseiten (Funktionen, Aenderungen, Technik, App, Admin, Konto) */
+.rel-wrap .card, .rel-wrap section, .rel-wrap article { border-radius: var(--r-card); }
+.foot { border-top: 1px solid var(--line); }
+.foot a { text-underline-offset: 3px; }
+
+/* ---- Anmeldeseiten */
+.lg-card { border-radius: 26px !important; }
+.lg-form input { border-radius: var(--r-input); }
+.lg-foot a { color: var(--accent); }
+
+/* ---- Tabellen (Admin) */
+.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9rem; }
+.tbl th { text-align: left; color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; padding: 8px 10px; }
+.tbl td { padding: 10px; border-top: 1px solid var(--line); vertical-align: middle; }
+.tbl tr:hover td { background: var(--soft); }
+.dlg { border: 1px solid var(--line); border-radius: 22px; background: var(--card); color: var(--ink); padding: 20px; max-width: min(92vw, 460px); box-shadow: var(--shadow); }
+.dlg::backdrop { background: rgba(0, 0, 0, .35); }
+.teilen-dlg .dlg-btns { display: flex; gap: 8px; margin-top: 8px; }   /* Touren teilen */
+.pwshow { font: 600 1.15rem ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--soft); border-radius: 12px; padding: 10px 14px; user-select: all; }
+
+@media (max-width: 700px) {
+  .top { padding: 12px 16px; gap: 10px; }
+  .veh-pill { display: none; }
+  .tbl thead { display: none; }
+  .tbl tr { display: block; border-top: 1px solid var(--line); padding: 8px 0; }
+  .tbl td { display: block; border: 0; padding: 3px 4px; }
+}
+
+/* Unterseiten: Login-Menue rechts (dort fehlt der „So geht's“-Knopf, der sonst nach rechts schiebt) */
+.top > .brand.home + .usermenu, .top > .brand.home + .logout-btn { margin-left: auto; }
+.top > .brand.home ~ #theme-toggle { margin-left: 0; }
+/* Admin: Tabelle braucht mehr Breite als Textseiten */
+.rel-wrap:has(.tbl) { max-width: 1180px; }
+.tbl td:last-child { white-space: nowrap; }
+.tbl-scroll { overflow-x: auto; }
+
+/* Admin: Jetzt aktiv */
+.act-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 14px; }
+.act-map { height: 320px; border-radius: 18px; border: 1px solid var(--line); overflow: hidden; }
+.act-list { display: flex; flex-direction: column; gap: 8px; max-height: 320px; overflow: auto; }
+.act-item { border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; background: var(--card); }
+.act-item b { font-size: 1rem; }
+.act-item .sub { color: var(--muted); font-size: .82rem; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.dot.online { background: #2fb36d; box-shadow: 0 0 0 3px color-mix(in srgb, #2fb36d 25%, transparent); }
+.dot.heute { background: #e0a83e; } .dot.frueher, .dot.nie { background: var(--line); }
+/* Admin: Logins als Liste zum Aufklappen – keine Querscroll-Tabelle mehr */
+.adm-find { width: 100%; max-width: 360px; margin-bottom: 10px; }
+.al-list { display: flex; flex-direction: column; gap: 6px; }
+.al-item { border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.al-item[open] { box-shadow: 0 2px 10px color-mix(in srgb, var(--ink) 8%, transparent); }
+.al-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 9px 12px; cursor: pointer; list-style: none; }
+.al-head::-webkit-details-marker { display: none; }
+.al-head::after { content: "▸"; color: var(--muted); margin-left: 2px; transition: transform .15s; }
+.al-item[open] > .al-head::after { transform: rotate(90deg); }
+.al-head .dot { margin-right: 0; }
+.al-name { font-size: 1rem; }
+.al-flags { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.al-grp, .al-when { color: var(--muted); font-size: .85rem; }
+.al-grp { margin-left: auto; }
+.al-when { min-width: 7.5em; text-align: right; }
+.al-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px 18px;
+  padding: 4px 12px 12px 30px; border-top: 1px solid var(--line); }
+.al-sec h4 { margin: 8px 0 6px; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.al-sec-body { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.al-sec-body .sub { color: var(--muted); font-size: .85rem; }
+.al-sec-body select { max-width: 100%; }
+.al-note { grid-column: 1 / -1; margin: 8px 0 0; font-style: italic; }
+@media (max-width: 520px) { .al-body { padding-left: 12px; } .al-when { min-width: 0; } }
+@media (max-width: 800px) { .act-grid { grid-template-columns: 1fr; } }
+/* Admin: Versionen */
+.ver-run { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.ver-item { border-top: 1px solid var(--line); padding: 8px 2px; }
+.ver-item summary { cursor: pointer; }
+.ver-item ul { margin: 8px 0 4px; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: .9rem; }
+
+/* Datenqualitaet (quality.js) – Ride und Rig */
+.quality summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quality summary::-webkit-details-marker { display: none; }
+.quality summary h3 { margin: 0; }
+.quality .q-sum { margin-left: auto; font-size: .85rem; color: var(--muted); }
+.q-head { display: flex; align-items: center; gap: 10px; margin: 12px 0 8px; }
+.q-grade { border-radius: var(--r-ctl, 8px); padding: 3px 12px; font-weight: 700; }
+.q-grade.q-gut { background: color-mix(in srgb, #3f9a5f 24%, var(--card)); }
+.q-grade.q-brauchbar { background: color-mix(in srgb, #e09f3e 26%, var(--card)); }
+.q-grade.q-thin { background: color-mix(in srgb, #c4553d 24%, var(--card)); }
+.q-row { display: grid; grid-template-columns: minmax(0, 11rem) 1fr 3.2rem; gap: 4px 10px; align-items: center; margin: 6px 0; font-size: .9rem; }
+.q-row small { grid-column: 1 / -1; color: var(--muted); font-size: .78rem; margin-top: -3px; }
+.q-row b { text-align: right; font-variant-numeric: tabular-nums; }
+.q-bar { height: 8px; border-radius: 4px; background: var(--soft); overflow: hidden; }
+.q-bar i { display: block; height: 100%; background: var(--accent); }
+.q-poi { margin: 10px 0 4px; padding-left: 18px; font-size: .88rem; }
+@media (max-width: 420px) { .q-row { grid-template-columns: 1fr 3rem; } .q-row .q-bar { grid-column: 1 / -1; grid-row: 2; } }
+
+/* Ebenen-Knopf in der Karte (Ride + Rig) */
+.layerctl { position: relative; }
+.layerctl .layerbtn { border: 0; border-radius: 12px; padding: 7px 12px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer;
+  background: var(--card); color: var(--ink); box-shadow: 0 2px 10px rgba(0, 0, 0, .25); }
+.layerctl .layerbtn[aria-expanded="true"] { background: var(--accent); color: var(--accent-ink, #fff); }
+.layerctl .layerpanel { position: absolute; right: 0; top: calc(100% + 6px); min-width: 210px; max-height: 60vh; overflow: auto;
+  background: var(--card); color: var(--ink); border-radius: 14px; padding: 10px 12px; box-shadow: 0 6px 24px rgba(0, 0, 0, .3); }
+.layerctl .layerpanel .toggles { display: flex; flex-direction: column; flex-wrap: nowrap; gap: 6px; overflow: visible; padding: 0; color: var(--ink);
+  -webkit-mask-image: none; mask-image: none; }
+.layerctl .layerpanel .toggles label { background: none; padding: 2px 0; white-space: nowrap; }
+
+/* ---- Planer-Suche: Pille mit Lupe, Treffer als Dropdown-Liste */
+.pl-searchwrap { position: relative; }
+.pl-search { display: flex; align-items: center; gap: 4px; padding: 4px 4px 4px 14px; border: 1.5px solid var(--line);
+  border-radius: var(--r-ctl); background: var(--bg); transition: border-color .15s, box-shadow .15s; }
+.pl-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent); }
+.pl-search .pl-sicon { width: 20px; height: 20px; fill: var(--muted); flex: none; }
+.pl-search:focus-within .pl-sicon { fill: var(--accent); }
+.pl-search .pl-spin { display: none; width: 18px; height: 18px; border-radius: 50%; flex: none; margin: 1px;
+  border: 2.5px solid color-mix(in srgb, var(--accent) 25%, transparent); border-top-color: var(--accent); animation: pl-spin .7s linear infinite; }
+.pl-search.busy .pl-sicon { display: none; } .pl-search.busy .pl-spin { display: block; }
+@keyframes pl-spin { to { transform: rotate(360deg); } }
+.pl-search input { flex: 1; min-width: 0; border: 0 !important; outline: 0; background: transparent !important; color: var(--ink);
+  font: inherit; font-size: 1rem; padding: 9px 6px !important; box-shadow: none !important; }
+.pl-search input::-webkit-search-cancel-button { display: none; }
+.pl-search .pl-qclear { border: 0; background: var(--soft); color: var(--muted); width: 28px; height: 28px; border-radius: 50%;
+  cursor: pointer; font-size: .8rem; flex: none; }
+.pl-search .pl-qclear:hover { color: var(--ink); }
+.pl-search .pl-sbtn { border: 0; border-radius: var(--r-ctl); background: var(--accent); color: var(--accent-ink, #fff);
+  font: inherit; font-weight: 600; padding: 9px 16px; cursor: pointer; flex: none; }
+.pl-search .pl-sbtn:hover { filter: brightness(1.08); }
+.pl-hits { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 1200; list-style: none; margin: 0; padding: 6px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); max-height: 360px; overflow: auto; }
+.pl-hits .pl-hit { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 12px; cursor: pointer; }
+.pl-hits .pl-hit.sel { background: var(--soft); }
+.pl-hits .pl-hit .pin { border: 0; box-shadow: none; padding: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); display: grid; place-items: center; flex: none; }
+.pl-hits .pl-hit .pin svg { width: 18px; height: 18px; fill: var(--accent); }
+.pl-hits .pl-hit.far .pin svg { fill: #e67700; }
+.pl-hits .pl-hit .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pl-hits .pl-hit b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pl-hits .pl-hit small { color: var(--muted); font-size: .8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pl-hits .pl-hit.far { opacity: .75; } .pl-hits .far-note { color: #e67700 !important; }
+.pl-hits .as-start { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: var(--r-ctl);
+  font: inherit; font-size: .75rem; padding: 4px 10px; cursor: pointer; flex: none; opacity: 0; transition: opacity .1s; }
+.pl-hits .pl-hit.sel .as-start, .pl-hits .pl-hit:hover .as-start { opacity: 1; }
+@media (pointer: coarse) { .pl-hits .as-start { opacity: 1; } }
+.pl-hits .pl-hmsg { padding: 10px 12px; color: var(--muted); font-size: .9rem; }
+.pl-hits .pl-hfoot { padding: 6px 12px 2px; color: var(--muted); font-size: .74rem; border-top: 1px solid var(--line); margin-top: 4px; }
+
+/* ---- Autobahn-Schild (static/autobahn.js): Piktogramm statt 🛣, „ohne“ = rot durchgestrichen */
+.ab-pic { position: relative; display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -.28em; flex: none; line-height: 0; }
+.ab-pic svg { display: block; width: 100%; height: 100%; }
+.ab-pic.off::after, [data-state="off"] .ab-pic::after { content: ""; position: absolute; inset: -12%;
+  background: linear-gradient(to top right, transparent calc(50% - 1.6px), #d64545 calc(50% - 1.6px), #d64545 calc(50% + 1.6px), transparent calc(50% + 1.6px));
+  border-radius: 2px; }
+.ab-pic.off svg, [data-state="off"] .ab-pic svg { opacity: .8; }
+/* Rig: ein Chip je Abschnitt und oben für alle – grün „mit“, rot „ohne“, orange „gemischt“ */
+.ab-chip { --ab: #1f9a5b; display: inline-flex; align-items: center; gap: 6px; padding: 3px 11px 3px 5px; border-radius: var(--r-ctl);
+  border: 1.5px solid var(--ab); background: color-mix(in srgb, var(--ab) 12%, var(--card)); color: var(--ab);
+  font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; line-height: 1.2; }
+.ab-chip[data-state="off"] { --ab: #c93c3c; }
+.ab-chip[data-state="mixed"] { --ab: #c87512; }
+.ab-chip .ab-txt { min-width: 2.2em; }
+.ab-chip:hover { background: color-mix(in srgb, var(--ab) 22%, var(--card)); }
+.ab-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+:root[data-theme="dark"] .ab-chip { --ab: #4cc98a; }
+:root[data-theme="dark"] .ab-chip[data-state="off"] { --ab: #ff7b7b; }
+:root[data-theme="dark"] .ab-chip[data-state="mixed"] { --ab: #f0a64a; }
+.ab-top { display: flex; align-items: center; gap: 8px; }
+.ab-top .ab-chip { font-size: .9rem; padding: 4px 13px 4px 6px; }
+.mini button .ab-pic { width: 1.35em; height: 1.35em; vertical-align: -.32em; }
+.mw-switch .mw-lbl .ab-pic { margin-right: 2px; }
+.mini button.on .ab-pic svg { border-radius: 4px; box-shadow: 0 0 0 1.5px #fff; }
+
+/* „So geht's“ in Happen: Abschnitte zum Aufklappen, nur „In drei Schritten“ steht offen */
+.help .help-fold { border-top: 1px solid var(--line, rgba(127,127,127,.2)); padding: 8px 0 0; margin-top: 8px; }
+.help .help-fold > summary { cursor: pointer; font-weight: 600; list-style-position: inside; padding: 4px 0; }
+.help .help-fold[open] > summary { margin-bottom: 4px; }
+.help .help-fold .feat { margin-top: 0; }

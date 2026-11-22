@@ -1,0 +1,31 @@
+/* Ergebnis-Karten als „Dashboard“ (Ride + Rig; Logik in dock.js) –
+   ziehen (⠿), einklappen, nach links/rechts. Geladen nach rig.css bzw. style.css, vor v2.css. */
+.dock { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.dock[hidden] { display: none; }
+.dock:empty { min-height: 0; }
+.dock-item { position: relative; min-width: 0; }
+.dock-item.empty { display: none; }
+/* Leiste sitzt auf der Oberkante der Karte (ueberdeckt keine Knoepfe wie „Anpassen“) */
+.dock-tools { position: absolute; top: -11px; right: 16px; display: flex; gap: 2px; z-index: 3; opacity: 0; transition: opacity .15s;
+  background: var(--card); border: 1px solid var(--line); border-radius: 99px; padding: 0 4px; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.dock-item:hover > .dock-tools, .dock-item > .dock-tools:focus-within { opacity: 1; }
+.dock { padding-top: 2px; }
+.dock-tools button { font: inherit; font-size: .82rem; line-height: 1; padding: 4px 6px; border: 0; border-radius: 6px; background: transparent;
+  color: var(--muted); cursor: pointer; }
+.dock-tools button:hover { background: var(--chip); color: var(--ink); }
+.dock-tools .grab { cursor: grab; }
+.dock-item.collapsed > .card { max-height: 46px; overflow: hidden; }
+.dock-item.collapsed > .card::after { content: attr(data-title); position: absolute; left: 18px; top: 13px; font-weight: 600; }
+.dock-item.collapsed > .card > * { visibility: hidden; }
+.dock-item.dragging { opacity: .35; }
+.dock.drop-on { outline: 2px dashed var(--accent); outline-offset: 4px; border-radius: 16px; min-height: 60px; }
+.dock-item > .card { position: relative; }
+/* Handy – alles untereinander in fester Reihenfolge, keine Dashboard-Leiste */
+@media (max-width: 900px) {
+  .dock, .dock-item { display: contents; }
+  .dock-tools { display: none !important; }
+  .dock-item > .card { order: 2; }
+  .dock-item.collapsed > .card { max-height: none; overflow: visible; }
+  .dock-item.collapsed > .card > * { visibility: visible; }
+  .dock-item.collapsed > .card::after { content: none; }
+}

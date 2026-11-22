@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "stand": "2026",
+  "hinweis": "Sondermaut (Tunnel, Brücken, Bergstrecken) je einfache Fahrt. Erkennung: Route führt nah am Punkt über ein Bauwerk der Art (tunnel/bridge); ohne Wegdaten genügt Autobahn/Schnellstraße. Einmal im Jahr (Januar/Februar) nachziehen.",
+  "objekte": [
+    {
+      "id": "millau", "name": "Viaduc de Millau (A75)", "cc": "FR", "pt": [44.0799, 3.0224], "r": 300, "art": "bridge",
+      "schema": "FR", "waehrung": "EUR", "maut_km": 3, "exakt": true,
+      "preise": {"1": 11.30, "2": 17.00},
+      "sommer": {"von": "06-15", "bis": "09-15", "preise": {"1": 13.80, "2": 20.70}},
+      "quelle": "https://www.leviaducdemillau.com/sites/viaducdemillau/accueil-viaduc-de-millau/tarifs-du-peage.html",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "montblanc", "name": "Mont-Blanc-Tunnel", "cc": "FR", "pt": [45.8739, 6.8923], "r": 300, "art": "tunnel",
+      "schema": "hoehe", "waehrung": "EUR", "maut_km": 7, "exakt": true,
+      "preise": {"1": 55.50, "2": 73.40, "3": 201.50, "4": 404.80},
+      "zusatz": "Preis der französischen Seite; von Italien aus 56,40 € (Kl. 1) bzw. 74,70 € (Kl. 2). Hin und zurück binnen 7 Tagen günstiger.",
+      "quelle": "https://www.atmb.com/app/uploads/2026/01/Tarifs-au-1er-janvier-2026-TMB.pdf",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "frejus", "name": "Fréjus-Tunnel", "cc": "FR", "pt": [45.1693, 6.6833], "r": 300, "art": "tunnel",
+      "schema": "hoehe", "waehrung": "EUR", "maut_km": 7, "exakt": true,
+      "preise": {"1": 56.40, "2": 74.70, "3": 204.80, "4": 411.60},
+      "zusatz": "Preis der italienischen Seite (SITAF 2026); die französische Seite liegt etwa 1 € darunter. Hin und zurück binnen 7 Tagen günstiger.",
+      "quelle": "https://www.sitaf.it/en/tariffs-and-passes/",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "gsb", "name": "Grosser-St.-Bernhard-Tunnel", "cc": "CH", "pt": [45.8807, 7.1842], "r": 300, "art": "tunnel",
+      "schema": "womo", "waehrung": "CHF", "exakt": false,
+      "preise": {"pkw": 31.00, "womo": 48.50},
+      "zusatz": "Pkw auch mit Anhänger 31 CHF, Wohnmobil 48,50 CHF; im Winter teurer – Betreiberpreis vor der Fahrt prüfen.",
+      "quelle": "https://www.saint-bernard.ch/en/discover/pays-du-st-bernard/tunnel",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "brenner", "name": "Brenner-Autobahn A13", "cc": "AT", "pt": [47.2015, 11.4014], "r": 300, "art": "bridge",
+      "schema": "at", "waehrung": "EUR", "exakt": true,
+      "preise": {"bis35": 12.50},
+      "zusatz": "Gesamtstrecke (Mautstelle Schönberg), zusätzlich zur Vignette.",
+      "quelle": "https://www.oeamtc.at/thema/maut-vignette/digitale-streckenmaut-fuer-sondermautstrecken-15357592",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "tauern", "name": "Tauern-Autobahn A10", "cc": "AT", "pt": [47.2100, 13.4262], "r": 300, "art": "tunnel",
+      "schema": "at", "waehrung": "EUR", "exakt": true,
+      "preise": {"bis35": 15.00},
+      "zusatz": "Tauern- und Katschbergtunnel, zusätzlich zur Vignette.",
+      "quelle": "https://www.oeamtc.at/thema/maut-vignette/digitale-streckenmaut-fuer-sondermautstrecken-15357592",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "arlberg", "name": "Arlbergtunnel S16", "cc": "AT", "pt": [47.1270, 10.1883], "r": 300, "art": "tunnel",
+      "schema": "at", "waehrung": "EUR", "exakt": true,
+      "preise": {"bis35": 13.00},
+      "zusatz": "Zusätzlich zur Vignette.",
+      "quelle": "https://www.oeamtc.at/thema/maut-vignette/digitale-streckenmaut-fuer-sondermautstrecken-15357592",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "karawanken", "name": "Karawankentunnel A11", "cc": "AT", "pt": [46.4994, 14.0192], "r": 300, "art": "tunnel",
+      "schema": "at", "waehrung": "EUR", "exakt": true,
+      "preise": {"bis35": 9.00},
+      "zusatz": "Zusätzlich zur Vignette; in Slowenien gilt die slowenische Vignette.",
+      "quelle": "https://www.oeamtc.at/thema/maut-vignette/digitale-streckenmaut-fuer-sondermautstrecken-15357592",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "bosruck", "name": "Bosrucktunnel A9", "cc": "AT", "pt": [47.6160, 14.3487], "r": 300, "art": "tunnel",
+      "schema": "at", "waehrung": "EUR", "exakt": true,
+      "preise": {"bis35": 7.00},
+      "zusatz": "Teil der Pyhrn-Sondermaut, zusätzlich zur Vignette.",
+      "quelle": "https://www.oeamtc.at/thema/maut-vignette/digitale-streckenmaut-fuer-sondermautstrecken-15357592",
+      "geprueft": "2026-11-17"
+    },
+    {
+      "id": "gleinalm", "name": "Gleinalmtunnel A9", "cc": "AT", "pt": [47.2642, 15.1144], "r": 300, "art": "tunnel",
+      "schema": "at", "waehrung": "EUR", "exakt": true,
+      "preise": {"bis35": 12.00},
+      "zusatz": "Teil der Pyhrn-Sondermaut, zusätzlich zur Vignette.",
+      "quelle": "https://www.oeamtc.at/thema/maut-vignette/digitale-streckenmaut-fuer-sondermautstrecken-15357592",
+      "geprueft": "2026-11-17"
+    }
+  ]
+}

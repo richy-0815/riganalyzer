@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Orte fuer den Namensvorschlag (0.47.0, Ticket #9); Abdeckung: camp.poly (6.40–6.60 E, 43.70–43.90 N) -->
+<osm version="0.6" generator="test">
+  <node id="1" lat="43.8000" lon="6.5000" version="1"><tag k="place" v="town"/><tag k="name" v="Castellane"/></node>
+  <node id="2" lat="43.7600" lon="6.4400" version="1"><tag k="place" v="village"/><tag k="name" v="La Palud"/></node>
+  <node id="3" lat="43.8500" lon="6.5600" version="1"><tag k="place" v="hamlet"/></node>
+  <node id="4" lat="43.8800" lon="6.5800" version="1"><tag k="amenity" v="cafe"/><tag k="name" v="Café"/></node>
+</osm>

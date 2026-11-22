@@ -1,0 +1,37 @@
+# ruff (Python-Linter) fuer das ganze Repo.
+# Nur Lint, kein Formatter-Zwang (ruff format wird nicht geprueft).
+line-length = 160
+
+# Laufzeit: Image python:3.14-slim (Dockerfile); werkzeuge/ laeuft lokal mit aktuellem Python.
+target-version = "py314"
+
+# Generiertes/Fremdes; .gitignore wird zusaetzlich beachtet.
+extend-exclude = [
+    "app/static/vendor",
+    "app/static-rig/vendor",
+]
+
+[lint]
+# Bewusst bescheiden: echte Fehler statt Stil.
+#   F   pyflakes (unbenutzte Importe/Variablen, undefinierte Namen, Redefinitionen)
+#   E   pycodestyle-Fehler (stabile Regeln: E4/E7/E9 + E501 Zeilenlaenge 160)
+#   W   pycodestyle-Warnungen (Leerzeichen am Zeilenende, fehlender Zeilenumbruch, ungueltige Escapes)
+#   B   flake8-bugbear (veraenderliche Default-Argumente, Schleifenvariablen in Closures, …)
+#   BLE flake8-blind-except (`except Exception:` nur, wo es gewollt ist – dann `# noqa: BLE001 – Grund`)
+#   RUF100 unnoetige/veraltete `# noqa` melden, damit Ausnahmen ehrlich bleiben
+#   S   flake8-bandit (Sicherheit: Shell/Subprocess, SQL aus Strings, unsichere Hashes, XML, urlopen …)
+select = ["F", "E", "W", "B", "BLE", "RUF100", "S"]
+ignore = [
+    # B905 zip() ohne strict=: der Code zippt haeufig bewusst gleich lange Folgen (Punkte/Abstaende);
+    # ueberall strict=False nachzutragen waere reines Rauschen, strict=True koennte Verhalten aendern.
+    "B905",
+    # S110/S112 try-except-pass/continue: gewollte stille Ausweichpfade; breite Excepts faengt schon BLE ab.
+    "S110",
+    "S112",
+]
+
+[lint.per-file-ignores]
+# Tests: assert, Testpasswoerter, /tmp-Pfade und Subprocess sind dort gewollt.
+"tests/**" = ["S"]
+"e2e/**" = ["S"]
+"ci/test_*.py" = ["S"]

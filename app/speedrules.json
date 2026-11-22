@@ -1,0 +1,197 @@
+{
+ "version": 1,
+ "countries": {
+  "DE": {
+   "name": "Deutschland",
+   "source": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/deutschland/uebersicht/tempolimits/",
+   "as_of": "2026-10",
+   "note": "Gespann 100 nur mit Tempo-100-Plakette; schwer = Wohnmobil 3,5–7,5 t",
+   "limits": {
+    "car": {
+     "motorway": null,
+     "expressway": null,
+     "rural": null,
+     "urban": null
+    },
+    "heavy": {
+     "motorway": 100,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer": {
+     "motorway": 80,
+     "expressway": 80,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer100": {
+     "motorway": 100,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    }
+   }
+  },
+  "AT": {
+   "name": "Österreich",
+   "source": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/oesterreich/uebersicht/tempolimits/",
+   "as_of": "2026-10",
+   "note": "Gespann mit Zugfahrzeug bis 3,5 t",
+   "limits": {
+    "car": {
+     "motorway": null,
+     "expressway": null,
+     "rural": null,
+     "urban": null
+    },
+    "heavy": {
+     "motorway": 80,
+     "expressway": 80,
+     "rural": 70,
+     "urban": null
+    },
+    "trailer": {
+     "motorway": 100,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer100": {
+     "motorway": 100,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    }
+   }
+  },
+  "CH": {
+   "name": "Schweiz",
+   "source": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/schweiz/uebersicht/tempolimits/",
+   "as_of": "2026-10",
+   "note": "Gespann mit Zugfahrzeug bis 3,5 t und Anhaenger bis 3,5 t: 100 auf Autobahn/Autostrasse",
+   "limits": {
+    "car": {
+     "motorway": null,
+     "expressway": null,
+     "rural": null,
+     "urban": null
+    },
+    "heavy": {
+     "motorway": 100,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer": {
+     "motorway": 100,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer100": {
+     "motorway": 100,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    }
+   }
+  },
+  "FR": {
+   "name": "Frankreich",
+   "source": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/frankreich/uebersicht/tempolimits/",
+   "as_of": "2026-10",
+   "note": "Gespann mit Zuggesamtgewicht ueber 3,5 t (Womo + Anhaenger): 90 auf Autobahn (ADAC, Code de la route R413-8)",
+   "limits": {
+    "car": {
+     "motorway": null,
+     "expressway": null,
+     "rural": null,
+     "urban": null
+    },
+    "heavy": {
+     "motorway": 110,
+     "expressway": 100,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer": {
+     "motorway": 90,
+     "expressway": 80,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer100": {
+     "motorway": 90,
+     "expressway": 80,
+     "rural": 80,
+     "urban": null
+    }
+   }
+  },
+  "IT": {
+   "name": "Italien",
+   "source": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/italien/uebersicht/tempolimits/",
+   "as_of": "2026-10",
+   "note": "",
+   "limits": {
+    "car": {
+     "motorway": null,
+     "expressway": null,
+     "rural": null,
+     "urban": null
+    },
+    "heavy": {
+     "motorway": 100,
+     "expressway": 80,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer": {
+     "motorway": 80,
+     "expressway": 70,
+     "rural": 70,
+     "urban": null
+    },
+    "trailer100": {
+     "motorway": 80,
+     "expressway": 70,
+     "rural": 70,
+     "urban": null
+    }
+   }
+  },
+  "ES": {
+   "name": "Spanien",
+   "source": "https://www.adac.de/reise-freizeit/reiseplanung/reiseziele/spanien/uebersicht/tempolimits/",
+   "as_of": "2026-10",
+   "note": "Autovías wie Autobahn",
+   "limits": {
+    "car": {
+     "motorway": null,
+     "expressway": null,
+     "rural": null,
+     "urban": null
+    },
+    "heavy": {
+     "motorway": 90,
+     "expressway": 80,
+     "rural": 80,
+     "urban": null
+    },
+    "trailer": {
+     "motorway": 90,
+     "expressway": 80,
+     "rural": 70,
+     "urban": null
+    },
+    "trailer100": {
+     "motorway": 90,
+     "expressway": 80,
+     "rural": 70,
+     "urban": null
+    }
+   }
+  }
+ }
+}

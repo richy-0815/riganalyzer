@@ -1,0 +1,89 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       4.78,
+       45.72
+      ],
+      [
+       4.9,
+       45.72
+      ],
+      [
+       4.9,
+       45.8
+      ],
+      [
+       4.78,
+       45.8
+      ],
+      [
+       4.78,
+       45.72
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "200046977-ZFE-001",
+    "date_debut": "2026-01-01",
+    "date_fin": null,
+    "vp_critair": "V3",
+    "vp_horaires": "24/7",
+    "pl_critair": "V2",
+    "pl_horaires": "24/7"
+   },
+   "publisher": {
+    "nom": "Métropole de Lyon",
+    "zfe_id": "LYON"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       5.68,
+       45.14
+      ],
+      [
+       5.76,
+       45.14
+      ],
+      [
+       5.76,
+       45.2
+      ],
+      [
+       5.68,
+       45.2
+      ],
+      [
+       5.68,
+       45.14
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "id": "200040715-ZFE-001",
+    "date_debut": "2019-05-02",
+    "date_fin": null,
+    "vp_critair": null,
+    "pl_critair": null
+   },
+   "publisher": {
+    "nom": "Grenoble-Alpes-Métropole",
+    "zfe_id": "GRENOBLE"
+   }
+  }
+ ]
+}

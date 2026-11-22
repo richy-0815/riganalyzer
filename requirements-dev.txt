@@ -1,0 +1,5 @@
+pytest>=9.0.0
+# starlette.testclient nutzt httpx2 (sonst StarletteDeprecationWarning in jedem Lauf)
+httpx2>=2.16.0
+# test_freshness.py liest Konfiguration/Workflows als YAML
+pyyaml>=6.0.3

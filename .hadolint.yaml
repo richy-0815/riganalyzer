@@ -1,0 +1,5 @@
+ignored:
+  # apt-Pakete ohne feste Version: das Basis-Image ist per Digest festgenagelt, tools/update-deps.sh frischt beides auf.
+  - DL3008
+  # USER app statt numerisch: app hat fest die UID 10001 (useradd --uid 10001), das Datenverzeichnis ist darauf eingestellt.
+  - DL3066

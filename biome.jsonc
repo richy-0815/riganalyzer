@@ -1,0 +1,44 @@
+// biome (JavaScript-Linter) – aufgerufen in .forgejo/workflows/ci.yml (Job test, Schritt JS-Lint).
+// Nur Lint: kein Formatter-Zwang, keine Assists (Import-Sortierung) – der bestehende Stil bleibt.
+{
+	"$schema": "https://biomejs.dev/schemas/2.6.6/schema.json",
+	"vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+	"files": {
+		// Eigener App-Code (Browser-Skripte Ride/Rig) und die node-Tests. Fremdcode (vendor/),
+		// Minifiziertes (*.min.js) bleibt draussen.
+		"includes": [
+			"app/static/**/*.js",
+			"app/static-rig/**/*.js",
+			"tests/js/**/*.cjs",
+			"!**/vendor",
+			"!**/*.min.js"
+		]
+	},
+	"formatter": { "enabled": false },
+	"assist": { "enabled": false },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "recommended",
+			"style": {
+				// String-Verkettung mit + ist der durchgehende Stil der App; Template-Literale nur, wo sie lesbarer sind.
+				"useTemplate": "off"
+			},
+			"complexity": {
+				// function-Ausdruecke sind bewusst (eigenes this, Stil der aelteren Skripte); Umbau ohne Nutzen.
+				"useArrowFunction": "off",
+				// `a && a.b` -> `a?.b` liefert bei a = null/0/"" undefined statt a: kein reiner Stilwechsel,
+				// jede der ~76 Stellen einzeln auf diesen Unterschied zu pruefen lohnt nicht.
+				"useOptionalChain": "off"
+			},
+			"suspicious": {
+				// app.js/rig.js sind klassische <script>-Dateien (kein type=module); biome behandelt .js als Modul.
+				// "use strict" ist dort NICHT redundant – ohne waere der Code sloppy mode.
+				"noRedundantUseStrict": "off",
+				// forEach(x => el.remove()) gibt nur nebenbei einen Wert zurueck – harmlos. map/filter/… ohne
+				// return (echte Fehler) prueft die Regel weiter.
+				"useIterableCallbackReturn": { "level": "error", "options": { "checkForEach": false } }
+			}
+		}
+	}
+}

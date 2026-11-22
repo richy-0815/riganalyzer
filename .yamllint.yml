@@ -1,0 +1,10 @@
+# yamllint. Zeilen in run:-Bloecken (Shell) duerfen laenger sein als im Python-Code.
+extends: default
+rules:
+  line-length:
+    max: 240
+  document-start: disable
+  truthy:
+    check-keys: false
+  comments:
+    min-spaces-from-content: 1

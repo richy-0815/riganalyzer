@@ -1,0 +1,10 @@
+{
+  "_hinweis": "Angaben zum Verantwortlichen fuer Impressum und Datenschutzerklaerung. Platzhalter in [ECKIGEN KLAMMERN] ersetzen – solange einer drin ist, rollt die CI nicht nach Prod aus (werkzeuge/check_rechtliches.py).",
+  "name": "Richard Petrick",
+  "anschrift": [
+    "Wildkanzelweg 28",
+    "13465 Berlin"
+  ],
+  "mail": "impressum@petrick.cloud",
+  "stand": "2026-11-20"
+}

@@ -1,0 +1,3196 @@
+[
+ {
+  "version": "0.54.2",
+  "date": "2026-11-22",
+  "app": "beide",
+  "title": "Code-Kommentare aufgeräumt",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Code-Kommentare aufgeräumt: keine Versions-, Ticket- und Datumsmarken, keine Hinweise auf die eigene Infrastruktur mehr; selbsterklärende Kommentare entfernt",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.54.1",
+  "date": "2026-11-22",
+  "app": "rig",
+  "title": "Werkstatt-Leistungen vollständiger",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Werkstatt-Leistungen in den Detail-Karten: Übersetzung um die in OpenStreetMap tatsächlich genutzten Schlüssel ergänzt (z. B. motor_home, caravan_repair, wheels) – vorher blieben die Chips bei vielen Werkstätten leer.",
+    "rig"
+   ]
+  ],
+  "public_text": "Werkstätten zeigen in den Details jetzt deutlich öfter ihre Leistungen – etwa Wohnmobile, Reifen oder HU/AU."
+ },
+ {
+  "version": "0.54.0",
+  "date": "2026-11-22",
+  "app": "rig",
+  "title": "Details auf einen Blick",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Detail-Karte (#31) für Stellplätze/Camping, Läden, Werkstätten/Service, Einkehr und Sehenswertes (auch in den Planer-Details): Kopf mit Art-Chips, eigener Bewertung und km; Knöpfe Navigieren · Anrufen · Website · Als Übernachtung · In die Tour · Mehr (OSM, park4night, E-Mail, Koordinaten); Fotostreifen; „heute geöffnet“ mit aufklappbarer Woche; Beschreibung mit „mehr“; Ausstattung/Leistungen als Chips; „Fehlt was? In OSM ergänzen“.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Werkstätten/Service mit Telefon, Website, E-Mail, Beschreibung, Betreiber und Leistungen aus service:vehicle:* (Einkaufs-Datensatz, Spalte extra; ältere Datensätze gehen bis zum Neubau ohne).",
+    "rig"
+   ],
+   [
+    "neu",
+    "Wikimedia-Fotos aus OSM (wikimedia_commons) als Vorschau über den eigenen Server (/api/foto/commons, nur Wikimedia-Hosts, Speicher im RAM, Bremse je Login).",
+    "rig"
+   ],
+   [
+    "besser",
+    "Einkehr und Sehenswertes: Telefon, Beschreibung, Foto und Wikipedia aus OSM; Beschreibungen bis 500 statt 300 Zeichen.",
+    "rig"
+   ]
+  ],
+  "public_text": "Neu: Die Details zu Plätzen, Läden und Werkstätten sind übersichtlicher – mit Knöpfen zum Navigieren und Anrufen, Fotos, den Öffnungszeiten der Woche und den Leistungen auf einen Blick."
+ },
+ {
+  "version": "0.53.0",
+  "date": "2026-11-22",
+  "app": "rig",
+  "title": "Passt das Gespann auf den Stellplatz?",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Stellplatz-Länge (#30): für die Plätze der Route Länge aus OSM-Beschreibung, DATAtourisme und Website (Suchmuster in sechs Sprachen) – sonst Messung im Orthofoto (IGN, PNOA, PDOK, swisstopo, basemap.at, sonst Esri) innerhalb des OSM-Umrisses: längste freie 3-m-Bahn und größte freie Wendefläche, Bäume/Schatten ausgenommen; dazu OSM-Stellflächen und Beschränkungen auf der Zufahrt. Ohne KI-Dienste, 0 Cent je Platz.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Ampel mit „passt wahrscheinlich“/„wohl zu kurz“, Filter „📏 Länge geprüft“, Platz-Popup mit Quelle, Zitat, Messwerten und gemessenem Luftbild; Nachtplatz-Vorschläge nutzen das Urteil und reihen fehlende Plätze vorn ein.",
+    "rig"
+   ],
+   [
+    "besser",
+    "OSM-Tag maxlength=none zählt als „ohne Längenbegrenzung“.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Intern: Auswertung im Hintergrund, Ergebnisse 180 Tage gespeichert; Websites nur öffentliche Adressen, robots.txt beachtet.",
+    "rig"
+   ]
+  ],
+  "public_text": "Neu: RigAnalyzer prüft, ob euer Wohnmobil oder Gespann auf die Stellplätze an der Route passt – aus Website und Beschreibung des Platzes oder, wenn dort nichts steht, per Messung im Luftbild."
+ },
+ {
+  "version": "0.52.3",
+  "date": "2026-11-22",
+  "app": "beide",
+  "title": "Kleinere Verbesserungen im Hintergrund",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Mailserver-Standard ohne feste Netzadresse (der Betrieb setzt ihn ohnehin).",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.52.2",
+  "date": "2026-11-21",
+  "app": "beide",
+  "title": "Mehr automatische Prüfungen",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: weitere automatische Prüfungen vor jedem Ausrollen – Secrets-Suche über die ganze Historie (gitleaks), Sicherheitsregeln für den Python-Code, Dockerfile-, YAML-, JSON- und Ablauf-Prüfung (hadolint, yamllint, zizmor).",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.52.1",
+  "date": "2026-11-20",
+  "app": "beide",
+  "title": "Luftbild und Einfahrt-Fotos über den eigenen Server",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Luftbild-Kacheln (Esri) über /api/luftbild/{z}/{x}/{y}: feste Quelle, nur gültige Kacheln, Speicher im RAM, Bremse je Login.",
+    "both"
+   ],
+   [
+    "besser",
+    "Einfahrt-Fotos (Mapillary/fbcdn) über /api/camps/photo/{id}: nur vom Server vorgeschlagene Bilder, nur Mapillary-Hosts, nur Bilddateien.",
+    "rig"
+   ],
+   [
+    "besser",
+    "CSP ohne Esri/Mapillary/fbcdn; Datenschutzerklärung entsprechend angepasst.",
+    "both"
+   ]
+  ],
+  "public_text": "Datenschutz: Das Luftbild in der Planer-Karte holt jetzt unser Server für euch – der Anbieter sieht eure IP-Adresse nicht mehr.",
+  "public_text_rig": "Datenschutz: Luftbild in der Planer-Karte und Fotos von Einfahrten holt jetzt unser Server für euch – die Anbieter sehen eure IP-Adresse nicht mehr."
+ },
+ {
+  "version": "0.52.0",
+  "date": "2026-11-20",
+  "app": "beide",
+  "title": "Datenschutzerklärung und Impressum",
+  "public": true,
+  "public_text": "Neu: Datenschutzerklärung und Impressum, auch ohne Anmeldung lesbar – unten auf der Anmeldeseite und in der Fußzeile. Dort steht, was wir wie lange speichern und welche Anbieter Karten und Bilder liefern.",
+  "items": [
+   [
+    "neu",
+    "Öffentliche Seiten /datenschutz und /impressum (Angaben aus app/rechtliches.json; CI rollt mit Platzhaltern nicht nach Prod aus), verlinkt unter allen Anmelde-Karten, in den Fußzeilen und auf der App-Seite; Hinweis zur Datenverarbeitung direkt im Zugangsantrag.",
+    "both"
+   ],
+   [
+    "besser",
+    "Texte zum Datenschutz richtiggestellt: Analyse-Ergebnisse liegen bis zu 7 Tage im Zwischenspeicher, Ereignisprotokoll 90 Tage, nur technisch nötige Cookies (FAQ, Funktionen, Technik).",
+    "both"
+   ],
+   [
+    "besser",
+    "Anmelde-Hinweise an den Admin-Kanal ohne IP-Adresse (die steht weiter im Admin-Bereich).",
+    "both"
+   ],
+   [
+    "besser",
+    "App-Seite: Navi-Ziel im Protokoll und Karte von OpenFreeMap offen genannt.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.51.2",
+  "date": "2026-11-20",
+  "app": "beide",
+  "title": "Analyse-Status nur für den eigenen Login",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Sicherheit: Stand und Ergebnis einer laufenden Analyse sieht nur noch, wer sie gestartet hat.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.51.1",
+  "date": "2026-11-19",
+  "app": "rig",
+  "title": "Navi-Paket: Restzeit genauer",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Navi-Paket: Restzeit kommt jetzt aus der Dauer der letzten Bauten (je Schritt, nach Streckenlänge) und zählt sekündlich herunter; unter einer Minute in Sekunden, kurz vor Schluss „gleich fertig“ – vorher stand bei kurzen Bauten immer „noch ca. 1 Min.“ (#21).",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.51.0",
+  "date": "2026-11-19",
+  "app": "rig",
+  "title": "Navi-Paket: Bau-Status mit Balken und Schritten",
+  "public": true,
+  "public_text": "Neu: Beim „Ans Navi schicken“ zeigt ein Balken, welcher Schritt gerade läuft und wie lange es noch dauert – im Routenplaner und unter „Mein Konto“. Schlägt der Bau fehl, baut ihr das Paket mit einem Klick neu.",
+  "items": [
+   [
+    "neu",
+    "Navi-Paket-Status als Balken + Schrittliste (Route, Straßendaten, Karte, Gespann-Prüfung, Abschluss) mit Häkchen, Laufzeit und grober Restzeit – gleiche Anzeige im Routenplaner und unter Konto → Meine Touren (#21).",
+    "rig"
+   ],
+   [
+    "neu",
+    "Wartet ein Paket, steht dabei, wie viele Bauten vor einem dran sind; fertige Pakete zeigen die Bauzeit (#21).",
+    "rig"
+   ],
+   [
+    "neu",
+    "Konto → Meine Touren: laufende Bauten aktualisieren sich von selbst; nach einem Fehler „↻ Neu bauen“ direkt an der Tour (#21).",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.50.0",
+  "date": "2026-11-17",
+  "app": "beide",
+  "title": "Mails zu Neuerungen wählbar",
+  "public": true,
+  "public_text": "Neu: Unter „Mein Konto“ könnt ihr Mails zu Neuerungen einschalten – abends eine Sammelmail zu neuen Versionen und ab und zu einen Newsletter. Ab Werk aus, abbestellen mit einem Klick.",
+  "items": [
+   [
+    "neu",
+    "Mein Konto: Kachel „✉️ Benachrichtigungen“ mit den Schaltern „Neue Versionen“ und „Newsletter“, ab Werk aus; wer noch nie gefragt wurde und eine Mailadresse hat, wird dort einmal gefragt (#16).",
+    "beide"
+   ],
+   [
+    "neu",
+    "Neue Versionen: abends ab 19 Uhr höchstens eine Sammelmail je App mit den öffentlichen Neuerungen des Tages, Absender noreply (#16).",
+    "beide"
+   ],
+   [
+    "neu",
+    "Abbestellen ohne Anmeldung: Link in jeder dieser Mails (/abbestellen, erst der Knopf bestellt ab) und One-Click-Kopfzeilen fürs Mailprogramm (#16).",
+    "beide"
+   ],
+   [
+    "neu",
+    "Admin (Oberadmin): eigene Seite „✏️ Newsletter schreiben“ unter /admin/newsletter – Editor mit Knöpfen (Überschrift, fett, kursiv, Liste, Link), Vorschau wie verschickt, Entwurf wird automatisch gespeichert, Testmail an mich, Versand als HTML- und Textmail, frühere als Vorlage (#16).",
+    "beide"
+   ],
+   [
+    "neu",
+    "Admin → Logins: Abzeichen „📰 Newsletter“ / „✉️ Versionen“ je Login und im Detail „Mails“; Suche nach „newsletter“ zeigt alle Abonnenten (#16).",
+    "beide"
+   ]
+  ]
+ },
+ {
+  "version": "0.49.3",
+  "date": "2026-11-17",
+  "app": "beide",
+  "title": "Navi: Ankunft in der Vorschau",
+  "title_ride": "Wartung",
+  "public": true,
+  "public_text": "Verbessert: Die Vorschau in RigNavi zeigt die Ankunft schon mit Aufenthalten und Fahrpausen – wie später in der Fahrt.",
+  "public_text_rig": "Verbessert: Die Vorschau in RigNavi zeigt die Ankunft schon mit Aufenthalten und Fahrpausen – wie später in der Fahrt.",
+  "public_text_ride": "Kleinere Verbesserungen im Hintergrund.",
+  "items": [
+   [
+    "fix",
+    "RigNavi 0.24.2: Die Vorschau vor „Losfahren“ rechnet Aufenthalte und Fahrpausen in die Ankunft ein (vorher nur Fahrzeit und Stau) und zeigt, wie viel davon Aufenthalte und Pausen sind (#14).",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.49.2",
+  "date": "2026-11-17",
+  "app": "beide",
+  "title": "Navi: Ziele planen",
+  "title_ride": "Wartung",
+  "public": true,
+  "public_text": "Verbessert: In RigNavi bleiben „Route planen“ und „Alle löschen“ auch bei vielen Zielen sichtbar.",
+  "public_text_rig": "Verbessert: In RigNavi bleiben „Route planen“ und „Alle löschen“ auch bei vielen Zielen sichtbar.",
+  "public_text_ride": "Kleinere Verbesserungen im Hintergrund.",
+  "items": [
+   [
+    "fix",
+    "RigNavi 0.24.1: Ab zwei Zielen waren „Route planen“ und „Alle löschen“ abgeschnitten – die Suchkarte darf jetzt bis 70 % hoch werden, die Zielliste scrollt, die Knöpfe bleiben immer sichtbar.",
+    "rig"
+   ],
+   [
+    "besser",
+    "RigNavi 0.24.1: Autobahn-Schalter je Ziel schmaler, Zielnamen haben mehr Platz.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.49.1",
+  "date": "2026-11-17",
+  "app": "beide",
+  "title": "Kleines Fahrtblatt im Navi",
+  "title_ride": "Wartung",
+  "public": true,
+  "public_text": "Neu: Das Fahrtblatt in RigNavi ist unterwegs klein und lässt mehr Karte frei – antippen oder wischen zeigt alles.",
+  "public_text_rig": "Neu: Das Fahrtblatt in RigNavi ist unterwegs klein und lässt mehr Karte frei – antippen oder wischen zeigt alles.",
+  "public_text_ride": "Kleinere Verbesserungen im Hintergrund.",
+  "items": [
+   [
+    "besser",
+    "RigNavi 0.24.0: Fahrtblatt unten klein (Ankunft, Fahrzeit, Rest, Zwischenziel) – Griff antippen oder wischen zeigt Tanken, Entsorgung, Unterwegs-Orte und Plätze; die Wahl bleibt gespeichert, Warnungen bleiben immer sichtbar (#14).",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.49.0",
+  "date": "2026-11-17",
+  "app": "rig",
+  "title": "Maut in Euro mit Tunneln und Brücken",
+  "public": true,
+  "public_text": "Neu: Der RigAnalyzer rechnet Tunnel und Brücken mit eigener Maut (Millau, Mont-Blanc, Brenner …) in die Maut ein und zeigt die Summe neben dem Diesel.",
+  "items": [
+   [
+    "neu",
+    "RigAnalyzer: Sondermaut für Tunnel und Brücken – Viaduc de Millau (mit Sommerpreis nach Fahrplan-Datum), Mont-Blanc, Fréjus, Grosser St. Bernhard, Brenner, Tauern, Arlberg, Karawanken, Bosruck, Gleinalm – je Klasse aus dem Fahrzeugprofil, mit Link zum Tarif (#1).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigAnalyzer: Maut-Summe in der Kachel neben dem Diesel (#1).",
+    "rig"
+   ],
+   [
+    "fix",
+    "RigAnalyzer: Spanien/Portugal – Wohnmobile bis 3,5 t (auch mit Anhänger) zählen als „Ligeros“, nicht mehr als „Pesados 1“; Streckenmaut dort deutlich günstiger (#1).",
+    "rig"
+   ],
+   [
+    "fix",
+    "RigAnalyzer: Mautpflichtige km einer Sonderstrecke (z. B. A75 am Viadukt) zählen nicht doppelt (#1).",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.48.0",
+  "date": "2026-11-16",
+  "app": "beide",
+  "title": "Aufenthalte und Unterwegs im Navi",
+  "title_ride": "Wartung",
+  "public": true,
+  "public_text": "Neu: RigNavi kennt eure Aufenthalte und Fahrpausen und zeigt Sehenswertes und Einkehr entlang der Route.",
+  "public_text_rig": "Neu: RigNavi zeigt am Zwischenziel Ankunft und Weiterfahrt, rechnet Aufenthalte und Fahrpausen ein und zeigt Sehenswertes und Einkehr an der Route. Geschickte Reisen einmal neu „Ans Navi schicken“.",
+  "public_text_ride": "Kleinere Verbesserungen im Hintergrund.",
+  "items": [
+   [
+    "neu",
+    "RigAnalyzer: Die Wahl der Fahrpausen im Fahrplan (geschätzt, 20 min alle 2 h, ohne) wird mit der Tour gespeichert und geht mit ins Reisepaket (#14).",
+    "rig"
+   ],
+   [
+    "neu",
+    "Reisepaket: Sehenswertes, Einkehr und Service aus dem Reiter „🧭 Unterwegs“ sind jetzt drin (je Etappe höchstens 300 je Art) – für Reisen, die vorher geschickt wurden, einmal neu „📱 Ans Navi schicken“ (#14).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.23.0: am nächsten Zwischenziel „📍 Ort an 11:40 · weiter 12:25“, während des Aufenthalts „⏱ weiter um …“; die Ankunft rechnet Aufenthalte und Fahrpausen mit ein (#14).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.23.0: „⭐ nächstes Sehenswertes“ und „🍽 nächste Einkehr“ mit Öffnungszeit im Fahrtblatt, Liste „🧭 Unterwegs“ mit Filter und „Als Zwischenziel“ – aus dem Reisepaket, auch offline (#14).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi iPad 0.5.0: Aufenthalte je Zwischenziel, Ankunft mit Aufenthalten und Fahrpausen, Unterwegs-Orte aus der gespeicherten Analyse (neu: GET /api/trips/{id}/way) (#14).",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.47.1",
+  "date": "2026-11-15",
+  "app": "beide",
+  "title": "Schlüssel nicht mehr im Protokoll",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Zugangsschlüssel externer Dienste (Spritpreise, Straßenbilder) werden in Protokollzeilen geschwärzt.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.47.0",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Unterwegs entdecken, Aufenthalte, lange Reisen",
+  "title_ride": "Punkte benennen",
+  "public": true,
+  "public_text": "Neu: Unterwegs entdecken an der Route, Aufenthalte an Zwischenpunkten, lange Strecken werden in Etappen geteilt, Touren lassen sich aneinanderhängen und Punkte benennen.",
+  "public_text_rig": "Neu: Unterwegs entdecken an der Route, Aufenthalte an Zwischenpunkten, lange Strecken werden in Etappen geteilt, Touren lassen sich aneinanderhängen und Punkte benennen.",
+  "public_text_ride": "Neu: Punkte im Routenplaner benennen und umbenennen – per Klick gesetzte Punkte bekommen gleich einen Ortsnamen.",
+  "items": [
+   [
+    "neu",
+    "Routenplaner: Punkte benennen und umbenennen – Namen antippen oder ✎; per Klick gesetzte Punkte bekommen einen Ortsnamen als Vorschlag („Wetzlar“, „bei Gießen“). Eigene Namen bleiben auch beim Verschieben und landen in gespeicherten Touren und im Reisepaket (#9).",
+    "both"
+   ],
+   [
+    "neu",
+    "RigAnalyzer: Aufenthalt je Zwischenpunkt (⏱ 15 min bis 6 h) – verschiebt Ankunft, Wetter und Tank-Uhrzeit im Fahrplan und zählt beim Übernachtungsvorschlag mit. Fahrpausen wählbar: geschätzt, 20 min alle 2 h oder ohne (#2).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigAnalyzer: Reiter „🧭 Unterwegs“ – Sehenswertes, Einkehr (Café, Restaurant) und Service (Werkstätten, Caravan, Gasflaschen, Waschsalon) entlang der Route, mit Filter, Kartenebene und „➕ In die Tour“ (#4).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigAnalyzer: Lange Einzelstrecken über 1.000 km werden nicht mehr abgelehnt, sondern automatisch in Etappen geteilt, wo möglich an einem Ort (#5).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigAnalyzer: Import „hinten anhängen“ und „vorne anfügen“, gespeicherte Touren mit „➕ Anhängen“ zu einer Reise verbinden – die Nahtstelle wird Etappen-Ende (#5).",
+    "rig"
+   ],
+   [
+    "besser",
+    "Varianten-Leiste: Zeitunterschied ab einer Stunde als Stunden („+10:54 h“ statt „+654 min“) (#6).",
+    "rig"
+   ],
+   [
+    "besser",
+    "Teilen-Dialog aufgeräumt: Beschriftung über dem Feld, Platzhalter, ein ruhiger Fokusrahmen (#11).",
+    "rig"
+   ],
+   [
+    "fix",
+    "Handy: Die Punkteliste im Routenplaner passt wieder in die Breite – lange Namen werden gekürzt, ✎ entfällt dort (Namen antippen genügt).",
+    "both"
+   ],
+   [
+    "fix",
+    "RigAnalyzer: Öffnen einer Tour ohne gespeicherte Analyse erzeugt keinen Fehler mehr in der Browser-Konsole.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.12",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Eigene, abgeschottete Umgebung",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Ride und Rig laufen jetzt vollständig getrennt: je App eigene Umgebung, eigene Daten und eigene Logins (Phase 2 der Trennung, Prod seit 13.11.2026). Öffentliche Texte, FAQ und Technikseite nachgezogen.",
+    "both"
+   ],
+   [
+    "fix",
+    "Admin: „Region aufnehmen“ meldet jetzt ehrlich, dass die App keine Kartendaten mehr baut (neue Regionen in plan-regionen.yml, Bau auf dem Baurechner) – vorher kam eine Erfolgsmeldung, gebaut wurde aber nie.",
+    "both"
+   ]
+  ],
+  "public_text": "Mehr Sicherheit: Die App läuft jetzt abgeschottet, mit eigenen Daten und Logins. Bitte einmal neu anmelden – alles Gespeicherte ist unverändert da.",
+  "public_text_rig": "Mehr Sicherheit: Der RigAnalyzer läuft jetzt abgeschottet, mit eigenen Daten und Logins. Bitte einmal neu anmelden. Touren, Navi-Pakete und Einstellungen sind unverändert da, RigNavi läuft weiter.",
+  "public_text_ride": "Mehr Sicherheit: Der RideAnalyzer läuft jetzt abgeschottet, mit eigenen Daten und Logins. Bitte einmal neu anmelden – eure Einstellungen sind unverändert da."
+ },
+ {
+  "version": "0.46.11",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Abnahmetests für getrennte QA",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Abnahmetests erreichen Rig-QA auch im eigenen Container (Trennung Ride/Rig).",
+    "both"
+   ],
+   [
+    "besser",
+    "Intern: Abnahmetest erkennt die Planer-Anfrage am Pfad statt am weggefallenen Parameter.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.10",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Aufgeräumt: Adress-Parameter app=rig",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Die Rig-Oberfläche schickt den nicht mehr wirksamen Adress-Parameter app=rig nicht mehr mit (die App erkennt Rig am Host).",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.9",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Phase 2 vorbereitet)",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Trennung Ride/Rig Phase 2 vorbereitet – ein Container kann nur eine App bedienen (RA_APP), Werkzeug zum Aufteilen der Daten (werkzeuge/trennen.py); ohne Einstellung keine Änderung.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.8",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Schritt 3d, Teil 1)",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Trennung Ride/Rig Schritt 3d (Teil 1) – je App eine eigene App hinter einem Host-Verteiler; Rig-Endpunkte nur noch in der Rig-App; welche App eine Anfrage bedient, entscheidet nur noch der Host (nicht mehr ein Parameter in der Adresse).",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.7",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Schritt 3c, Teil 3)",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Trennung Ride/Rig Schritt 3c (Teil 3) – App-Fabrik create_app(): Kern-Endpunkte am Router core, App-Router aus den Erweiterungen; keine sichtbare Änderung.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.6",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Schritt 3c, Teil 2)",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Trennung Ride/Rig Schritt 3c (Teil 2) – Einstieg main.py ohne Rig-Importe: Etappen-Analyse im Kern (analyze.run_trip), Paketbau-Start, DATAtourisme, Datenstand und Größengrenze über Erweiterungspunkte; keine sichtbare Änderung.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.5",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Schritt 3c)",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Trennung Ride/Rig Schritt 3c – Rig-Endpunkte aus main.py in rig_routes.py, Anfrage-Helfer im Kern (web.py), Router über Erweiterungspunkt eingehängt; keine sichtbare Änderung.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.4",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Schritt 3a)",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Trennung Ride/Rig Schritt 3a – allgemeine POI-Einstufung im Kern (poi.py), Rig-Teile hängen sich über Erweiterungspunkte ein (hooks.py, rig_ext.py); keine sichtbare Änderung.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.3",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Schritt 2)",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Trennung Ride/Rig, Schritt 2: Oberfläche aufgeteilt – Gemeinsames in static/, RideAnalyzer in static-ride/, RigAnalyzer in static-rig/.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.2",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Ride und Rig getrennt (Schritt 1)",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Trennung Ride/Rig, Schritt 1: Alle reinen RigAnalyzer-Funktionen (Touren, Teilen, Plätze, Bewertungen, Spritpreise, Navi-Daten, App-Download) gibt es nur noch im RigAnalyzer – vorher waren einige auch über den RideAnalyzer erreichbar.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.1",
+  "date": "2026-11-13",
+  "app": "beide",
+  "title": "Sicherheit nachgeschärft",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Sicherheit: Fehlversuchs-Bremse zählt vor dem Prüfen (auch bei gleichzeitigen Anfragen), 2FA-Code höchstens 5 Fehlversuche je Login.",
+    "both"
+   ],
+   [
+    "besser",
+    "Gelöschte Logins nehmen ihre Touren, Navi-Pakete, Einstellungen und Login-Historie mit – ein neuer Login gleichen Namens erbt nichts.",
+    "both"
+   ],
+   [
+    "besser",
+    "Registrieren verrät nicht mehr, ob eine Mailadresse schon einen Login hat, und ist je Anschluss begrenzt.",
+    "both"
+   ],
+   [
+    "besser",
+    "Neue Kartenregionen nimmt nur noch der Admin auf.",
+    "both"
+   ],
+   [
+    "besser",
+    "Grenzen je Login: 200 Touren, Speicherplatz, 2 Navi-Pakete gleichzeitig, 20 Ortssuchen je Minute.",
+    "both"
+   ],
+   [
+    "fix",
+    "Mailadressen mit Komma oder Klammern werden abgelehnt.",
+    "both"
+   ],
+   [
+    "besser",
+    "Häufige Fragen: Warum muss ich manchmal warten? (Warteschlange aus 0.46.0)",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.46.0",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Kürzere Wartezeiten",
+  "public": true,
+  "public_text": "Weniger warten: Kurze Touren werden nicht mehr hinter langen Reisen eingereiht, eine schon gerechnete Tour kommt sofort, und beim Warten seht ihr euren Platz und die ungefähre Restzeit.",
+  "items": [
+   [
+    "neu",
+    "Warteschlange der Analysen: Platz und ungefähre Restzeit statt „wartet auf einen freien Platz“, eigene Spur für kurze Routen (bis 300 km), schon gerechnete Analysen (gleiche Datei, gleicher Kartenstand) kommen sofort.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.45.0",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Touren teilen",
+  "title_ride": "Wartung",
+  "public": true,
+  "public_text": "Neu: Touren teilen. Unter „Meine Touren“ eine Tour an einen anderen Login schicken – er nimmt sie als eigene Kopie an. Nur zwischen Logins, eure Notiz bleibt privat.",
+  "public_text_ride": "Kleinere Verbesserungen im Hintergrund.",
+  "items": [
+   [
+    "neu",
+    "RigAnalyzer: Touren mit anderen Logins teilen – „🔗 Teilen“ in „Meine Touren“ und im Planer; der Empfänger nimmt den Stand als eigene Kopie an („📨 Für dich geteilt“). Kein öffentlicher Link, die Seite verrät nicht, welche Logins es gibt; Notiz bleibt privat, offene Einladungen lassen sich zurückziehen und laufen nach 14 Tagen ab.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.44.0",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Einkaufen unterwegs",
+  "title_ride": "Wartung",
+  "public": true,
+  "public_text": "Neu: Einkaufen unterwegs. Discounter, Supermärkte, Bäcker, Metzger und Hofläden entlang der Route, mit Öffnungszeiten (ohne Gewähr). RigNavi zeigt den nächsten Laden. Zunächst nur in Deutschland.",
+  "public_text_ride": "Kleinere Verbesserungen im Hintergrund.",
+  "items": [
+   [
+    "neu",
+    "RigAnalyzer: Reiter „🛒 Einkaufen“ mit Läden entlang der Route (Discounter, Supermarkt, Bäcker, Metzger, Hofladen), Kartenebene mit Popup, Filter nach Art und „jetzt offen“, Hinweis „Letzter Einkauf vor dem Ziel“ je Etappe; Läden gehören ins Reisepaket. Zunächst nur Deutschland, Öffnungszeiten aus OpenStreetMap ohne Gewähr.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.21.0: „🛒 nächster Discounter/Supermarkt“ unterwegs, aus dem Reisepaket – auch offline.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigAnalyzer: „➕ In die Tour“ übernimmt einen Ort als Zwischenpunkt in die Planer-Route – Läden (Einkaufen), Plätze und Ver-/Entsorgung (Übernachten & Versorgen), alle Tankstellen und Rastplätze, aus der Liste und aus dem Popup auf der Karte.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Fahrzeug-Einstellungen übersichtlicher: Felder als Kacheln, nach Themen geordnet (#10)",
+    "rig"
+   ],
+   [
+    "besser",
+    "Mein Konto → Meine Daten: eigene Zeile „Fahrzeugprofile“ mit Anzahl und Namen; Hinweis in der Fahrzeugkarte korrigiert (RigNavi übernimmt die Werte mit jeder gespeicherten Tour).",
+    "rig"
+   ],
+   [
+    "besser",
+    "RigAnalyzer: Standard-Fahrzeug jetzt 2,87 m hoch und 11,5 l/100 km (Diesel mit AdBlue); unveränderte Standard-Profile ziehen mit.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigAnalyzer: Suchfeld über den Listen – filtert den offenen Reiter (Engstellen, Übernachten & Versorgen, Tankstellen, Einkaufen, Rastplätze, Steigungen, Sprit-Info); Groß/klein und Umlaute egal, mehrere Wörter müssen alle passen.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.43.0",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Rückmeldungen aufräumen",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin → Rückmeldungen: erledigte (abgehakte) Rückmeldungen lassen sich löschen – einzeln per „🗑 Löschen“ oder alle erledigten dieser App auf einmal per „🗑 Erledigte löschen (N)“, jeweils mit Rückfrage. Angelegte Tickets und ihre Kosten bleiben; Löschungen stehen im Zugriffsprotokoll.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.42.3",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Texte aktualisiert",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Änderungsliste: Formulierung bereinigt (intern)",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.42.2",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Texte aktualisiert",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Link „QA → Prod“ zeigt auf das eigene Repo (intern)",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.42.1",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Texte aktualisiert",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Häufige Fragen: Ablage im eigenen Repo (keine sichtbare Änderung)",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.42.0",
+  "date": "2026-11-12",
+  "app": "beide",
+  "title": "Maut und Fähren meiden",
+  "public": true,
+  "public_text": "Neu im Routenplaner: „Maut meiden“ und „Fähren meiden“ – für die ganze Tour, gespeichert und auch in RigNavi unterwegs.",
+  "items": [
+   [
+    "neu",
+    "Routenplaner: Schalter „💶 Maut meiden“ und „⛴ Fähren meiden“ für die ganze Tour – in der Tour gespeichert, auch für Alternativen und das Reisepaket. Geht es trotzdem nicht ohne, sagt es das Ergebnis („Fähre ließ sich nicht ganz vermeiden“); sonst steht „mit Fähre“ dabei.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi ab 0.19.0: dieselben Schalter in den Einstellungen; eine Reise aus dem Planer bringt ihre Wahl mit – unterwegs gilt sie für das Rechnen auf dem Handy und über den Server.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Unbefestigte Wege meidet der Planer schon immer – dafür braucht es keinen Schalter.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Routenplaner: Einstellungen (Autobahn, Umweltzonen, Maut, Fähren, Übernachtung) planen nicht mehr von selbst neu – der Knopf zeigt „🔄 Route neu planen“, ihr entscheidet, wann. „Als Nacht“, „umfahren“ und „Variante übernehmen“ planen weiter sofort.",
+    "both"
+   ]
+  ],
+  "title_ride": "Neu planen auf Knopfdruck",
+  "public_text_ride": "Nach einer geänderten Einstellung plant der Routenplaner nicht mehr von selbst neu – „🔄 Route neu planen“ zeigt es, ihr entscheidet, wann."
+ },
+ {
+  "version": "0.41.1",
+  "date": "2026-11-11",
+  "app": "beide",
+  "title": "Alle Neuerungen auf „Änderungen“",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Änderungen-Seite: alle für Nutzer wichtigen Neuerungen seit dem ersten Prototyp, die 5 neuesten offen, ältere in 5er-Blöcken hinter „Mehr anzeigen“.",
+    "both"
+   ]
+  ],
+  "public_text": "Die Seite „Änderungen“ zeigt jetzt alle wichtigen Neuerungen seit dem Anfang – die neuesten oben, ältere hinter „Mehr anzeigen“."
+ },
+ {
+  "version": "0.41.0",
+  "date": "2026-11-11",
+  "app": "rig",
+  "title": "Alternativrouten",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Alternativrouten: Nach „Route planen“ stehen bis zu drei Varianten zur Auswahl – mit Länge, Fahrzeit und dem Unterschied zur Planung, auf der Karte grau gestrichelt. Bei Start → Ziel echte Alternativen, immer auch „ohne Autobahn“ bzw. „mit Autobahn“.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Antippen übernimmt die Variante und plant neu. Eine Alternative wird dabei als Zwischenpunkt gesetzt – so bleibt sie beim Speichern und in RigNavi genau so erhalten.",
+    "rig"
+   ]
+  ],
+  "public_text": "Nach dem Planen wählt ihr zwischen bis zu drei Strecken – mit Länge, Fahrzeit und Unterschied, grau auf der Karte. Antippen übernimmt sie, auch fürs Navi."
+ },
+ {
+  "version": "0.40.3",
+  "date": "2026-11-11",
+  "app": "beide",
+  "title": "Änderungen-Seite ergänzt",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Änderungen-Seite: „Importierte Tour neu planen“ (0.40.0, Rig) und „Mehr Schutz für euer Konto“ (0.40.2) öffentlich.",
+    "intern"
+   ]
+  ]
+ },
+ {
+  "version": "0.40.2",
+  "date": "2026-11-11",
+  "app": "beide",
+  "title": "Sicherheit",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Sicherheit (Rückmeldung #16): lange Passwörter (über 72 Byte) führen nicht mehr zu einem Serverfehler, sondern zu einer klaren Meldung; „Passwort ändern“ wird bei Fehlversuchen gebremst; höchstens 3 laufende Analysen je Login.",
+    "both"
+   ],
+   [
+    "besser",
+    "Intern: fremde Bewertungen löschen und fremde Analysen abbrechen nur noch Oberadmin mit 2FA (nicht Gruppen-Admin, nicht per Basic-Auth); Abmelden räumt auch 2FA- und CSRF-Cookie weg; Admin-Protokoll nur für die App lesbar; Anmeldung per Basic-Auth blockiert die App nicht mehr; Fehlversuch-Listen werden aufgeräumt.",
+    "intern"
+   ]
+  ],
+  "public_text": "Mehr Schutz für euer Konto: Sehr lange Passwörter bekommen eine klare Meldung, und wer beim Ändern des Passworts zu oft danebenliegt, wird kurz gebremst."
+ },
+ {
+  "version": "0.40.1",
+  "date": "2026-11-11",
+  "app": "beide",
+  "title": "QA-Postfach",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "QA-Postfach: Mails, die QA sonst verwerfen würde, unter /qa/postfach ansehen (nur Admins mit 2FA, nie in Prod) – Mailwechsel und „Passwort vergessen“ jetzt in QA komplett testbar.",
+    "intern"
+   ]
+  ]
+ },
+ {
+  "version": "0.40.0",
+  "date": "2026-11-09",
+  "app": "rig",
+  "title": "Importierte Tour neu planen",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Importierte Tour neu planen: „📥 Eckdaten aus Import übernehmen“ im Planer setzt Start, Ziel, Etappen-Enden als „Nacht“ und Zwischenpunkte (Wegpunkte der GPX, sonst alle 50–100 km an einem Ort der Strecke, mit Ortsnamen) – dann mit eurem Fahrzeug neu planen.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Gibt es schon eine eigene Planung, heißt der Knopf „📥 Import in Planung einfügen“: euer Start und Ziel bleiben, die Punkte der importierten Tour kommen als Block dorthin, wo der Umweg am kleinsten ist (wenn kürzer, auch rückwärts). „alles ersetzen“ nimmt nur den Import, „Punkte auswählen …“ holt nur angehakte Punkte, „↩ Rückgängig“ holt die vorherigen Punkte zurück – ohne Rückfrage-Dialog.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Die importierte Tour bleibt nach dem Planen gestrichelt auf der Karte, im Ergebnis steht ein Vergleich: Länge, Fahrzeit, bergauf, Engstellen. Unter „Ebenen“ lassen sich „Importierte Strecke“ und „Geplante Route“ einzeln aus- und einblenden.",
+    "rig"
+   ],
+   [
+    "besser",
+    "„Alle löschen“ im Planer zeigt wieder die importierte Tour mit voller Bewertung.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Zwischenpunkte aus einem Import tragen die Fahrtrichtung – der Planer springt auf Autobahnen nicht mehr auf die Gegenfahrbahn.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Unwetterwarnungen nur noch aus Gebieten, durch die eure Strecke wirklich führt – auch außerhalb von Deutschland und Frankreich (vorher z. B. Warnungen von den Kanaren auf dem Weg nach Barcelona).",
+    "both"
+   ]
+  ],
+  "public_text": "Eine fertige Tour, etwa aus Garmin Drive oder TomTom MyDrive, holt ihr jetzt in den Routenplaner und plant sie mit euren Maßen neu – ganz oder nur einzelne Punkte. Die alte Tour bleibt zum Vergleich auf der Karte."
+ },
+ {
+  "version": "0.39.2",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Sicherheit nachgeschärft",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Sicherheit: Datei mit offenen „Passwort vergessen“-Links nur noch für die App lesbar.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.39.1",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Sicherheit nachgeschärft",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Sicherheit: Datei mit offenen Mailwechseln nur noch für die App lesbar.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.39.0",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Rückmeldungen als Ticket",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin → Rückmeldungen: „🎫 Als Ticket vormerken“ – vorgemerkte Wünsche übernimmt der Rückmeldungs-Abgleich als Aufgabe in die Weiterentwicklung; danach steht dort „Ticket #… · offen/erledigt“.",
+    "both"
+   ],
+   [
+    "neu",
+    "Admin → Kosten (Rig): Abschnitt „Entwicklung (Claude)“ – was die Umsetzung von Rückmeldungen gekostet hat, je Login und Monat, mit den einzelnen Tickets; Kurs USD → € in den Preisen.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.38.5",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Kürzere Anleitung",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "„So geht's“: Beim Öffnen stehen nur die drei Schritte da, alles andere (Profile bzw. was geprüft wird, Unterwegs, Tipps) ist zum Aufklappen und auf wenige Stichpunkte gekürzt – etwa ein Drittel der bisherigen Länge.",
+    "both"
+   ],
+   [
+    "besser",
+    "„Was es nicht kann“ und „Daten & Datenschutz“ stehen jetzt in den Häufigen Fragen; „So geht's“ verlinkt dorthin.",
+    "both"
+   ],
+   [
+    "besser",
+    "Ausrollen: Ein Branch kann auf Wunsch (Zeile „Auto-Prod: ja“ im Commit) nach grünen QA-Tests selbst nach Prod gehen.",
+    "intern"
+   ]
+  ],
+  "public_text": "Die Anleitung ist jetzt kurz: drei Schritte, der Rest zum Aufklappen. Grenzen und Datenschutz stehen in den Häufigen Fragen."
+ },
+ {
+  "version": "0.38.4",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Logins übersichtlich",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin → Logins: eine schlanke Zeile je Login (Status-Punkt, Name, Hinweise wie Startpasswort, gesperrt, Fehlversuche oder 🛡 Admin, Gruppe, zuletzt aktiv) – ein Klick klappt die Details auf: Zugang (Mail, Gruppe, App, Rechte), Aktivität, Passwort und Aktionen. Immer nur ein Login offen, er bleibt nach einer Änderung offen. Kein seitliches Scrollen mehr, auch am Handy.",
+    "both"
+   ],
+   [
+    "neu",
+    "Suchfeld über den Logins: filtert nach Login, Mail oder Gruppe.",
+    "both"
+   ],
+   [
+    "besser",
+    "Sperren und Löschen stehen nicht mehr neben jeder Zeile, sondern erst in den aufgeklappten Details – weniger Verklicken. „Freischalten“ bleibt bei wartenden Anträgen direkt sichtbar.",
+    "both"
+   ],
+   [
+    "besser",
+    "Gruppen-Admins sehen unter „Versionen“ nur noch App-Stand und Änderungen, keine Server-Interna (Valhalla, OSM, Python …).",
+    "both"
+   ],
+   [
+    "fix",
+    "Der wöchentliche Abruf der französischen Stell- und Campingplätze (DATAtourisme) läuft jetzt in einem eigenen Prozess. Vorher legte er die App dabei für einige Sekunden lahm – wer genau dann klickte, sah kurz die Wartungsseite.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.38.3",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Mailadresse bestätigen – Fehler behoben",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Angemeldet auf den Bestätigungslink geklickt: „Adresse bestätigen“ meldete „Sicherheitsprüfung fehlgeschlagen“. Der Browser schickt wegen der Datenschutz-Einstellung der Seite keine Herkunftsangabe mit; Formulare mit dem Token aus der Mail (Mail bestätigen, neues Passwort) brauchen sie nicht – fremde Herkunft bleibt gesperrt.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.38.2",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Mailadresse nur mit Bestätigung",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Mein Konto → Mailadresse: Die neue Adresse bekommt einen Bestätigungslink (1 Stunde gültig), erst danach gilt sie; bis dahin bleibt die bisherige. Die bisherige Adresse bekommt einen Hinweis. Offener Wechsel steht im Konto mit „Nochmal schicken“ und „Abbrechen“. Das Passwort ist seit 0.38.0 Pflicht.",
+    "both"
+   ],
+   [
+    "besser",
+    "Der Link bestätigt erst per Knopf – Mailprogramme, die Links vorab öffnen, verbrauchen ihn nicht. Eine vom Admin gesetzte Mail gilt weiter sofort.",
+    "both"
+   ]
+  ],
+  "public_text": "Eine neue Mailadresse gilt erst, wenn ihr den Link in der Mail an sie bestätigt – und nur mit eurem Passwort."
+ },
+ {
+  "version": "0.38.1",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Nacharbeiten zu 0.38.0",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "CSRF-Hülle in theme.js und Obergrenze für Anfragen (bodylimit.py) ohne Linter-Funde – Verhalten unverändert.",
+    "intern"
+   ],
+   [
+    "besser",
+    "Häufige Fragen: neuer Eintrag „Wie melde ich mich auf allen Geräten ab?“ zu „Überall abmelden“ aus 0.38.0.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.38.0",
+  "date": "2026-11-08",
+  "app": "beide",
+  "title": "Sicherheit nachgeschärft",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Abmelden beendet die Sitzung jetzt auch auf dem Server – ein kopiertes Anmelde-Cookie ist danach wertlos."
+   ],
+   [
+    "neu",
+    "„Mein Konto“ → „Überall abmelden“: beendet die Anmeldung auf allen Geräten und Browsern."
+   ],
+   [
+    "besser",
+    "Mailadresse ändern geht nur noch mit dem eigenen Passwort."
+   ],
+   [
+    "besser",
+    "Schutz gegen untergeschobene Anfragen (CSRF) jetzt zentral für alle ändernden Anfragen, nicht mehr je Funktion; Formulare prüfen die Herkunft.",
+    "intern"
+   ],
+   [
+    "besser",
+    "Obergrenze für Anfragen: ohne Anmeldung höchstens 64 KB, sonst 6 MB (gespeicherte Analysen bis 41 MB) – riesige Uploads können den Server nicht mehr volllaufen lassen.",
+    "intern"
+   ],
+   [
+    "besser",
+    "Anmeldung verrät über die Antwortzeit nicht mehr, ob es einen Login gibt; Benutzerdatei nur noch für die App lesbar.",
+    "intern"
+   ]
+  ],
+  "public_text": "Unter „Mein Konto“ meldet ihr euch auf allen Geräten auf einmal ab. Und Abmelden beendet die Anmeldung jetzt wirklich – auch ein kopierter Zugang gilt danach nicht mehr."
+ },
+ {
+  "version": "0.37.5",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Karten selbst anordnen",
+  "public": true,
+  "public_text": "Ergebnis wie ein Dashboard: Karten verschieben, einklappen, unter die Karte oder links daneben – am Login gemerkt.",
+  "items": [
+   [
+    "neu",
+    "Hauptseite: Jede Karte (GPX hochladen, Route planen, Ergebnis, Profil, Was diese Strecke ausmacht, Wetter, Liste, Datenqualität, Vergleich, Streckenband) hat oben rechts ⠿ zum Ziehen, ↑/↓, ⇄ für die andere Seite (links ↔ unter der Karte) und ▾ zum Einklappen. „↺ Ergebnis-Kacheln zurücksetzen“ erscheint unten links, sobald etwas verstellt ist. Die Anordnung wird im Browser und am Login gemerkt; am Handy bleibt alles untereinander.",
+    "ride"
+   ],
+   [
+    "besser",
+    "Die Dashboard-Logik steckt jetzt in einem gemeinsamen Baustein (dock.js/dock.css) – im Rig sieht und verhält sich alles wie bisher.",
+    "intern"
+   ],
+   [
+    "besser",
+    "Ergebnislisten (Passt die Route?, Tankplan, Steigungen, Engstellen/Plätze/Tankstellen): Mit der Maus über einen Eintrag fahren zeigt die Stelle als Punkt auf der Strecke in der großen Karte – wie beim Höhenprofil, ohne zu zoomen.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.37.4",
+  "date": "2026-11-07",
+  "app": "ride",
+  "title": "Wheelie im Fortschrittsbalken",
+  "public": true,
+  "public_text": "Während die Analyse läuft, macht jetzt ein Naked Bike im Retro-Look einen Wheelie den Fortschrittsbalken entlang bis zur Zielflagge.",
+  "items": [
+   [
+    "besser",
+    "Analyse-Fortschritt: Ein klassisches Naked Bike fährt im Wheelie (Hinterrad dreht durch) den Balken entlang ins Ziel 🏁 – bei „Bewegung reduzieren“ steht es still.",
+    "ride"
+   ]
+  ]
+ },
+ {
+  "version": "0.37.3",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Autobahn-Schild im Planer, Menü „⚙ Karte“",
+  "public": true,
+  "public_text": "Autobahn mit oder ohne erkennt ihr im Routenplaner jetzt am blauen Autobahn-Schild – durchgestrichen heißt „ohne“.",
+  "items": [
+   [
+    "besser",
+    "Routenplaner: blaues Autobahn-Schild statt 🛣 – ein Schalter je Abschnitt, grün „mit“ oder rot und durchgestrichen „ohne“; oben im Planer derselbe Schalter für alle Abschnitte (statt Auswahlfeld „Strecke“), „gemischt“ in Orange, wenn sie abweichen.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Routenplaner: Abschnitts-Knöpfe mit Autobahn-Schild (mit / durchgestrichen ohne / kurvig).",
+    "ride"
+   ],
+   [
+    "besser",
+    "Karte: Mausrad-Zoom, Klick-Zoom und „Ergebnis-Kacheln zurücksetzen“ im Menü „⚙ Karte“ – die Leiste über der Karte zeigt nur noch Färbung und Ebenen.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.37.2",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Admin-Dashboard",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin-Bereich als Dashboard: Kacheln in zwei Spalten, verschiebbar (⠿ ↑ ↓ ⇄), halb/ganz breit (⇔), einklappbar – gemerkt am Login.",
+    "both"
+   ],
+   [
+    "besser",
+    "Admin-Bereich: „Versionen“ ist anfangs eingeklappt und zeigt die letzten 10 – „Alle anzeigen“ blendet den Rest ein; Gruppen-Admins sehen „Jetzt aktiv“ gleich breit.",
+    "both"
+   ],
+   [
+    "besser",
+    "Intern: Der Tagesbericht startet nach einem Neustart nicht mehr zu früh (Fehler im Log, Bericht kam 5 Minuten später).",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.37.1",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Codepflege",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Intern: Code mit Linter geprüft und aufgeräumt (Python, Shell, YAML, JavaScript) – keine sichtbare Änderung.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.37.0",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Häufige Fragen",
+  "public": true,
+  "public_text": "Neu: „Häufige Fragen“ im Footer und in „So geht’s“ – kurze Antworten zu Zugang, Passwort, Planen, Datenschutz und Rückmeldung, passend zur jeweiligen App.",
+  "items": [
+   [
+    "neu",
+    "Seite „Häufige Fragen“: Antworten zu Konto und Zugang, Planen und Analysieren, Datenschutz und „Meine Daten“, Hilfe und Rückmeldung – plus die Fragen, die nur diese App betreffen; oben ein Inhaltsverzeichnis.",
+    "both"
+   ],
+   [
+    "besser",
+    "Link „Häufige Fragen“ im Footer jeder Seite und im Infofenster „So geht's“.",
+    "both"
+   ],
+   [
+    "besser",
+    "Intern: Die Fragen stehen einmal im Handbuch und werden beim Ausrollen mitgeliefert; HTML darin wird nie ungefiltert angezeigt.",
+    "intern"
+   ]
+  ]
+ },
+ {
+  "version": "0.36.2",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Rückmeldung mit Herkunftsseite",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Rückmeldung: „Seite mitschicken“ funktioniert jetzt auch auf der echten Seite – das Menü gibt die Seite mit, von der ihr kommt (der Browser verrät sie aus Datenschutzgründen nicht mehr von selbst).",
+    "both"
+   ],
+   [
+    "besser",
+    "Intern: Abnahmetests im Browser (QA) laufen nach jedem Test-Deploy automatisch, Prod bekommt nach jedem Ausrollen einen Rauchtest; Ergebnis mit Zahlen in Telegram.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.36.1",
+  "date": "2026-11-07",
+  "app": "rig",
+  "title": "Position auch ohne Navigation",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Admin-Bereich: RigNavi meldet die Position (mit Zustimmung) auch ohne laufende Navigation, solange die App offen ist – Anzeige „📍 RigNavi offen, ohne Ziel“ mit Punkt auf der Karte.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.18.0: Position teilen gilt jetzt auch, solange die App offen ist (alle 5 min, ~1 km genau); Ausschalten unter ⚙ nimmt den Punkt sofort weg.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.36.0",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Meine Touren und Meine Daten im Konto",
+  "public": true,
+  "public_text": "„Mein Konto“ zeigt jetzt alle gespeicherten Touren mit dem Stand des Navi-Pakets und unter „Meine Daten“, was zu eurem Login gespeichert und gezählt ist – mit Download.",
+  "items": [
+   [
+    "neu",
+    "„Mein Konto“: Bereich „📂 Meine Touren“ – alle gespeicherten Touren mit Strecke, Etappen und Navi-Paket (bereit/wird gebaut/Größe), oben die Summe aller Pakete; „Im Planer öffnen“, Kopie, frühere Stände, Paket löschen, Tour löschen.",
+    "rig"
+   ],
+   [
+    "neu",
+    "„Mein Konto“: Bereich „🗂 Meine Daten“ – was zu eurem Login gespeichert ist, was diesen Monat gezählt wurde, eure Anmeldungen der letzten 30 Tage und „Alles herunterladen“ als JSON (ohne Passwort und 2FA-Schlüssel).",
+    "both"
+   ],
+   [
+    "besser",
+    "„Mein Konto“: Passwort und Mailadresse sind eingeklappt, ein Klick öffnet sie.",
+    "both"
+   ],
+   [
+    "neu",
+    "„Mein Konto“: Kacheln wie auf der Hauptseite anordnen – ⠿ ziehen, ↑/↓ verschieben, ▾ einklappen; gemerkt am Login, „Anordnung zurücksetzen“ unten.",
+    "both"
+   ],
+   [
+    "besser",
+    "„Route planen“ trägt kein „neu“ mehr.",
+    "both"
+   ],
+   [
+    "besser",
+    "„Mein Konto“: Die Tempo-Warnung fürs Gespann steht nur noch in RigNavi unter ⚙ (dort wirkt sie); das Konto verweist mit einer kleinen RigNavi-Karte auf die App.",
+    "rig"
+   ],
+   [
+    "besser",
+    "RigNavi-Anleitung: deutlicher Sicherheits-Hinweis zu „Unbekannte Apps erlauben“ – nur von dieser Seite laden, Schalter danach wieder aus.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Intern: Freigabe von der Testumgebung nach live jetzt per Knopf „✅ OK → nach Prod“; der Test-Branch wird danach automatisch aufgeräumt.",
+    "both"
+   ]
+  ],
+  "public_text_ride": "„Mein Konto“ zeigt jetzt unter „Meine Daten“, was zu eurem Login gespeichert und gezählt ist – mit Download."
+ },
+ {
+  "version": "0.35.6",
+  "date": "2026-11-07",
+  "app": "beide",
+  "title": "Fahrzeug vom Login",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Neuer Browser oder neues Gerät: euer Fahrzeugprofil vom Login wird jetzt übernommen – vorher gewann das Standard-Wohnmobil und konnte das gespeicherte Profil überschreiben. Gefunden von den neuen QA-Abnahmetests.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.35.5",
+  "date": "2026-11-06",
+  "app": "beide",
+  "title": "Alle Seiten auf Stand",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Technik-Seite: Routenplaner nicht „ganz Europa“ – das Planungsgebiet steht jetzt automatisch so da, wie es eingerichtet ist (auch auf Funktionen- und App-Seite).",
+    "both"
+   ],
+   [
+    "besser",
+    "Funktionen: Profile am Login statt im Browser, „mit eurem Login“ statt „ohne Konto“, Zugang beantragen, Admin-Teil kurz.",
+    "both"
+   ],
+   [
+    "besser",
+    "Funktionen (Rig): Touren speichern, Umweltzonen-Angaben im Fahrzeug, echte Spritpreise in fünf Ländern, Verdon 4.062 km, Paketgröße 1–4 GB.",
+    "rig"
+   ],
+   [
+    "besser",
+    "RigNavi-Anleitung auf Stand: keine alten Versions-Versprechen mehr, offline ohne Netz, Server-Paket löschen, Datenschutz und Rückmeldung.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.35.4",
+  "date": "2026-11-06",
+  "app": "beide",
+  "title": "Technik-Seite auf Stand",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Technik-Seite: oben ein Satz, worum es geht; Routing für ganz Europa (monatlich neu); ehrlich, welche Zusatzinfos live von außen kommen (Wetter, Warnungen, Radar, Ortssuche) – über unseren Server, nicht direkt von euren Geräten.",
+    "both"
+   ],
+   [
+    "besser",
+    "Technik-Seite (Rig): Spritpreis-Quellen je Land, Verkehrslage, Umweltzonen und ein eigener Abschnitt zu RigNavi mit Offline-Paketen.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Quellen & Lizenzen vollständig, mit Namensnennung für Open-Meteo, Deutscher Wetterdienst, Meteoalarm, RainViewer, Nominatim und (Rig) Tankerkönig, prix-carburants, Base nationale des ZFE.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.35.3",
+  "date": "2026-11-06",
+  "app": "beide",
+  "title": "Wer „wir“ sind",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "„Warum es das gibt“ und die Technik-Seite sagen offen: gebaut von Richy zusammen mit Claude (KI von Anthropic) – „wir“ meint uns beide.",
+    "both"
+   ],
+   [
+    "besser",
+    "„Warum es das gibt“: auch das uralte iPad von 2017 mit seinem super Display (Siedler lief ja auch flüssig) – RigNavi läuft darauf, wegen Apples Regeln bisher nur von Richy aufgespielt.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.35.0",
+  "date": "2026-11-06",
+  "app": "beide",
+  "title": "Rückmeldung & Warum es das gibt",
+  "public": true,
+  "public_text": "Neu: „💬 Rückmeldung“ im Menü – Fehler, Ideen und Lob gehen direkt an mich. Und auf „Was ist …?“ steht jetzt, warum es das Ganze gibt.",
+  "items": [
+   [
+    "neu",
+    "„💬 Rückmeldung“ im Menü oben rechts: Art (Idee, Fehler, Lob, Sonstiges) und Text – geht direkt an Richy, Antwort an die Mailadresse des Kontos.",
+    "both"
+   ],
+   [
+    "neu",
+    "„Was ist …?“ erzählt jetzt, warum es das gibt – mit einem Gruß von Richy.",
+    "both"
+   ],
+   [
+    "neu",
+    "Admin: Liste „Rückmeldungen“ je App mit „erledigt“-Haken und Antworten per Mail; neue Rückmeldungen kommen auch in den Telegram-Kanal.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.34.1",
+  "date": "2026-11-06",
+  "app": "beide",
+  "title": "Erklärungen auf Stand",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "„So geht's“, „Was ist …?“, Funktionen und Technik beschreiben, was die App heute kann: zuerst planen oder GPX laden, ganz Europa lokal, Wetter unterwegs.",
+    "both"
+   ],
+   [
+    "besser",
+    "Umweltzonen, echte Dieselpreise, „Ans Navi schicken“ und RigNavi ohne Netz stehen jetzt in den Erklärungen.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Datenschutz neu und ehrlich: was gespeichert wird, was gezählt wird (nur Zahlen) und was Admins sehen.",
+    "both"
+   ],
+   [
+    "besser",
+    "Die App ist jetzt offiziell in der Alpha-Phase (statt „Prototyp“); Beta folgt mit Version 1.0.0.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.34.0",
+  "date": "2026-11-06",
+  "app": "rig",
+  "title": "Kosten je Account",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin „Kosten“: Verbrauchsbuch je Account (Download, Speicher, Analysen, Planungen, Routen) mit Monatsauswahl.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Drei Szenarien im Vergleich: zu Hause, zu Hause + S3-Speicher, Cloud – mit Balken je Account.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Gewinn mit Abo und Preis/Gewinn ohne Abo je Account, dazu Summen und Gewinnschwelle.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Preistabelle zum Anpassen der Richtwerte (Strom, Hardware, S3, Cloud, Abo, Gebühren).",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.33.0",
+  "date": "2026-11-06",
+  "app": "rig",
+  "title": "Paket allein löschen",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Reisen im Routenplaner: „Paket löschen“ nimmt nur das Navi-Paket vom Server (macht Platz), die Tour bleibt. In der Liste steht jetzt die Paketgröße.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.17.0: „Server-Paket löschen“ in „Meine Reisen“ – mit Rückfrage; ein schon aufs Handy geladenes Paket bleibt.",
+    "rig"
+   ],
+   [
+    "besser",
+    "RigNavi 0.17.1: das App-Icon ist wieder das Wohnmobil mit Anhänger.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.32.3",
+  "date": "2026-11-06",
+  "app": "rig",
+  "title": "Euro 6 als Standard",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Umweltzonen: Neue Logins starten mit Euro 6 (Diesel) statt „unbekannt“ – die Zonen bekommen also gleich ein Urteil statt überall „bitte prüfen“. Eigene Einstellungen bleiben, wie sie sind; „unbekannt“ lässt sich weiter wählen.",
+    "rig"
+   ],
+   [
+    "besser",
+    "RigNavi 0.16.1: dieselbe Vorgabe Euro 6 in der App, auch ohne Verbindung zum Server.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.32.2",
+  "date": "2026-11-02",
+  "app": "rig",
+  "title": "Fortschritt oben",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Die laufende Analyse (Fortschritt mit Wohnmobil, Abbrechen) und Fehlermeldungen stehen jetzt oben quer über die Seite und bleiben beim Scrollen sichtbar – nicht mehr in der Upload-Karte."
+   ]
+  ]
+ },
+ {
+  "version": "0.32.1",
+  "date": "2026-11-02",
+  "app": "rig",
+  "title": "Ganze Seite als Dashboard",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Dashboard: Auch „GPX hochladen“, „Route planen“, „Euer Fahrzeug“ und der Ergebnis-Kopf lassen sich verschieben, einklappen und unter die Karte ziehen. Die Leiste (⠿ ↑ ↓ ⇄ ▾) sitzt jetzt auf der Oberkante der Karte und verdeckt keine Knöpfe mehr."
+   ],
+   [
+    "fix",
+    "Tankplan Skandinavien: Direkt nach einem Server-Neustart blieben Tankstellen in Norwegen/Schweden beim deutschen Profilpreis, weil der Landesschnitt erst im Hintergrund geladen wurde – jetzt fragt die Seite kurz darauf nochmal nach."
+   ]
+  ]
+ },
+ {
+  "version": "0.32.0",
+  "date": "2026-11-02",
+  "app": "rig",
+  "title": "Dieselpreise in Skandinavien",
+  "public": true,
+  "public_text": "Tankplan für Skandinavien: echte Dieselpreise der OK-Tankstellen in Dänemark, sonst der amtliche Landesschnitt für Dänemark, Schweden und Norwegen statt des deutschen Profilpreises.",
+  "items": [
+   [
+    "neu",
+    "Dänemark: echte Dieselpreise der OK-Tankstellen (Pflicht-API nach BEK 1351/2025), weitere Ketten folgen."
+   ],
+   [
+    "neu",
+    "Dänemark, Schweden, Norwegen: Wo es keinen Preis je Tankstelle gibt, rechnet der Tankplan mit dem amtlichen Landesschnitt (EU Weekly Oil Bulletin bzw. Statistisk sentralbyrå, umgerechnet zum EZB-Kurs) statt mit eurem deutschen Profilpreis – gekennzeichnet als Schätzung."
+   ]
+  ]
+ },
+ {
+  "version": "0.31.3",
+  "date": "2026-11-02",
+  "app": "rig",
+  "title": "Anhänger nur noch an einer Stelle",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "„Mit Anhänger“ und die Tempo-100-Zulassung stellt ihr nur noch im Fahrzeugprofil ein. Die Maut-Karte zeigt, womit gerechnet wird, und „ändern“ springt direkt zum Schalter. Tempo 100 erscheint nur, wenn ein Anhänger dabei ist."
+   ]
+  ]
+ },
+ {
+  "version": "0.31.2",
+  "date": "2026-11-02",
+  "app": "beide",
+  "title": "Startseite aufgeräumt",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Die lange Erklärung zu den Kartendaten (Länderliste, Regionen, Grenzen) steht jetzt unter „Funktionen“ → „Kartendaten & Grenzen“; auf der Startseite bleibt eine Zeile mit Link."
+   ]
+  ]
+ },
+ {
+  "version": "0.31.1",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "intern: Anmeldungen melden",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin: Anmeldungen landen vorübergehend im Telegram-Kanal – Login-Seite (auch fehlgeschlagene), RigNavi Android/iPad und Rückkehr mit gespeicherter Anmeldung (je Benutzer und Gerät höchstens alle 6 Stunden). Abschalten: rideanalyzer_login_notify: false.",
+    "intern"
+   ]
+  ]
+ },
+ {
+  "version": "0.31.0",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Skandinavien im Routenplaner, Spaltenbreite ziehen",
+  "public": true,
+  "public_text": "Der Routenplaner plant jetzt auch nach Dänemark, Norwegen und Schweden (inkl. Fähren); die Breite der linken Spalte lässt sich selbst ziehen.",
+  "items": [
+   [
+    "neu",
+    "Routenplaner: Planungsgebiet um Dänemark, Norwegen und Schweden erweitert – auch über die Fähren (z. B. Hirtshals → Kristiansand/Bergen). Die Routing-Daten werden ab jetzt monatlich automatisch frisch gebaut."
+   ],
+   [
+    "neu",
+    "Schieber zwischen linker Spalte und Karte: Breite selbst ziehen (oder Pfeiltasten), Doppelklick = Standard; am Login gemerkt."
+   ]
+  ]
+ },
+ {
+  "version": "0.30.0",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Ergebnis als Dashboard: Karten selbst anordnen",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Jede Ergebnis-Karte (Passt es?, Tankplan, Höhenprofil, Engstellen/Plätze/Tankstellen, Maut, Datenqualität, Fahrplan) hat oben rechts ⠿ zum Ziehen, ↑/↓, ⇄ für die andere Seite (links ↔ unter der Karte) und ▾ zum Einklappen. „↺ Anordnung“ bei der Karte setzt alles zurück."
+   ],
+   [
+    "neu",
+    "Schieber zwischen Karte und dem Bereich darunter: anfassen und ziehen (oder Pfeiltasten), Doppelklick = ein Drittel. Höhe und Anordnung werden am Login gemerkt."
+   ],
+   [
+    "besser",
+    "Standard: Fahrplan unter der Karte (ein Drittel der Höhe, scrollt in sich), Höhenprofil links unter dem Tankplan."
+   ]
+  ],
+  "public_text": "Ergebnis wie ein Dashboard: Karten verschieben, einklappen, unter die Karte oder links daneben – und die Höhe unter der Karte selbst ziehen. Am Login gemerkt."
+ },
+ {
+  "version": "0.29.1",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Mehr Platz für den Fahrplan",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Der Fahrplan unter der Karte bekommt deutlich mehr Höhe; Höhenprofil und Tankfüllung stehen jetzt links unter dem Tankplan."
+   ]
+  ]
+ },
+ {
+  "version": "0.29.0",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Vorlieben am Login, Fahrplan unter der Karte",
+  "public": true,
+  "public_text": "Fahrzeugprofile, Zoom und Kartenebenen werden am Login gespeichert – in jedem Browser gleich; der Fahrplan steht direkt unter der Karte.",
+  "items": [
+   [
+    "neu",
+    "Vorlieben am Login: Fahrzeugprofile (inkl. Tank, Reserve, Literpreis), offener Reiter und Kartenebenen gelten jetzt in jedem Browser – der neuere Stand gewinnt. RigNavi liest sie als Nächstes mit."
+   ],
+   [
+    "neu",
+    "Karte: „Zoom“ normal/schnell/sehr schnell für Mausrad und Touchpad (Standard jetzt schnell) und „Klick zeigt“ – wie nah ein Klick auf einen Listeneintrag heranzoomt."
+   ],
+   [
+    "besser",
+    "Der Fahrplan einer Reise steht direkt unter der Karte, darunter Höhenprofil und Tankfüllung."
+   ],
+   [
+    "besser",
+    "Tankplan aufgeräumt: Die langen Erklärungen (Zahl der Tankstellen, AdBlue/Lkw-Säulen, Preisquellen, wie geschätzt wird) stehen jetzt im Reiter „⛽ Sprit-Info“ neben den Engstellen; im Tankplan bleibt eine Zeile mit Link dorthin."
+   ]
+  ]
+ },
+ {
+  "version": "0.28.1",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Analyse mit der Tour speichern",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Meine Touren: Die fertige Analyse einer geplanten Route wird mit der Tour gespeichert (automatisch, sobald die Tour gespeichert ist). Beim Öffnen ist sie sofort da – in der Liste steht „📊 Analyse gespeichert“."
+   ],
+   [
+    "neu",
+    "Passt die neu geplante Route nicht mehr zur gespeicherten Analyse (z. B. neue Kartendaten), zeigt die Seite die alte Analyse trotzdem und der Knopf heißt „🔄 Analyse aktualisieren“."
+   ]
+  ]
+ },
+ {
+  "version": "0.28.0",
+  "date": "2026-11-01",
+  "app": "beide",
+  "title": "Analyse erst auf Knopfdruck",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Routenplaner: „Route planen“ plant nur noch – die Prüfung startet erst mit dem großen Knopf „▶ Analyse starten“. Ändert sich die Route danach (Punkt verschoben, Nacht übernommen, Umweltzone umfahren …), heißt er „🔄 Analyse aktualisieren“. So läuft keine lange Analyse mehr los, solange ihr noch an der Route baut."
+   ],
+   [
+    "fix",
+    "Fortschrittsanzeige: Das Wohnmobil (bzw. Gespann) startet ganz auf dem Balken statt halb links aus dem Bild."
+   ],
+   [
+    "neu",
+    "Laufende Analyse abbrechen: „✕ Abbrechen“ neben dem Fortschritt; der Planer-Knopf zeigt während einer Analyse „Laufende Analyse abbrechen“ statt eine zweite zu starten. Abbrechen gibt den Server sofort wieder frei."
+   ],
+   [
+    "besser",
+    "Steigungen & Gefälle sind jetzt ein Reiter „⛰️ Steigungen“ neben Engstellen, Übernachten, Tankstellen und Rastplätzen – die lange Liste scrollt dort wie die anderen, die Zahl im Reiter nennt die steilen Stücke ab 9 %."
+   ],
+   [
+    "besser",
+    "Fahrzeug: Ist ein Profil über 9 m lang, aber „mit Anhänger“ nicht angehakt, fragt die Seite nach – ohne Haken gibt es keine Anhänger-Sperren, kein Gespann-Tempo und keine Gespann-Maut (und im Fortschritt kein Gespann). Der Planer schreibt „Gespann“ nur noch, wenn wirklich ein Anhänger dabei ist, sonst „Lkw (über 3,5 t)“."
+   ]
+  ],
+  "public_text": "Die Prüfung startet erst, wenn ihr sie wollt: „Route planen“ plant nur, der große Knopf „Analyse starten“ prüft – nach Änderungen heißt er „Analyse aktualisieren“.",
+  "public_text_ride": "Die Bewertung startet erst, wenn ihr sie wollt: „Route planen“ plant nur, der große Knopf startet die Analyse – nach Änderungen heißt er „Analyse aktualisieren“."
+ },
+ {
+  "version": "0.27.1",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Weniger Last nach Updates",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Server: Das Vorrechnen der Beispiele nach einem Update läuft mit niedrigster Priorität, und ein Update startet den Routenplaner (Valhalla) nicht mehr unnötig mit neu – der Server bleibt nach Updates spürbar ruhiger."
+   ],
+   [
+    "besser",
+    "Server: Höchstens eine große Analyse gleichzeitig (plus eine mit Live-Kartendaten) – weitere warten kurz in der Schlange, statt dem Server den Speicher zu füllen."
+   ]
+  ]
+ },
+ {
+  "version": "0.27.0",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Tankstellen und Plätze fürs iPad-Navi",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "iPad-App: Der Server liefert zur Route die Tankstellen (mit Diesel) und die passenden Stell- und Campingplätze samt Entfernung ab Start – Grundlage für Dieselpreise und Platzliste unterwegs."
+   ]
+  ]
+ },
+ {
+  "version": "0.26.3",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Klare Meldungen bei gesperrter Zufahrt und Server-Neustart",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Navi-Apps: findet der Server keine Route, liefert er jetzt den Grund mit – z. B. dass die Zufahrt nur für euer Fahrzeug gesperrt ist (mit Pkw ginge es) – statt nur „Keine Route gefunden“."
+   ],
+   [
+    "fix",
+    "Analyse während eines Updates: statt „Analyse nicht mehr verfügbar“ wartet die Seite, bis der Server wieder da ist, und sagt klar, wenn die Analyse durch den Neustart verloren ging und nochmal gestartet werden muss."
+   ]
+  ]
+ },
+ {
+  "version": "0.26.2",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Klarere Meldung bei unerreichbarem Platz, Server entlastet",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Routenplaner: „Keine Route gefunden“ nennt jetzt den Abschnitt und sagt, wenn es am Fahrzeug liegt (mit Pkw ginge es – Zufahrt für Länge/Gewicht/Höhe oder Gespann gesperrt), statt nur aufs Planungsgebiet zu verweisen."
+   ],
+   [
+    "besser",
+    "Server: Analysen, Paketbau und Datenabrufe laufen mit niedriger Priorität, Container mit CPU-Deckel (nie alle Kerne) und geringerem Gewicht – der Server bleibt für Webseite, Planer und andere Dienste flott; QA rechnet nur noch eine Analyse gleichzeitig."
+   ]
+  ]
+ },
+ {
+  "version": "0.26.1",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Fortschritt ohne Rückschritte",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Fortschrittsanzeige springt nicht mehr zurück: das Wohnmobil fährt nur vorwärts und kriecht zwischen den Meldungen langsam weiter."
+   ],
+   [
+    "fix",
+    "Gespann nur, wenn im aktiven Fahrzeugprofil „mit Anhänger“ gesetzt ist; Profilname als Tooltip am Balken."
+   ]
+  ]
+ },
+ {
+  "version": "0.26.0",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Meine Touren",
+  "public": true,
+  "public_text": "Touren speichern: der komplette Stand des Routenplaners am Login – auf jedem Gerät öffnen, kopieren, frühere Stände zurückholen; ein Entwurf im Browser rettet ungespeicherte Änderungen.",
+  "items": [
+   [
+    "neu",
+    "Routenplaner: Name + „💾 Speichern“ speichert die Tour komplett am Login (Punkte, Nächte, Streckenart je Abschnitt, übernommene Plätze, ausgelassene Nächte, gemiedene Umweltzonen) – ohne Offline-Paket, das baut erst „Ans Navi schicken“ (gleiche Tour)."
+   ],
+   [
+    "neu",
+    "„📂 Meine Touren“: öffnen (plant gleich neu), Kopie, die letzten 10 Stände zurückholen, löschen."
+   ],
+   [
+    "neu",
+    "Entwurf im Browser: nach Neuladen oder Absturz „Ungespeicherten Entwurf wiederherstellen“."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.8",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Fortschritt: Ducato-Front neu, Rocker im Dunkelmodus",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Fortschrittsanzeige: Fahrerhaus neu – große Dachhaube mit Lippe über der lang geneigten Frontscheibe, Seitenfenster bis zur A-Säule, kurze Haube, runde Nase mit langem Scheinwerfer; Rocker in brauner Lederjacke mit heller Kontur, auch im Dunkelmodus gut zu sehen."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.7",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Fortschritt: Rocker statt Hase",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Fortschrittsanzeige: auf dem Dach sitzt jetzt ein Rocker (Lederjacke, Bandana, Sonnenbrille, Haare im Fahrtwind, Faust hoch) statt des Hasen."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.6",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Fortschritt: Ducato-Front, Hase reitet mit",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Fortschrittsanzeige: realistischere Ducato-Front (schräge Scheibe, kurze Haube, Spiegel) und ein Hase, der das Wohnmobil reitet – mit wehenden Ohren."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.5",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Fortschritt: Teilintegrierter und Tandem-Kofferanhänger",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Fortschrittsanzeige: detaillierter Teilintegrierter (Dachhaube, Ducato-Front, Dekor, Aufbautür, Garage); mit Anhänger zieht er einen Kofferanhänger mit zwei Achsen."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.4",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Fortschritt: eigenes Wohnmobil, Gespann mit Anhänger",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Fortschrittsanzeige: eigenes gezeichnetes Wohnmobil mit drehenden Rädern; mit „Anhänger“ im Fahrzeugprofil fährt ein Gespann ins Ziel."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.3",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Fortschritt mit Wohnmobil",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Fortschrittsanzeige der Analyse: ein kleines Wohnmobil fährt die Strecke ab bis ins Ziel 🏁."
+   ]
+  ],
+  "public_text": "Während der Prüfung fährt ein kleines Wohnmobil den Fortschrittsbalken entlang bis ins Ziel – mit Anhänger, wenn euer Profil einen hat."
+ },
+ {
+  "version": "0.25.2",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Mini-Karte: Karte zuerst, Luftbild repariert",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Luftbild in der Mini-Karte und Einfahrt-Fotos wurden von der Sicherheitsregel (CSP) des Browsers blockiert – jetzt erlaubt."
+   ],
+   [
+    "besser",
+    "Mini-Karte startet mit der Karte, Luftbild per Umschalter; Link „Google Maps ↗“ öffnet die Stelle in der Satellitenansicht."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.1",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Platz-Details im Routenplaner",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Routenplaner: „ℹ Details“ an jedem Übernachtungs-Vorschlag und „ℹ“ an jedem Punkt – kleine eigene Karte mit Zoom auf den Platz (Luftbild/Karte) und alle Platz-Infos (OSM, Tourismusamt, Bewertungen, Einfahrt-Foto)."
+   ],
+   [
+    "neu",
+    "Routenplaner: „🚐💨 Durchfahren“ blendet den Übernachtungs-Vorschlag einer Nacht aus (z. B. die letzte Etappe am Stück)."
+   ]
+  ]
+ },
+ {
+  "version": "0.25.0",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Eigene Platz-Bewertungen",
+  "public": true,
+  "public_text": "Stell- und Campingplätze selbst bewerten: Sterne, Preis, ob euer Womo gepasst hat, und ein paar Worte – für alle Nutzer sichtbar, im Web und in RigNavi.",
+  "items": [
+   [
+    "neu",
+    "Platz-Popup und Liste: eigene Bewertungen aller Nutzer (Schnitt, neueste mit Text); Dialog zum Lesen, Bewerten, Ändern und Löschen – mit Nacht, Preis, „passte gut/eng/nicht“ und den Fahrzeugmaßen."
+   ],
+   [
+    "neu",
+    "Reisepaket für RigNavi: Plätze tragen ihre OSM-Id (Bewertungen auch unterwegs)."
+   ],
+   [
+    "neu",
+    "Platz-Popup: Straßenfoto der Einfahrt (Mapillary, nächstes Bild mit Blick zum Platz) – sieht man vorher Tor, Schranke und Zufahrt."
+   ]
+  ]
+ },
+ {
+  "version": "0.24.0",
+  "date": "2026-11-01",
+  "app": "rig",
+  "title": "Stell- und Campingplätze genauer",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Platz-Popup: max. Höhe, Untergrund, Sterne, Reservierung, Beschreibung, E-Mail, Foto, Betreiber und „zuletzt geprüft“ aus OpenStreetMap."
+   ],
+   [
+    "neu",
+    "„passt“-Ampel prüft jetzt auch die Höhe (Schranke/Tor) und „keine Wohnmobile“."
+   ],
+   [
+    "neu",
+    "Links „park4night ↗“ (Karte dort an dieser Stelle – Bewertungen/Fotos) und „In Karten-App ↗“ mit Koordinaten am Platz."
+   ],
+   [
+    "neu",
+    "Frankreich: Angaben der Tourismusämter (DATAtourisme, wöchentlich) an den Plätzen – offizielle Sterne, Beschreibung, Website, Reservierungslink, Stand; Plätze, die in OpenStreetMap fehlen (z. B. Aires, Höfe), kommen entlang der Route dazu."
+   ]
+  ],
+  "public_text": "Plätze genauer: maximale Höhe, Untergrund, Sterne, Fotos und mehr. Die Ampel prüft jetzt auch Schranken und „keine Wohnmobile“."
+ },
+ {
+  "version": "0.23.0",
+  "date": "2026-10-31",
+  "app": "rig",
+  "title": "Echte Dieselpreise auch in Frankreich, Spanien und Italien",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Tankplan: echte Dieselpreise an den Tankstopps jetzt auch in Frankreich (prix-carburants, laufend), Spanien (Geoportal Gasolineras) und Italien (MIMIT, Stand 8 Uhr) – offene Behördendaten, je Stopp mit Quelle und Stand."
+   ],
+   [
+    "besser",
+    "Hinweis unter dem Tankplan zählt die echten Preise je Land; Stand mit Datum, wenn er nicht von heute ist."
+   ],
+   [
+    "neu",
+    "Unter dem Tankplan „↻ Preise jetzt prüfen“ (holt frisch, höchstens alle 2 min) mit Uhrzeit der letzten Prüfung; an jedem Tankstopp Links „Preisportal ↗“ und „Karte ↗“ (OpenStreetMap)."
+   ],
+   [
+    "neu",
+    "„Alle Tankstellen“: echter Preis mit Quelle direkt in der Liste, sonst Knopf „€ Preis holen“ für genau diese Tankstelle."
+   ],
+   [
+    "fix",
+    "Deutschland: Tankerkönig-Preise kamen seit 0.17 nie an (falsches Feld gelesen) – jetzt echt, auch auf großen Geländen wie Globus/Autohof."
+   ],
+   [
+    "neu",
+    "Karte und Tankplan: „In Karten-App ↗“ öffnet den Ort in der Navi-/Karten-App (Android: Auswahl der App, iPhone/Mac: Apple Karten, sonst Google Maps), „📋“ kopiert die Koordinaten; Rechtsklick bzw. langer Druck auf die Karte zeigt beides für jede Stelle."
+   ],
+   [
+    "neu",
+    "Deutschland, 12-Uhr-Regel: Bei Reisen mit Abfahrtszeit kennt der Tankplan die Ankunftszeit an jeder Tankstelle, bevorzugt Stopps vor 12 Uhr und warnt bei Ankunft zwischen 12 und 19 Uhr (Diesel direkt nach 12 im Schnitt +18 ct, ADAC)."
+   ],
+   [
+    "besser",
+    "Tankerkönig schonender: Stationen eines Gebiets 24 h gemerkt, neue Preise gebündelt für bis zu 10 Stationen je Abruf – deutlich weniger Abrufe, kaum noch Sperrpausen."
+   ],
+   [
+    "besser",
+    "Karte: Mausrad zoomt schneller (etwa wie die +/−-Knöpfe)."
+   ]
+  ],
+  "public_text": "Echte Dieselpreise an den Tankstopps jetzt auch in Frankreich, Spanien und Italien – aus den offenen Preisdaten der Behörden, mit Quelle und Stand."
+ },
+ {
+  "version": "0.22.1",
+  "date": "2026-10-31",
+  "app": "rig",
+  "title": "Gespann-Schalter an der Maut",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Maut, Vignette & Tempo: Schalter „mit Anhänger“ direkt in der Karte – rechnet Maut, Vignetten (Schweiz: zweite Vignette für den Anhänger) und Tempo sofort neu und ändert das aktive Fahrzeugprofil mit."
+   ]
+  ]
+ },
+ {
+  "version": "0.22.0",
+  "date": "2026-10-31",
+  "app": "rig",
+  "title": "Maut je Land ausgerechnet",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Maut, Vignette & Tempo: Betrag je Land und Summe für die Reise. Frankreich und Italien (dazu Spanien/Portugal): mautpflichtige km der Route (OSM) × Satz der Fahrzeugklasse – Klasse aus Höhe, Gewicht und Anhänger (FR: Wohnmobil 2–3 m bis 3,5 t = Klasse 2). Als „ca.“ markiert, Betreiber weichen ab.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Schweiz: Vignette 40 CHF (Anhänger braucht eine eigene), über 3,5 t PSVA 3,25 CHF je Reisetag im Land (mind. 25, höchstens 58,50). Österreich bis 3,5 t: passende Vignette nach Reisetagen (1 Tag/10 Tage/2 Monate/Jahr), Sondermaut-Strecken als Hinweis; über 3,5 t GO-Maut nur als Hinweis.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Route planen startet immer mit „Autobahn erlaubt“ – der Browser stellt keine alte Auswahl „ohne Autobahn“ mehr wieder her.",
+    "both"
+   ]
+  ],
+  "public_text": "Maut, Vignetten und Tempo je Land – mit Betrag je Land und Summe für die Reise, passend zu Gewicht und Anhänger."
+ },
+ {
+  "version": "0.21.1",
+  "date": "2026-10-31",
+  "app": "beide",
+  "title": "Schönere Ortssuche im Planer",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Route planen: Suchfeld als Pille mit Lupe und ✕, Treffer erscheinen schon beim Tippen als Liste (Ort fett, Region darunter, außerhalb des Planungsgebiets markiert). Pfeiltasten + Enter, Esc schließt; „als Start“ setzt einen Treffer vorne ein.",
+    "both"
+   ],
+   [
+    "fix",
+    "QA-Band und Stage/Commit in /api/info waren im Branch nicht aktiv (main.py) – jetzt nachgezogen.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.21.0",
+  "date": "2026-10-31",
+  "app": "rig",
+  "title": "Übernachtung vorschlagen",
+  "public": true,
+  "public_text": "Lange Etappe? Der Routenplaner schlägt nach 4–7 Stunden bzw. 400–700 km Fahrt passende Stellplätze und Campingplätze vor – ein Klick, und der Platz ist die Übernachtung.",
+  "items": [
+   [
+    "neu",
+    "Route planen: „Übernachtung vorschlagen“ nach 4, 5 (Standard), 6 oder 7 h bzw. 400–700 km – was zuerst erreicht ist, egal ob Landstraße oder Autobahn. Für jede zu lange Etappe zeigt der Planer bis zu vier Stell- und Campingplätze im Bereich 80–110 % des Tageslimits und bis 5 km neben der Strecke, mit Umweg, Fahrzeit bis dahin, Entsorgung/Wasser/Strom.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Nur Plätze, die zum Fahrzeug passen: zu kurze oder zu leichte Plätze (OSM maxlength/maxweight/maxheight), private Plätze und reine Zeltplätze fallen raus; ohne Maßangabe steht „vorher prüfen“ dabei.",
+    "rig"
+   ],
+   [
+    "neu",
+    "„Als Nacht“ (Liste oder 🌙 auf der Karte) setzt den Platz als Übernachtung ein und plant sofort neu; reichen die Tage noch nicht, kommen die nächsten Vorschläge.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Start und Ziel als ovale Schilder „START“/„ZIEL“ auf der Karte und in der Punktliste.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.20.1",
+  "date": "2026-10-31",
+  "app": "beide",
+  "title": "Zwischenziele umsortieren",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Route planen: Punkte in der Liste am Griff ⠿ ziehen (Maus und Finger) oder mit den Pfeiltasten verschieben – z. B. erst Reihenfolge ordnen, dann „Nacht“ setzen. Betroffene Abschnitte fallen auf die gewählte Streckenart zurück, Start und Ziel sind nie „Nacht“.",
+    "both"
+   ],
+   [
+    "besser",
+    "App-Seite: Hinweis zu iPhone/iPad – keine öffentliche iOS-Version, der RigAnalyzer im Browser geht auf allen Geräten.",
+    "rig"
+   ]
+  ],
+  "public_text": "Punkte im Routenplaner zieht ihr jetzt einfach in eine neue Reihenfolge – mit der Maus oder dem Finger."
+ },
+ {
+  "version": "0.20.0",
+  "date": "2026-10-31",
+  "app": "beide",
+  "title": "Registrieren mit Freischaltung",
+  "public": true,
+  "public_text": "Wer noch keinen Zugang hat, kann ihn jetzt direkt auf der Anmeldeseite beantragen. Nach der Freischaltung kommt eine Mail, dann geht’s los.",
+  "items": [
+   [
+    "neu",
+    "Registrieren: Link „Registrieren“ auf Anmelde- und Infoseite, Seite /registrieren mit Benutzername, Mail, eigenem Passwort und optionaler Notiz. Der Login bekommt die App der Seite und bleibt gesperrt, bis ein Admin ihn freischaltet.",
+    "both"
+   ],
+   [
+    "neu",
+    "Mail an die Oberadmins bei jeder Registrierung (Name, Mail, Notiz, IP, Link zum Admin-Bereich); Mail an den Nutzer, sobald er freigeschaltet ist.",
+    "both"
+   ],
+   [
+    "neu",
+    "Admin-Bereich: offene Anträge oben mit „wartet auf Freischaltung“ und Notiz, Knopf „✅ Freischalten“; Ablehnen = löschen. Zugriffsprotokoll „selbst registriert“ / „freigeschaltet“.",
+    "both"
+   ],
+   [
+    "besser",
+    "Anmeldeseite: richtiges Passwort, aber noch nicht freigeschaltet → Hinweis statt „stimmt nicht“. Schutz: Honeypot-Feld, höchstens 3 Anträge je IP und Stunde, höchstens 20 offene Anträge.",
+    "both"
+   ],
+   [
+    "besser",
+    "users.py: list zeigt WARTET, neu „frei NAME“ (ohne Mail).",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.19.0",
+  "date": "2026-10-31",
+  "app": "rig",
+  "milestone": "Umweltzonen",
+  "title": "Umweltzonen auf der Route",
+  "public": true,
+  "public_text": "Der RigAnalyzer zeigt jetzt Umweltzonen entlang der Route, sagt je Zone, ob ihr mit eurem Fahrzeug hineindürft, und plant auf Wunsch um sie herum – auch RigNavi (ab 0.14) kennt sie.",
+  "items": [
+   [
+    "neu",
+    "Umweltzonen in Frankreich (Base Nationale des ZFE, Licence Ouverte) und im übrigen Europa (OpenStreetMap, ODbL) entlang der Route: Karte mit Zonenumriss, Liste mit Urteil je Zone (ok / nicht erlaubt / prüfen) aus Fahrzeug, Euro-Norm und Kraftstoff.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Umweltzonen umfahren: Schalter „Umweltzonen meiden“ im Routenplaner und Knopf „umfahren“ im Fazit – der Routenplaner meidet die Zonen (höchstens 20). Liegen Start oder Ziel in einer Zone, bleibt sie drin und es gibt einen Hinweis; findet er sonst keine Route, kommt sie ohne Umfahren mit dem Hinweis „Umfahren nicht möglich“.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Fahrplan: Umweltzonen je Etappe, Urteil zum Durchfahrtstag (zeitlich gestaffelte Stufen, Zonen mit Beginn oder Ende) und Plaketten-/Crit'Air-Hinweise; ohne Datenstand „Umweltzonen gerade nicht verfügbar“.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.14: Umweltzonen in der Vorschau mit Urteil, Warnung rund 5 km vorher, Umfahren auch offline; Fahrzeugklasse in den Einstellungen.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Die Zonendaten werden jede Woche automatisch abgeglichen; Zonen, die in beiden Quellen stehen, erscheinen nur einmal.",
+    "rig"
+   ],
+   [
+    "besser",
+    "BNZFE: ganztägige Zeiten gelten als „immer“, Namen aus Träger/Gemeinde statt Kennung.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.18.0",
+  "date": "2026-10-29",
+  "app": "ride",
+  "milestone": "Vergleich",
+  "title": "Touren auf der Karte vergleichen",
+  "public": true,
+  "public_text": "Im Vergleich liegen jetzt alle Touren zugleich auf der Karte, jede in ihrer Farbe – antippen wechselt. Und die Eignung steht für alle Profile nebeneinander, von Solo bis Gruppe.",
+  "items": [
+   [
+    "neu",
+    "Vergleich auf der Karte: die gewählte Tour farbig nach Bewertung, die anderen dünn in ihrer festen Farbe darunter (Farbpunkt über der Spalte), Linie antippen wählt die Tour.",
+    "ride"
+   ],
+   [
+    "neu",
+    "Vergleichstabelle: Passung für alle vier Profile (P1 Solo, P2 kleine Gruppe, P3 Gruppe, P4 Kurven) statt nur das gewählte.",
+    "ride"
+   ]
+  ]
+ },
+ {
+  "version": "0.17.2",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Admin und Version je App",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Versionsnummer je App: die neueste Änderung, die die App betrifft (Fußzeile, Technik, Admin).",
+    "both"
+   ],
+   [
+    "besser",
+    "Admin-Bereich je App: unter rideanalyzer.* nur Ride-Logins, Ride-Haken und Ride-Rechte, unter riganalyzer.* nur Rig; was zur anderen App gehört, bleibt beim Speichern unverändert (Server führt zusammen). Neue Logins bekommen die App der Seite.",
+    "both"
+   ],
+   [
+    "besser",
+    "„Versionen“, „Jetzt aktiv“ und „Letzte Änderungen“ nur für die eigene App; Karte mit RigNavi-Positionen nur beim RigAnalyzer.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.17.1",
+  "date": "2026-10-27",
+  "app": "rig",
+  "title": "Dieselpreise sparsam abfragen",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Tankerkönig wurde zu oft gefragt (ganze Route, bis 30 Abrufe am Stück) und hat unseren Server gesperrt: jetzt nur Tankstellen ±10 km um die geplanten Stopps, höchstens 8 Abrufe je Route, mindestens 1,5 s Abstand über alle Nutzer, nach Fehler/Sperre 15 min Pause.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.17.0",
+  "date": "2026-10-27",
+  "app": "rig",
+  "milestone": "Spritpreise",
+  "title": "Echte Dieselpreise im Tankplan",
+  "public": true,
+  "public_text": "Für Tankstellen in Deutschland nimmt der Tankplan jetzt den aktuellen Dieselpreis der Markttransparenzstelle – und wählt damit die wirklich günstigeren Stopps. Außerhalb Deutschlands bleibt es bei der Schätzung.",
+  "items": [
+   [
+    "neu",
+    "Tankplan: echte Dieselpreise für deutsche Tankstellen (Tankerkönig/MTS-K, CC BY 4.0) über den Server – OSM-Tankstelle ↔ nächste Station bis 150 m, gebündelt je 5 km, 10 min Zwischenspeicher, höchstens 30 Abrufe je Route; der Plan wählt damit günstigere Stopps, „gerade geschlossen“ wird angezeigt.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Schlüssel im Ansible-Vault (rideanalyzer_tankerkoenig_key) → Umgebung TANKERKOENIG_KEY; ohne Schlüssel wie bisher nur Schätzung.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.16.0",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Tagesbericht",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Ereignis-Tagebuch: Anmeldungen, Fehlversuche, Analysen, Beispiele, Planungen, RigNavi-Fahrten (Ziel, ohne Position), App-Downloads, Admin-Änderungen und App-Warnungen dauerhaft je Tag in data/events/ (90 Tage) – überlebt jeden Deploy.",
+    "both"
+   ],
+   [
+    "neu",
+    "Tagesbericht jeden Morgen ab 07:00 per Mail an die Admin-Adresse (Überblick je App, wer hat was gemacht, Auffälliges, Betrieb); an Tagen ganz ohne Nutzung und Fehler keine Mail; nach Neustart bis 12 Uhr nachgeholt. Vorschau im Admin-Bereich.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.15.4",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Jede App nur noch für sich",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Öffentliche Seiten (Start, Login, Konto, Info, Änderungen, Funktionen, Technik) nennen nur noch die eigene App: kein „Ride + Rig“-Etikett, kein Hinweis auf die Schwester-App, Technik-Seite je App (Abschnitte <!--ride-->/<!--rig--> in tech.html).",
+    "both"
+   ],
+   [
+    "besser",
+    "RideAnalyzer: „RigNavi unterwegs“ (Tempo-Warnung) im Konto und der RigNavi-Satz im Datenschutz-Hinweis nur noch beim RigAnalyzer; Admin-Hinweis zu RigNavi-Positionen nur für den Oberadmin.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.15.3",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Route passt ganz auf die Karte",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Beim Laden einer Tour oder eines Beispiels (und beim Etappenwechsel) zeigt die Karte die ganze Route: Einpassen erst, wenn Höhenprofil und Ergebniskarten stehen, mit festem Rand – vorher schnitt die danach geschrumpfte Karte oben und unten ab.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.15.2",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Ride bleibt Ride, Rig bleibt Rig",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Mails tragen den Namen der App: Absender „RideAnalyzer“ bzw. „RigAnalyzer“, Passwort-Mail „Neues Passwort für den RideAnalyzer“.",
+    "both"
+   ],
+   [
+    "besser",
+    "Zugangsmail richtet sich nach den Apps des neuen Logins: nur Ride → nur RideAnalyzer-Adresse, nur Rig → nur RigAnalyzer, beide → beide Adressen.",
+    "both"
+   ],
+   [
+    "besser",
+    "„Änderungen“ und „Funktionen“ verlinken nicht mehr zur Schwester-App; /app.html (RigNavi) gibt es nur noch beim RigAnalyzer.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.15.1",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Unwetterwarnungen aufgeräumt",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Länder ohne Gebietsgrenzen (z. B. Großbritannien): keine örtlichen Meldungen wie Küsten-Hochwasser mehr an jeder Etappe – nur großräumiges Wetter (Wind, Gewitter, Schnee/Glätte, Nebel, Hitze, Kälte, Regen).",
+    "both"
+   ],
+   [
+    "fix",
+    "Gleiche Warnung zu verschiedenen Uhrzeiten wird zu einer Zeile zusammengefasst (frühester Beginn bis spätestes Ende, Gebiete „A, B, C +N“).",
+    "both"
+   ],
+   [
+    "fix",
+    "Warnstufen in Großschreibung („Orange“) gingen verloren – z. B. orange Windwarnungen in Großbritannien.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.15.0",
+  "date": "2026-10-27",
+  "app": "ride",
+  "milestone": "Wetter",
+  "title": "Wetter auch im RideAnalyzer",
+  "public": true,
+  "public_text": "Wetter unterwegs: Abfahrt wählen, und an neun Punkten entlang der Tour stehen Temperatur, Regen und Böen zur Durchfahrt – dazu amtliche Unwetterwarnungen und das Regenradar als Kartenebene.",
+  "items": [
+   [
+    "neu",
+    "Karte „Wetter unterwegs“: Abfahrt (Vorschlag: heute zur nächsten vollen Stunde bzw. morgen 9 Uhr), an 9 Punkten Temperatur, Regen, Böen zur geschätzten Durchfahrt (reine Fahrzeit); Böen ab 60 km/h als Seitenwind-Hinweis.",
+    "ride"
+   ],
+   [
+    "neu",
+    "Unwetterwarnungen entlang der Tour (DWD, MeteoAlarm), gleiche Warnung nur einmal.",
+    "ride"
+   ],
+   [
+    "neu",
+    "Regenradar als Kartenebene (RainViewer).",
+    "ride"
+   ]
+  ]
+ },
+ {
+  "version": "0.14.1",
+  "date": "2026-10-27",
+  "app": "ride",
+  "milestone": "Vergleich",
+  "title": "Übersichtlicherer Routenvergleich",
+  "public": true,
+  "public_text": "Im Vergleich bleiben die Zeilennamen beim seitlichen Scrollen stehen, Routennamen sind besser lesbar, und mit ✕ nehmt ihr eine Route wieder heraus.",
+  "items": [
+   [
+    "besser",
+    "RideAnalyzer-Vergleich: erste Spalte fest beim seitlichen Scrollen, Routennamen ohne .gpx/Unterstriche und mehrzeilig statt nach 17 Zeichen abgeschnitten (voller Name beim Darüberfahren).",
+    "ride"
+   ],
+   [
+    "neu",
+    "Vergleich: ✕ an jeder Route nimmt sie wieder heraus.",
+    "ride"
+   ],
+   [
+    "neu",
+    "Admin: Karte „Letzte Änderungen“ (wer hat wann wem welche Rechte, Gruppe, Passwort, Sperre gegeben; Gruppen-Admins sehen nur ihre Logins).",
+    "both"
+   ],
+   [
+    "besser",
+    "Admin: Gruppen-Admin nur mit mindestens einer Gruppe speicherbar.",
+    "both"
+   ],
+   [
+    "besser",
+    "Admins ohne zweiten Faktor müssen ihn gleich nach der Anmeldung einrichten, bevor sie die App nutzen.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.14.0",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Gruppen und Gruppen-Admins",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Gruppen: der Oberadmin legt Gruppen an (umbenennen, löschen) und ordnet jeden Login höchstens einer Gruppe zu.",
+    "both"
+   ],
+   [
+    "neu",
+    "Gruppen-Admins: Haken Ride/Rig plus Gruppen – sie verwalten nur Logins ihrer Gruppen in diesen Apps (anlegen, Passwort, Mail, Apps, sperren, löschen); keine Admin-Rechte, keine Gruppen, keine RigNavi-Positionen. Der Ride-Admin aus 0.13.2 wird zum Ride-Gruppen-Admin ohne Gruppe.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.13.2",
+  "date": "2026-10-27",
+  "app": "ride",
+  "title": "Ride-Admin",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Ride-Admin: eigenes Admin-Recht nur für RideAnalyzer-Logins – anlegen, Passwort, Mail, sperren, löschen; keine Rig-Logins, keine Admin-Rechte, keine RigNavi-Positionen; Zugang wie alle Admins nur mit 2FA. Vergabe in der Admin-Spalte (– / Ride-Admin / Admin) oder per users.py admin NAME ride.",
+    "ride"
+   ]
+  ]
+ },
+ {
+  "version": "0.13.1",
+  "date": "2026-10-27",
+  "app": "beide",
+  "title": "Lücken im GPX übers Straßennetz schließen",
+  "public": true,
+  "items": [
+   [
+    "besser",
+    "Grobe GPX-Exporte (ein Punkt alle paar km): Lücken bis 40 km folgen jetzt der echten Straße statt einer Luftlinie – Höhen, Breiten, Gewicht und Steigungen werden dort geprüft (Schottland-Demo: 773 → 3 offene Lücken).",
+    "both"
+   ],
+   [
+    "fix",
+    "Admin „Jetzt aktiv“: Kartenkacheln wurden von OpenStreetMap blockiert (403).",
+    "both"
+   ]
+  ],
+  "public_text": "Grobe GPX-Exporte mit wenigen Punkten folgen in den Lücken jetzt der echten Straße statt einer geraden Linie."
+ },
+ {
+  "version": "0.13.0",
+  "date": "2026-10-27",
+  "app": "rig",
+  "milestone": "Wetter",
+  "title": "Wetter bei der Planung",
+  "public": true,
+  "public_text": "Wetter je Etappe zur Ankunft (mit Böen-Warnung fürs Gespann), amtliche Unwetterwarnungen entlang der Route und Regenradar auf der Karte – im RigAnalyzer und in RigNavi.",
+  "items": [
+   [
+    "neu",
+    "Fahrplan: Wetter je Etappe zur geplanten Ankunft (Temperatur, Regen, Böen), das Schlimmste unterwegs mit km, Böen-Ampel fürs Gespann; „Vorhersage ab …“ für spätere Etappen.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Unwetterwarnungen entlang der Route: DWD (Deutschland, genau), MeteoAlarm (Frankreich nach Département, sonst orange/rot je Land).",
+    "rig"
+   ],
+   [
+    "neu",
+    "Regenradar als Kartenebene (RainViewer).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.13: Wetterzeile in der Vorschau, Warnhinweis unterwegs, Regenradar-Knopf.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.12.0",
+  "date": "2026-10-27",
+  "app": "beide",
+  "milestone": "Neues Layout",
+  "title": "Neues Layout: Liste und Karte nebeneinander",
+  "public": true,
+  "public_text": "Liste und Karte teilen sich jetzt die Breite, Kartenebenen stecken in einem Knopf in der Kartenecke, das Höhenprofil lässt sich einklappen und der Fahrplan zeigt jede Etappe in einer Zeile.",
+  "items": [
+   [
+    "besser",
+    "Liste und Karte nebeneinander (Liste bis ~760 px), Ebenen-Knopf in der Karte mit gemerkter Auswahl.",
+    "both"
+   ],
+   [
+    "besser",
+    "RigAnalyzer: Höhenprofil einklappbar, Fahrplan einzeilig mit Nächten −/+ und festen Hinweis-Symbolen.",
+    "rig"
+   ]
+  ],
+  "public_text_ride": "Liste und Karte teilen sich jetzt die Breite, und die Kartenebenen stecken in einem Knopf in der Kartenecke."
+ },
+ {
+  "version": "0.11.1",
+  "date": "2026-10-26",
+  "app": "beide",
+  "title": "Infoseite an der Anmeldung",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Kurze Infoseite „Worum geht's?“ (/info.html) ohne Login, von der Anmeldeseite verlinkt – je App ein eigener Text, wofür Ride bzw. Rig da ist.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.11.0",
+  "date": "2026-10-26",
+  "app": "beide",
+  "title": "Datenqualität und Tankplan mit Abstechern",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "Karte „Datenqualität“ in Ride und Rig: Anteil der Strecke mit zugeordnetem Straßennetz, bekanntem Belag, Tempolimit und (Rig) Breite, Angaben an Tankstellen und Plätzen, Kartenstand, Gesamtnote gut/brauchbar/dünn. Reisen nach km gewichtet.",
+    "both"
+   ],
+   [
+    "neu",
+    "Rig-Tankplan: Tankstellen bis 3 km hinter Autobahn-Ausfahrten (je 5 km Strecke die drei vielversprechendsten), Umweg ab der Ausfahrt geschätzt; Preis je Art geschätzt (Raststätte +0,30 €, Supermarkt −0,04 € …), gewählt wird die günstigste im hinteren Teil der Reichweite inkl. Umweg und Zeit; Ersparnis gegenüber direkt an der Strecke.",
+    "rig"
+   ],
+   [
+    "fix",
+    "Tankkarten-Stationen (AS 24) und reine Autogas-Händler werden nicht mehr als Diesel-Tankstopp vorgeschlagen.",
+    "rig"
+   ]
+  ],
+  "public_text": "Neue Karte „Datenqualität“: wie gut die Kartendaten eure Strecke abdecken – Straßen, Belag, Tempolimits.",
+  "title_ride": "Datenqualität"
+ },
+ {
+  "version": "0.10.3",
+  "date": "2026-10-26",
+  "app": "beide",
+  "title": "Startpasswort, Passwort-Auge, Seiten je App",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin: Logins mit vom Admin vergebenem Passwort sind als „Startpasswort“ markiert; ersetzt der Nutzer es selbst (Mein Konto oder Passwort-Link), bekommen alle Admins mit Mailadresse eine Mail, und die Liste zeigt „eigenes Passwort seit …“.",
+    "both"
+   ],
+   [
+    "neu",
+    "Auge an allen Passwortfeldern (Anmelden, Passwort-Link, Mein Konto) zum Prüfen auf Tippfehler.",
+    "both"
+   ],
+   [
+    "besser",
+    "RideAnalyzer verlinkt die Android-App nicht mehr (RigNavi gehört zum RigAnalyzer, alter Link leitet dorthin um); „Änderungen“ zeigt je App nur die eigenen und gemeinsamen Meilensteine.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.10.2",
+  "date": "2026-10-26",
+  "app": "beide",
+  "title": "Garmin-Routen mit vollem Verlauf",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "Garmin-Routen (rtept mit gpxx:rpt-Zwischenpunkten, z. B. „Alle Kurven Odenwald“) werden mit dem berechneten Verlauf gelesen statt nur über die Wegpunkte – vorher wurde zwischen den Wegpunkten der kürzeste Weg nachgebaut und die Kurvenstrecke ging verloren.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.10.1",
+  "date": "2026-10-26",
+  "app": "beide",
+  "title": "Ortssuche in ganz Europa",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "Ortssuche findet Orte in ganz Europa (Planungsgebiet zuerst); Treffer außerhalb sind gekennzeichnet – Route dorthin geht noch nicht.",
+    "both"
+   ]
+  ]
+ },
+ {
+  "version": "0.10.0",
+  "date": "2026-10-26",
+  "app": "rig",
+  "milestone": "Fahransicht",
+  "title": "Fahransicht fürs Gespann",
+  "public": true,
+  "public_text": "RigNavi warnt unterwegs vor Engstellen, niedrigen Durchfahrten und starkem Gefälle, zeigt das Gespann-Tempo je Land (mit Warnung), schaltet nachts dunkel und zeigt Spurpfeile.",
+  "items": [
+   [
+    "neu",
+    "RigNavi 0.10: Gespann-Warnungen voraus als Banner und Ansage (nur knapp/kritisch), Liste der nächsten Warnungen.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Gespann-Tempo je Land (DE, AT, CH, FR, IT, ES) neben dem Tempo-Schild, Landeswechsel-Hinweis, Tempo-Warnung rot + ein Ton – schaltbar unter „Mein Konto“.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Nachtmodus nach Sonnenstand, Spurpfeile im passenden Abstand, frühes „rechts halten“ mit Anhänger.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Tempo-Hinweise im RigAnalyzer kommen aus derselben Tabelle wie in der App; Fahrzeugprofil mit Tempo-100-Zulassung.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.9.7",
+  "date": "2026-10-26",
+  "app": "rig",
+  "title": "Korrekturen Plätze & Wasser",
+  "public": false,
+  "items": [
+   [
+    "fix",
+    "RigNavi: ältere Reisepakete laden wieder (Merkmale als Text), „🅿 Plätze“ stürzt bei Plätzen am Nacht-Punkt nicht mehr ab.",
+    "rig"
+   ],
+   [
+    "fix",
+    "RigNavi: „Als Zwischenziel“ während der Fahrt ersetzt nicht mehr das Ziel.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Entsorgung auf einem Campingplatz bzw. nur für Kunden gilt wie Wasser als „nur für Gäste“, private wird nicht gezeigt.",
+    "rig"
+   ],
+   [
+    "besser",
+    "„Als Übernachtung übernehmen“ ersetzt einen nahen Nacht-Punkt statt eine Mini-Etappe einzufügen und ändert nie eine hochgeladene GPX.",
+    "rig"
+   ],
+   [
+    "fix",
+    "Höchstgewicht in kg wird richtig in Tonnen umgerechnet; Plätze im Reisepaket nur einmal.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.9.6",
+  "date": "2026-10-25",
+  "app": "rig",
+  "title": "Übernachten & Versorgen mit Filtern",
+  "public": true,
+  "items": [
+   [
+    "neu",
+    "„🅿 Übernachten & Versorgen“: Plätze, Entsorgung und Wasser entlang der Route mit Filtern in vier Gruppen, Fahrzeug-Ampel, Details mit OSM-Link und „Als Übernachtung übernehmen“.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Wasser auf Campingplätzen oder nur für Kunden gilt als „nur für Gäste“, Trinkwasserhähne extra; Kartendaten mit mehr Platz-Merkmalen (Schema 4).",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.9.6: „🅿 Plätze“ offline aus dem Reisepaket, als Ziel oder Zwischenziel; 🚰 in der Unterwegs-Leiste nur erreichbares Wasser.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Technik-Seite ohne Geräte- und Versionsdetails.",
+    "both"
+   ]
+  ],
+  "public_text": "Übernachten und Versorgen: Plätze, Entsorgung und Wasser entlang der Route mit Filtern – auch ohne Netz in RigNavi."
+ },
+ {
+  "version": "0.9.5",
+  "date": "2026-10-25",
+  "app": "rig",
+  "title": "Verkehrslage knapper",
+  "public": false,
+  "items": [
+   [
+    "besser",
+    "RigNavi-Vorschau zeigt nur noch „✅ Verkehr frei“, die Meldungen oder „gerade nicht abrufbar“ – ohne Quellen-Fußnote.",
+    "rig"
+   ]
+  ]
+ },
+ {
+  "version": "0.9.4",
+  "date": "2026-10-25",
+  "app": "beide",
+  "title": "Aktivität im Admin-Bereich",
+  "public": false,
+  "items": [
+   [
+    "neu",
+    "Admin sieht je Login letzte Anmeldung (Zeit, IP, Gerät, Fehlversuche), online/heute und die laufende Tätigkeit."
+   ],
+   [
+    "neu",
+    "RigNavi meldet während der Navigation alle 2 min Ziel, Rest-km, Ankunft und Quelle; Position nur nach Zustimmung (~1 km, 24 h).",
+    "rig"
+   ],
+   [
+    "neu",
+    "Änderungsprotokoll öffentlich nur noch Meilensteine, ausführlich im Admin-Bereich unter „Versionen“."
+   ]
+  ]
+ },
+ {
+  "version": "0.9.3",
+  "date": "2026-10-25",
+  "app": "beide",
+  "title": "Zweiter Faktor für Admins",
+  "items": [
+   [
+    "neu",
+    "Admins melden sich mit Passwort und einem Code aus einer Authenticator-App an (z. B. Aegis, 2FAS, Google Authenticator) – eingerichtet per QR-Code beim ersten Öffnen der Admin-Seite, mit 8 Notfall-Codes. Alle anderen Logins bleiben, wie sie sind."
+   ]
+  ],
+  "public": false
+ },
+ {
+  "version": "0.9.2",
+  "date": "2026-10-25",
+  "app": "beide",
+  "title": "Autobahn je Abschnitt, Admin, neues Design",
+  "items": [
+   [
+    "neu",
+    "Autobahn je Abschnitt: Zwischen zwei Punkten lässt sich „🛣 / ohne“ einzeln umstellen, der große Schalter stellt alle um – geplant wird sofort neu. RigNavi kann das genauso, auch beim Neuberechnen unterwegs."
+   ],
+   [
+    "neu",
+    "Login-Menü oben rechts mit „Mein Konto“ (Passwort, Mail) und „Passwort vergessen?“ auf der Anmeldeseite – der Link kommt per Mail und gilt eine Stunde."
+   ],
+   [
+    "neu",
+    "Admin-Seite: Logins anlegen, Passwort neu setzen, Mail, Apps, Admin-Recht, sperren."
+   ],
+   [
+    "besser",
+    "Neues Design: weiche, runde Karten und Knöpfe, RigAnalyzer grün, RideAnalyzer petrol. RigNavi mit großem Abbiege-Banner und Fahrt-Blatt – Antippen wechselt Ankunft, Fahrzeit, Rest-km, Etappenziel und Reichweite.",
+    "rig"
+   ]
+  ],
+  "public": true,
+  "public_text": "Autobahn lässt sich je Abschnitt umstellen, und „Mein Konto“ ist da – mit Passwort ändern und „Passwort vergessen?“ an der Anmeldung.",
+  "public_text_ride": "„Mein Konto“ ist da – mit Passwort ändern und „Passwort vergessen?“ an der Anmeldung.",
+  "title_ride": "Autobahn je Abschnitt, Mein Konto",
+  "title_rig": "Autobahn je Abschnitt, Mein Konto"
+ },
+ {
+  "version": "0.9.1",
+  "date": "2026-10-25",
+  "app": "rig",
+  "milestone": "RigNavi offline",
+  "title": "RigNavi fährt offline: Reisepakete",
+  "items": [
+   [
+    "neu",
+    "„📱 Ans Navi schicken“ im Routenplaner: der Server baut aus der Reise ein Paket mit Straßen, Karte und Gespann-Prüfung für einen Streifen um die Route.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi 0.9: „🧳 Meine Reisen“ lädt das Paket im WLAN. Im Reisegebiet rechnet das Handy die Route selbst – ohne Netz, auch wenn der Server nicht erreichbar ist.",
+    "rig"
+   ],
+   [
+    "neu",
+    "RigNavi: Etappe starten, Offline-Suche nach Etappenzielen und Stellplätzen, Unterwegs-Leiste mit Tankstellen, Entsorgung und Ankunft, Tempo per GPS.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Reisepakete robuster: dieselbe Reise wird beim erneuten Schicken aktualisiert statt doppelt gebaut, der Server prüft vorher den Platz, Rundreisen haben kein „Loch“ mehr im Reisegebiet, der Download läuft als Hintergrund-Dienst und hält sich ans WLAN.",
+    "rig"
+   ]
+  ],
+  "public": true,
+  "public_text": "„Ans Navi schicken“: RigNavi lädt eure Reise im WLAN und navigiert unterwegs ohne Netz – mit allen Prüfungen fürs Gespann."
+ },
+ {
+  "version": "0.8.11",
+  "date": "2026-10-24",
+  "app": "beide",
+  "title": "Sicherheit und Wartungsseite",
+  "items": [
+   [
+    "besser",
+    "Mehr Schutz im Internet: Auch über den App-Zugang (RigNavi) ist nach 10 falschen Passwörtern für 15 Minuten Schluss, ein neues Passwort beendet alle alten Anmeldungen, und der Routenplaner läuft nicht mehr als root."
+   ],
+   [
+    "besser",
+    "Die Wartungsseite zeigt unser Gespann (Hobby Optima T70F mit Debon-C500-Anhänger) mit zwei rockenden Hasen auf dem Dach und 41 wechselnden Sprüchen. Sie lädt in allen Browsern von selbst neu, sobald der Server wieder da ist."
+   ],
+   [
+    "besser",
+    "Dieses Änderungsprotokoll ist aufs Wesentliche gekürzt."
+   ]
+  ],
+  "public": false
+ },
+ {
+  "version": "0.8.3",
+  "date": "2026-10-24",
+  "app": "rig",
+  "title": "RigNavi: Ankunftszeit und Staus",
+  "items": [
+   [
+    "neu",
+    "Vor dem Losfahren zeigt RigNavi eine Vorschau mit ganzer Route, Kilometern, Fahrzeit und Ankunftszeit."
+   ],
+   [
+    "neu",
+    "Staus und Sperrungen auf deutschen Autobahnen (Autobahn-API des Bundes, ohne Konto) erscheinen als rote Punkte, nur auf der eigenen Route und in Fahrtrichtung. Verzögerungen fließen in die Ankunftszeit ein."
+   ]
+  ],
+  "public": true,
+  "public_text": "RigNavi zeigt vor dem Losfahren Route, Kilometer und Ankunftszeit – und Staus auf deutschen Autobahnen."
+ },
+ {
+  "version": "0.8.2",
+  "date": "2026-10-23",
+  "app": "beide",
+  "title": "Richtige Anmeldung, RigNavi mit Lesezeichen",
+  "items": [
+   [
+    "neu",
+    "Eigene Anmeldeseite statt des grauen Browser-Fensters, mit „Angemeldet bleiben (30 Tage)“ und Abmelde-Knopf oben rechts. Alle bisherigen Logins gelten weiter."
+   ],
+   [
+    "neu",
+    "RigNavi: Lesezeichen mit eigenem Namen, Verlauf der letzten 15 Ziele, „In anderer App öffnen“ (Google Maps, OsmAnd & Co.) und ein neues Icon mit Gespann.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Besser am Handy: erst Karte, dann Ergebnisse, Kartenfilter als wischbare Zeile, Beispiele in einem aufklappbaren Block."
+   ]
+  ],
+  "public": true,
+  "public_text": "Eine richtige Anmeldeseite mit „Angemeldet bleiben“ – und am Handy erst die Karte, dann die Ergebnisse.",
+  "public_text_ride": "Eine richtige Anmeldeseite mit „Angemeldet bleiben“ – und am Handy erst die Karte, dann die Ergebnisse.",
+  "title_ride": "Richtige Anmeldung"
+ },
+ {
+  "version": "0.8.0",
+  "date": "2026-10-23",
+  "app": "rig",
+  "milestone": "RigNavi",
+  "title": "RigNavi – die Android-App als Navi fürs Wohnmobil",
+  "items": [
+   [
+    "neu",
+    "RigNavi (Prototyp): Navigation fürs Wohnmobil und Gespann auf Android, geplant mit Höhe, Breite, Länge, Gewicht und Achslast aus dem Fahrzeugprofil. Deutsche Sprachansagen, europäische Tempo-Schilder, Neuberechnung bei Abweichung, Simulation zum Ausprobieren.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Download und Anleitung unter „📱 Android-App“ im Footer, angemeldet wird mit dem Login der Seite.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Startet der Server neu, erscheint „Kurze Pause am Rastplatz“ statt einer Fehlermeldung."
+   ],
+   [
+    "neu",
+    "Die Technikseite liest Versionen, Hardware und Datenmengen live aus dem laufenden System."
+   ]
+  ],
+  "public": true,
+  "public_text": "RigNavi, die Android-App als Navi fürs Wohnmobil und Gespann – geplant mit euren Maßen, mit deutschen Ansagen."
+ },
+ {
+  "version": "0.7.0",
+  "date": "2026-10-23",
+  "app": "beide",
+  "milestone": "Routenplaner",
+  "title": "Eigener Routenplaner",
+  "items": [
+   [
+    "neu",
+    "Routen selbst planen: Ort suchen oder Punkte in die Karte klicken, Ergebnis sofort bewerten bzw. prüfen und als GPX herunterladen. Gerechnet wird auf unserem eigenen Server (Valhalla), ohne fremde Dienste und ohne Konto."
+   ],
+   [
+    "neu",
+    "Motorrad: schnell, ohne Autobahn oder über kleine Straßen und Kurven.",
+    "ride"
+   ],
+   [
+    "neu",
+    "Wohnmobil und Gespann: zu niedrige Brücken und zu enge Straßen werden schon beim Planen umfahren. „Nacht“ an einem Zwischenpunkt macht daraus eine Reise mit Etappen.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Teure Autobahn-Tankstellen werden im Tankplan gemieden, solange eine andere in Reichweite liegt.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Beispiele erscheinen sofort, weil sie vorberechnet sind. Lange Aufzeichnungslücken und private Zufahrten erzeugen keine Schein-Engstellen mehr."
+   ]
+  ],
+  "public": true,
+  "public_text": "Eigener Routenplaner: Strecken direkt auf der Seite planen, prüfen und als GPX fürs Navi holen.",
+  "public_text_ride": "Eigener Routenplaner: Strecken direkt auf der Seite planen – schnell, ohne Autobahn oder über kleine Straßen und Kurven – und gleich bewerten.",
+  "public_text_rig": "Eigener Routenplaner: Strecken mit euren Maßen direkt auf der Seite planen – zu niedrige Brücken und zu enge Straßen werden schon beim Planen umfahren."
+ },
+ {
+  "version": "0.6.9",
+  "date": "2026-10-23",
+  "app": "beide",
+  "title": "Infoseiten, Schottland, Ver- und Entsorgung",
+  "items": [
+   [
+    "neu",
+    "Neue Seiten im Footer: Funktionen, Änderungen und Technik."
+   ],
+   [
+    "neu",
+    "Kartenfilter für Entsorgung und Frischwasser; Stellplätze zeigen, was es dort gibt.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Beispiel Schottland-Reise 2025: 14 Etappen von Berlin bis Skye und zurück, mit Fähre.",
+    "rig"
+   ],
+   [
+    "besser",
+    "Neues Standard-Fahrzeug (Wohnmobil 3,5 t ohne Anhänger), Feld „Wendekreis“, Diesel-Standardpreis 2,14 €/l.",
+    "rig"
+   ],
+   [
+    "fix",
+    "Normale Kreisverkehre und Einbahnstraßen gelten nicht mehr als Engstelle."
+   ]
+  ],
+  "public": false
+ },
+ {
+  "version": "0.6.0",
+  "date": "2026-10-22",
+  "app": "beide",
+  "milestone": "Ganz Europa",
+  "title": "Ganz Europa lokal, Reisen mit Etappen",
+  "items": [
+   [
+    "neu",
+    "Ganz Europa liegt lokal vor: 48 Länder in 159 Regionen, ohne langsame Live-Abfragen."
+   ],
+   [
+    "neu",
+    "Reisen mit Etappen: Eine GPX mit mehreren Tracks wird zur Reise mit Fahrplan, der Tank läuft über die ganze Reise weiter. Beispiel: Verdon-Runde 2027.",
+    "rig"
+   ],
+   [
+    "neu",
+    "Abdeckungskarte, die das Alter der Kartendaten je Region zeigt, und Infofenster „So geht's“."
+   ]
+  ],
+  "public": true,
+  "public_text": "Ganz Europa liegt lokal vor, Reisen mit mehreren Etappen werden als Ganzes geprüft.",
+  "public_text_ride": "Ganz Europa liegt lokal vor – Analysen ohne Warten auf langsame Abfragen.",
+  "title_ride": "Ganz Europa lokal"
+ },
+ {
+  "version": "0.5.0",
+  "date": "2026-10-22",
+  "app": "rig",
+  "milestone": "RigAnalyzer",
+  "title": "RigAnalyzer für Wohnmobil und Gespann",
+  "items": [
+   [
+    "neu",
+    "riganalyzer.petrick.top: Passt es durch? Höhen, Breiten, Gewicht, Achslast, Länge und Verbote werden gegen die eigenen Maße geprüft und rot, gelb oder grün bewertet."
+   ],
+   [
+    "neu",
+    "Steigungen aus dem Copernicus-Höhenmodell mit Höhenprofil, Tankplan für Diesel und AdBlue, Stellplätze und Camping, Maut- und Tempo-Hinweise je Land."
+   ],
+   [
+    "neu",
+    "Mehrere Fahrzeugprofile speichern und wählen, z. B. „Mein Womo“ und „Womo + Hänger“."
+   ]
+  ],
+  "public": true,
+  "public_text": "RigAnalyzer für Wohnmobil und Gespann: Passt es durch? Höhen, Breiten, Gewichte, Steigungen, Tankplan."
+ },
+ {
+  "version": "0.4.0",
+  "date": "2026-10-21",
+  "app": "ride",
+  "title": "Kurven, Planer-Exporte und dunkles Design",
+  "items": [
+   [
+    "neu",
+    "Jede Kurve bekommt eine km/h-Spanne aus Radius, Belag und Tempolimit."
+   ],
+   [
+    "neu",
+    "Grobe Planer-Exporte wie von Calimoto werden entlang der Straße ergänzt, neue Regionen lassen sich per Knopf aufnehmen."
+   ],
+   [
+    "neu",
+    "Dunkles Design, Bergpanorama mit Laufband und Beispiele aus Schwarzwald, Oberbayern und vom XJR-Treffen 2027."
+   ]
+  ],
+  "public": true,
+  "public_text": "Jede Kurve bekommt eine Tempo-Spanne, grobe Planer-Exporte werden entlang der Straße ergänzt, und alles kommt im dunklen Design."
+ },
+ {
+  "version": "0.1.0",
+  "date": "2026-10-20",
+  "app": "ride",
+  "milestone": "Start",
+  "title": "Erster Prototyp",
+  "items": [
+   [
+    "neu",
+    "rideanalyzer.petrick.top: GPX-Route hochladen und vor der Tour bewerten lassen, nach Fahrfluss, Kurven, Belag, Landschaft, Ortsdurchfahrten und mehr, mit Noten für vier Fahrerprofile."
+   ],
+   [
+    "neu",
+    "Karte mit Färbung nach Kriterium, Streckenband Kilometer für Kilometer und Vergleich mehrerer Touren."
+   ],
+   [
+    "neu",
+    "Eigene Kartendaten statt des überlasteten öffentlichen OpenStreetMap-Dienstes."
+   ]
+  ],
+  "public": true,
+  "public_text": "Der Anfang: GPX-Route hochladen und die Tour vor der Fahrt bewerten lassen – nach Fahrfluss, Kurven und Belag, mit Karte und Vergleich."
+ }
+]

@@ -1,0 +1,640 @@
+{
+ "trip": true,
+ "name": "Verdon-Runde 2027: Berlin – Barcelona – Castellane – Berlin",
+ "stages": [
+  {
+   "name": "Etappe 1: Berlin → Dutenhofener See, Wetzlar",
+   "stage": {
+    "n": 1,
+    "name": "Etappe 1: Berlin → Dutenhofener See, Wetzlar",
+    "nights": 1
+   },
+   "stats": {
+    "km": 525.3,
+    "time_h": 4.4
+   },
+   "rig": {
+    "restrictions": [
+     {
+      "kind": "tunnel",
+      "value": null,
+      "raw": "",
+      "label": "Tunnel/Unterführung ohne Höhenangabe",
+      "name": "A 2",
+      "km0": 102.25,
+      "km1": 102.29,
+      "len": 40,
+      "lat": 52.27851,
+      "lon": 12.43752,
+      "src": "way"
+     },
+     {
+      "kind": "height",
+      "value": 4.0,
+      "raw": "4",
+      "label": "Durchfahrtshöhe",
+      "name": "A 39",
+      "km0": 262.74,
+      "km1": 265.01,
+      "len": 2270,
+      "lat": 52.14405,
+      "lon": 10.34632,
+      "src": "way"
+     },
+     {
+      "kind": "incline",
+      "value": 6.0,
+      "raw": "-6%",
+      "label": "Steigung laut Karte",
+      "name": "A 7",
+      "km0": 364.07,
+      "km1": 365.13,
+      "len": 1060,
+      "lat": 51.40651,
+      "lon": 9.81583,
+      "src": "way"
+     }
+    ],
+    "steep": [
+     {
+      "km0": 323.4,
+      "km1": 323.8,
+      "len": 400,
+      "max": 9.1,
+      "avg": 8.3,
+      "dir": "down",
+      "ele0": 175,
+      "ele1": 137,
+      "lat": 51.73625,
+      "lon": 9.97997
+     },
+     {
+      "km0": 373.3,
+      "km1": 373.8,
+      "len": 500,
+      "max": 10.2,
+      "avg": 9.1,
+      "dir": "up",
+      "ele0": 225,
+      "ele1": 275,
+      "lat": 51.39892,
+      "lon": 9.70078
+     }
+    ],
+    "hairpins": [
+     {
+      "km": 12.5,
+      "r": 18,
+      "angle": 160,
+      "cls": "kehre",
+      "lat": 50.1,
+      "lon": 8.6
+     }
+    ],
+    "countries": [
+     {
+      "cc": "DE",
+      "name": "Deutschland",
+      "km": 526,
+      "motorway_km": 518
+     }
+    ]
+   },
+   "pois": [
+    {
+     "km": 3.67,
+     "lat": 52.66284345,
+     "lon": 13.271146062644519,
+     "off": 57,
+     "group": "fuel",
+     "label": "Tankstelle",
+     "name": "HEM",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 6,
+     "ele": null,
+     "flags": {
+      "diesel": true,
+      "diesel_known": true,
+      "adblue": false,
+      "truck": true,
+      "lpg": false,
+      "hours": "Mo-Sa 06:00-22:00; Su 08:00-22:00",
+      "brand": "HEM",
+      "motorway": false
+     }
+    },
+    {
+     "km": 77.33,
+     "lat": 52.3298033,
+     "lon": 12.7402634,
+     "off": 1128,
+     "group": "camp",
+     "label": "Entsorgung",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 45,
+     "ele": null,
+     "flags": {
+      "dump": true,
+      "water": false,
+      "power": false,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 246.42,
+     "lat": 52.2496444,
+     "lon": 10.5185696,
+     "off": 1424,
+     "group": "camp",
+     "label": "Entsorgung",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 124,
+     "ele": null,
+     "flags": {
+      "dump": true,
+      "water": false,
+      "power": false,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 59.8,
+     "lat": 52.4004991,
+     "lon": 12.9243636,
+     "off": 1974,
+     "group": "camp",
+     "label": "Frischwasser",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 36,
+     "ele": null,
+     "flags": {
+      "dump": false,
+      "water": true,
+      "power": false,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 221.51,
+     "lat": 52.3043893,
+     "lon": 10.8169292,
+     "off": 747,
+     "group": "camp",
+     "label": "Frischwasser",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 112,
+     "ele": null,
+     "flags": {
+      "dump": false,
+      "water": true,
+      "power": false,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 14.24,
+     "lat": 52.68595155,
+     "lon": 13.170834650000003,
+     "off": 2195,
+     "group": "camp",
+     "label": "Wohnmobil-Stellplatz",
+     "name": "Velten Wohnmobilstellplatz",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 13,
+     "ele": null,
+     "flags": {
+      "dump": true,
+      "water": true,
+      "power": true,
+      "fee": "yes",
+      "capacity": "2",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 54.1,
+     "lat": 52.4560297,
+     "lon": 12.966750741020569,
+     "off": 1980,
+     "group": "camp",
+     "label": "Wohnmobil-Stellplatz",
+     "name": "Zum alten Krug Potsdam",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 33,
+     "ele": null,
+     "flags": {
+      "dump": false,
+      "water": true,
+      "power": true,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 18.67,
+     "lat": 52.70863655,
+     "lon": 13.106566381751055,
+     "off": 144,
+     "group": "fuel",
+     "label": "Tankstelle",
+     "name": "Total",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 15,
+     "ele": null,
+     "flags": {
+      "diesel": true,
+      "diesel_known": true,
+      "adblue": true,
+      "truck": true,
+      "lpg": false,
+      "hours": "24/7",
+      "brand": "TotalEnergies",
+      "motorway": true
+     }
+    }
+   ]
+  },
+  {
+   "name": "Etappe 2: Dutenhofener See, Wetzlar → Domaine d'Aucroix, Baume-les-Dames",
+   "stage": {
+    "n": 2,
+    "name": "Etappe 2: Dutenhofener See, Wetzlar → Domaine d'Aucroix, Baume-les-Dames",
+    "nights": 1
+   },
+   "stats": {
+    "km": 472.6,
+    "time_h": 3.84
+   },
+   "rig": {
+    "restrictions": [
+     {
+      "kind": "weight",
+      "value": 44.0,
+      "raw": "44",
+      "label": "Gewichtsbeschränkung",
+      "name": "",
+      "km0": 2.41,
+      "km1": 4.15,
+      "len": 1740,
+      "lat": 50.56461,
+      "lon": 8.55053,
+      "src": "way"
+     },
+     {
+      "kind": "weight",
+      "value": 44.0,
+      "raw": "44",
+      "label": "Gewichtsbeschränkung",
+      "name": "A 45",
+      "km0": 11.47,
+      "km1": 11.82,
+      "len": 350,
+      "lat": 50.52455,
+      "lon": 8.63465,
+      "src": "way"
+     },
+     {
+      "kind": "weight",
+      "value": 44.0,
+      "raw": "44",
+      "label": "Gewichtsbeschränkung",
+      "name": "A 45",
+      "km0": 11.86,
+      "km1": 20.1,
+      "len": 8240,
+      "lat": 50.50385,
+      "lon": 8.68152,
+      "src": "way"
+     }
+    ],
+    "steep": [
+     {
+      "km0": 445.2,
+      "km1": 445.6,
+      "len": 400,
+      "max": 10.0,
+      "avg": 8.8,
+      "dir": "up",
+      "ele0": 335,
+      "ele1": 375,
+      "lat": 47.42876,
+      "lon": 6.65783
+     },
+     {
+      "km0": 456.7,
+      "km1": 457.0,
+      "len": 300,
+      "max": 8.1,
+      "avg": 7.5,
+      "dir": "up",
+      "ele0": 292,
+      "ele1": 319,
+      "lat": 47.41227,
+      "lon": 6.51178
+     }
+    ],
+    "hairpins": [
+     {
+      "km": 12.5,
+      "r": 18,
+      "angle": 160,
+      "cls": "kehre",
+      "lat": 50.1,
+      "lon": 8.6
+     }
+    ],
+    "countries": [
+     {
+      "cc": "DE",
+      "name": "Deutschland",
+      "km": 346,
+      "motorway_km": 346
+     },
+     {
+      "cc": "FR",
+      "name": "Frankreich",
+      "km": 126,
+      "motorway_km": 123
+     }
+    ]
+   },
+   "pois": [
+    {
+     "km": 8.64,
+     "lat": 50.5246137,
+     "lon": 8.593137,
+     "off": 460,
+     "group": "fuel",
+     "label": "Tankstelle",
+     "name": "ROTH",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 5,
+     "ele": null,
+     "flags": {
+      "diesel": true,
+      "diesel_known": false,
+      "adblue": false,
+      "truck": false,
+      "lpg": false,
+      "hours": "24/7",
+      "brand": "ROTH",
+      "motorway": false
+     }
+    },
+    {
+     "km": 9.52,
+     "lat": 50.5290461,
+     "lon": 8.6064405,
+     "off": 124,
+     "group": "fuel",
+     "label": "Tankstelle",
+     "name": "Shell",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 6,
+     "ele": null,
+     "flags": {
+      "diesel": true,
+      "diesel_known": false,
+      "adblue": true,
+      "truck": false,
+      "lpg": true,
+      "hours": "",
+      "brand": "Shell",
+      "motorway": true
+     }
+    },
+    {
+     "km": 79.66,
+     "lat": 49.9790471,
+     "lon": 8.5941873,
+     "off": 579,
+     "group": "camp",
+     "label": "Entsorgung",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 38,
+     "ele": null,
+     "flags": {
+      "dump": true,
+      "water": false,
+      "power": false,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 79.79,
+     "lat": 49.9783002,
+     "lon": 8.5987128,
+     "off": 263,
+     "group": "camp",
+     "label": "Entsorgung",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 38,
+     "ele": null,
+     "flags": {
+      "dump": true,
+      "water": false,
+      "power": false,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 75.91,
+     "lat": 50.0135178,
+     "lon": 8.5961909,
+     "off": 160,
+     "group": "camp",
+     "label": "Frischwasser",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 36,
+     "ele": null,
+     "flags": {
+      "dump": false,
+      "water": true,
+      "power": false,
+      "fee": "",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 117.79,
+     "lat": 49.6520692,
+     "lon": 8.5788001,
+     "off": 2259,
+     "group": "camp",
+     "label": "Frischwasser",
+     "name": "",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 56,
+     "ele": null,
+     "flags": {
+      "dump": false,
+      "water": true,
+      "power": false,
+      "fee": "yes",
+      "capacity": "",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 3.28,
+     "lat": 50.5545982,
+     "lon": 8.5328606,
+     "off": 1708,
+     "group": "camp",
+     "label": "Wohnmobil-Stellplatz",
+     "name": "Wohnmobilstellplatz am Leitz-Park",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 3,
+     "ele": null,
+     "flags": {
+      "dump": false,
+      "water": false,
+      "power": false,
+      "fee": "no",
+      "capacity": "4",
+      "maxlength": null,
+      "hours": "24/7"
+     }
+    },
+    {
+     "km": 22.23,
+     "lat": 50.4578729,
+     "lon": 8.7346485,
+     "off": 1157,
+     "group": "camp",
+     "label": "Wohnmobil-Stellplatz",
+     "name": "Stellplatz am Sportplatz Gambach",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 11,
+     "ele": null,
+     "flags": {
+      "dump": false,
+      "water": false,
+      "power": false,
+      "fee": "no",
+      "capacity": "5",
+      "maxlength": null,
+      "hours": ""
+     }
+    },
+    {
+     "km": 0.78,
+     "lat": 50.575244999999995,
+     "lon": 8.566272655886959,
+     "off": 566,
+     "group": "sight",
+     "label": "Wassermühle",
+     "name": "Amendsmühle",
+     "score": 0.6,
+     "wiki": false,
+     "biker": false,
+     "tmin": 1,
+     "ele": null,
+     "flags": null
+    },
+    {
+     "km": 1.04,
+     "lat": 50.5704811,
+     "lon": 8.5602182,
+     "off": 54,
+     "group": "sight",
+     "label": "Aussichtspunkt",
+     "name": "",
+     "score": 1.5,
+     "wiki": false,
+     "biker": false,
+     "tmin": 1,
+     "ele": null,
+     "flags": null
+    },
+    {
+     "km": 9.52,
+     "lat": 50.5290461,
+     "lon": 8.6064405,
+     "off": 124,
+     "group": "fuel",
+     "label": "Tankstelle",
+     "name": "Shell",
+     "score": 0,
+     "wiki": false,
+     "biker": false,
+     "tmin": 6,
+     "ele": null,
+     "flags": {
+      "diesel": true,
+      "diesel_known": false,
+      "adblue": true,
+      "truck": false,
+      "lpg": true,
+      "hours": "",
+      "brand": "Shell",
+      "motorway": true
+     }
+    }
+   ]
+  }
+ ]
+}
